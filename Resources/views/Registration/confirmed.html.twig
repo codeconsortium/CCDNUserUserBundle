@@ -1,0 +1,45 @@
+{% extends 'CCDNCommonCommonBundle:Layout:layout_body_left.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block title %}{{ 'title.register.activation.confirmed'|trans({}, 'CCDNUserUserBundle') }}{% endblock %}
+
+{% block sidebar %}
+	{% if is_granted('ROLE_MODERATOR') %}
+	<div class="common_box_5 bg_header_smoke">
+		<div class="common_box_header"><span class="heading_glow">{{ 'sidebar.header.special' | trans({}, 'CCDNCommonCommonBundle') }}</span></div>
+		<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_moderator_forum_cp') }}">{{ 'general.view.link_moderate' | trans({}, 'CCDNCommonCommonBundle') }}</a></div>
+		{% if is_granted('ROLE_ADMIN') %}
+		<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_admin_forum_cp') }}">{{ 'general.view.link_administrate' | trans({}, 'CCDNCommonCommonBundle') }}</a></div>
+		{% endif %}
+	</div>
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+
+{% for key, message in app.session.getFlashes() %}
+<div class="common_box_5 padding_5 bg_flash_message">
+	<div class="flash_{{ key }}">
+	    {{ message | trans({}, 'FOSUserBundle') }}
+	</div>
+</div>
+{% endfor %}
+
+<div class="common_box_5 bg_header_smoke">
+	<div class="common_box_header">
+		<span class="heading_glow">{{ 'title.register.activation.confirmed'|trans({}, 'CCDNUserUserBundle') }}</span>
+	</div>
+	<div class="common_box_panel">
+	    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+	    {% if app.session is not empty %}
+	        {% set targetUrl = app.session.get('_security.target_path') %}
+	        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+	    {% endif %}
+	</div>
+</div>
+
+{% endblock body %}
+

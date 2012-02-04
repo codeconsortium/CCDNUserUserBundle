@@ -1,0 +1,34 @@
+parameters:
+    ccdn_user_user.login_success_handler.class:     CCDNUser\UserBundle\Service\LoginSuccessHandler
+    ccdn_user_user.logout_success_handler.class:    CCDNUser\UserBundle\Service\LogoutSuccessHandler
+    
+    ccdn_user_user.user.manager.class:              CCDNUser\UserBundle\Entity\Manager\UserManager
+    ccdn_user_user.user.repository.class:           CCDNUser\UserBundle\Repository\UserRepository
+    
+    ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
+    
+services:
+    login_success_handler:
+        class:  %ccdn_user_user.login_success_handler.class%
+        arguments:  [@router, @security.context]
+        tags:
+            - { name: 'monolog.logger' channel: 'security' }
+    logout_success_handler:
+        class:  %ccdn_user_user.logout_success_handler.class%
+        arguments:  [@router]
+        tags:
+            - { name: 'monolog.logger' channel: 'security' }
+    user.manager:
+        class: %ccdn_user_user.user.manager.class%
+        arguments:  [@doctrine, @service_container]
+    user.repository:
+        class: %ccdn_user_user.user.repository.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository 
+        arguments:
+            - 'CCDNUser\UserBundle\Entity\User'
+    ccdn_user.registration.form.type:
+        class: %ccdn_user_user.registration.form.type%
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: ccdn_user_registration }

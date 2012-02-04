@@ -1,0 +1,65 @@
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+# All account routes
+cc_user_account_show:
+    pattern: /user/my/account
+    defaults: { _controller: CCDNUserUserBundle:Account:show, user_id: 0 }
+
+cc_user_account_show_by_id:
+    pattern: /user/{user_id}/account
+    defaults: { _controller: CCDNUserUserBundle:Account:show, user_id: 0 }
+
+cc_user_account_edit:
+    pattern: /user/my/account/edit
+    defaults: { _controller: CCDNUserUserBundle:Account:edit, user_id: 0 }
+
+cc_user_account_edit_by_id:
+    pattern: /user/{user_id}/account/edit
+    defaults: { _controller: CCDNUserUserBundle:Account:edit, user_id: 0 }
+
+fos_user_profile_show:
+    pattern: /user/my/account
+    defaults: { _controller: CCDNUserUserBundle:Account:show, user_id: 0 }  
+    
+#fos_user_profile:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /profile
+    
+#fos_user_register:
+#    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+#    prefix: /register
+
+fos_user_registration_register:
+    pattern: /{_locale}/register
+    defaults: { _controller:FOSUserBundle:Registration:register, _locale: en }
+
+fos_user_registration_check_email:
+    pattern: /{_locale}/register/check-email
+    defaults: { _controller:FOSUserBundle:Registration:checkEmail, _locale: en }
+    requirements:
+        _method: GET
+        #<requirement key="_method">GET</requirement>
+
+fos_user_registration_confirm:
+    pattern: /{_locale}/register/confirm/{token}
+    defaults: { _controller:FOSUserBundle:Registration:confirm, _locale: en }
+    requirements:
+        _method: GET
+        #<requirement key="_method">GET</requirement>
+
+fos_user_registration_confirmed:
+    pattern: /{_locale}/register/confirmed
+    defaults: { _controller: FOSUserBundle:Registration:confirmed, _locale: en }
+    requirements:
+        _method: GET
+        #<requirement key="_method">GET</requirement>
+
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /change-password

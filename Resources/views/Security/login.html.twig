@@ -1,0 +1,66 @@
+{% extends 'CCDNCommonCommonBundle:Layout:layout_body_left.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('bundles/ccdncommoncommon/css/form.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block title %}{{ 'title.login'|trans({}, 'CCDNUserUserBundle') }}{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block body %}
+
+{% for key, message in app.session.getFlashes() %}
+<div class="common_box_5 padding_5 bg_flash_message">
+	<div class="flash_{{ key }}">
+	    {{ message | trans({}, 'FOSUserBundle') }}
+	</div>
+</div>
+{% endfor %}
+
+<div class="common_box_5 bg_header_smoke">
+	<div class="common_box_header">
+		<span class="heading_glow">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</span>
+	</div>
+	<div class="common_box_panel">
+		{% if error %}
+		<div>{{ error }}</div>
+		{% endif %}
+		<form action="{{ path("fos_user_security_check") }}" method="post">
+			<table class="common_list">
+				<thead>
+					<th style="width: 30%;"></th>
+					<th style="width: 70%;"></th>
+				</thead>
+				<tfoot>
+				</tfoot>
+				<tbody>
+					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
+						<td class="h_align_right v_align_top"><label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label></td>
+						<td class="h_align_left v_align_top"><input type="text" id="username" name="_username" value="{{ last_username }}" /></td>
+					</tr>
+					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
+						<td class="h_align_right v_align_top"><label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label></td>
+						<td class="h_align_left v_align_top"><input type="password" id="password" name="_password" /></td>
+					</tr>
+					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
+						<td class="h_align_centre v_align_middle" colspan="2">
+							<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+							<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+						</td>
+					</tr>
+					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
+						<td class="h_align_centre v_align_middle" colspan="2">
+							<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+							&nbsp;&#124;&nbsp;<a href="{{ path('fos_user_resetting_request') }}">{{ 'link.password.reset' |trans({}, 'CCDNUserUserBundle') }}</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+</div>
+{% endblock body %}

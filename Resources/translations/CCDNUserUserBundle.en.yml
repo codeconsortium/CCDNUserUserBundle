@@ -1,0 +1,21 @@
+title.login: Login
+    
+title.account.edit: "Edit Account."
+title.account.show: "%user_name%'s Account."
+
+title.password.change: Change Password
+
+title.register: Register
+title.register.activation.pending: Activate Your Account
+title.register.activation.confirmed: Activation Complete
+
+title.reset.request: Request Password Reset
+title.reset.check_mail: Password Reset Mail Sent
+title.reset.new_password: Reset Password
+
+link.password.reset: Forgot Password?
+
+form.label.verify_password: 'Retype Password: '
+form.label.recaptcha: 'Type the picture text: '
+
+flash.account.updated: 'Your account was updated.'
