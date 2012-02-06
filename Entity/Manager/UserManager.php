@@ -13,8 +13,8 @@
 
 namespace CCDNUser\UserBundle\Entity\Manager;
 
-use CCDNCommon\CommonBundle\Entity\Manager\EntityManagerInterface;
-use CCDNCommon\CommonBundle\Entity\Manager\BaseManager;
+use CCDNComponent\CommonBundle\Entity\Manager\EntityManagerInterface;
+use CCDNComponent\CommonBundle\Entity\Manager\BaseManager;
 
 /**
  * 
