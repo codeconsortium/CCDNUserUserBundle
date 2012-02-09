@@ -8,6 +8,11 @@ parameters:
     ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
     
 services:
+    listener.referer:
+        class: CCDNUser\UserBundle\Listener\RefererListener
+        arguments: [@router, @service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
     login_success_handler:
         class:  %ccdn_user_user.login_success_handler.class%
         arguments:  [@router, @security.context]
