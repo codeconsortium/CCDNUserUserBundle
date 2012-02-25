@@ -64,7 +64,7 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
 	public function onAuthenticationSuccess(Request $request, TokenInterface $token)
 	{
 		
-		if ($this->security->isGranted('ROLE_SUPER_ADMIN'))
+/*		if ($this->security->isGranted('ROLE_SUPER_ADMIN'))
 		{
 			$response = new RedirectResponse($this->router->generate('cc_admin_forum_cp'));
 		}
@@ -77,7 +77,7 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
 			$response = new RedirectResponse($this->router->generate('cc_moderator_forum_cp'));
 		}
 		elseif ($this->security->isGranted('ROLE_USER'))
-		{
+		{*/
 			$session = $request->getSession();		
 			
 			if ($session->has('referer'))
@@ -86,7 +86,7 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
 			} else {
 				$response = new RedirectResponse($request->getBasePath() . '/'); // if no referer then go to homepage
 			}
-		}
+		//}
 			
 		return $response;
 	}
