@@ -51,7 +51,7 @@ class AccountController extends ContainerAware
 		{
 			$user = $this->container->get('security.context')->getToken()->getUser();
 		} else {
-			$user = $this->container->get('user.repository')->findOneById($user_id);			
+			$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
 		}
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
@@ -89,7 +89,7 @@ class AccountController extends ContainerAware
 		{
 			$user = $this->container->get('security.context')->getToken()->getUser();
 		} else {
-			$user = $this->container->get('user.repository')->findOneById($user_id);			
+			$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
 		}
         
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
