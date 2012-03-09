@@ -153,6 +153,73 @@ ccdn_user_member:
     template:
         engine: twig
         theme: CCDNUserMemberBundle:Form:fields.html.twig
+    member:
+        layout_templates:
+            list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
+# for CCDNUser ProfileBundle
+ccdn_user_profile:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNUserProfileBundle:Form:fields.html.twig
+    profile:
+        layout_templates:
+            edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+         
+# for CCDNUser UserAdminBundle   
+ccdn_user_user_admin:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNUserUserAdminBundle:Form:fields.html.twig
+    activation:
+        layout_templates:
+            show_unactivated_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    ban:
+        layout_templates:
+            show_banned_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    role:
+        layout_templates:
+            set_users_role: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    account:
+        layout_templates:
+            edit_user: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show_newest_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show_user: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
+# for CCDNUser UserBundle   
+ccdn_user_user:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNUserProfileBundle:Form:fields.html.twig
+    account:
+        layout_templates:
+            edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig     
+    password:
+        layout_templates:
+            change_password:  CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    registration:
+        layout_templates:
+            check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            confirmed: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            register: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    resetting:
+        layout_templates:
+            check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            password_already_requested: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            request: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            reset: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    security:
+        layout_templates:
+            login: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
 ```   
 
 4) In your app/config/routing.yml add:  
