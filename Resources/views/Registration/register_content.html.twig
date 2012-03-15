@@ -4,52 +4,46 @@
 	{{ form_row(form._token) }}
 	<div class="errors">{{ form_errors(form) }}</div>
 	<table class="common_list">
-		<thead>
-			<th style="width: 30%;"></th>
-			<th style="width: 70%;"></th>
-		</thead>
-		<tfoot>
-		</tfoot>
 		<tbody>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ form_label(form.username, null, { 'label': 'fos_user_registration_form_username' |trans({}, 'FOSUserBundle')}) }}</td>
-				<td class="h_align_left v_align_top">
+				<td class="form_label">{{ form_label(form.username, null, { 'label': 'fos_user_registration_form_username' |trans({}, 'FOSUserBundle')}) }}</td>
+				<td class="form_widget">
 					{{ form_errors(form.username) }}
 					{{ form_widget(form.username) }}
 				</td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ form_label(form.email, null, { 'label': 'fos_user_registration_form_email' |trans({}, 'FOSUserBundle')}) }}</td>
-				<td class="h_align_left v_align_top">
+				<td class="form_label">{{ form_label(form.email, null, { 'label': 'fos_user_registration_form_email' |trans({}, 'FOSUserBundle')}) }}</td>
+				<td class="form_widget">
 					{{ form_errors(form.email) }}
 					{{ form_widget(form.email) }}
 				</td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ form_label(form.plainPassword.first, null, { 'label': 'fos_user_registration_form_plainPassword_first' |trans({}, 'FOSUserBundle')}) }}</td>
-				<td class="h_align_left v_align_top">
+				<td class="form_label">{{ form_label(form.plainPassword.first, null, { 'label': 'fos_user_registration_form_plainPassword_first' |trans({}, 'FOSUserBundle')}) }}</td>
+				<td class="form_widget">
 					{{ form_errors(form.plainPassword.first) }}
 					{{ form_widget(form.plainPassword.first) }}
 				</td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ form_label(form.plainPassword.second, null, { 'label': 'form.label.verify_password' |trans({}, 'CCDNUserUserBundle')}) }}</td>
-				<td class="h_align_left v_align_top">
+				<td class="form_label">{{ form_label(form.plainPassword.second, null, { 'label': 'form.label.verify_password' |trans({}, 'CCDNUserUserBundle')}) }}</td>
+				<td class="form_widget">
 					{{ form_errors(form.plainPassword.second) }}
 					{{ form_widget(form.plainPassword.second) }}
 				</td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ form_label(form.recaptcha, null, { 'label': 'form.label.recaptcha' |trans({}, 'CCDNUserUserBundle')}) }}</td>
-				<td class="h_align_left v_align_top">
+				<td class="form_label">{{ form_label(form.recaptcha, null, { 'label': 'form.label.recaptcha' |trans({}, 'CCDNUserUserBundle')}) }}</td>
+				<td class="form_widget">
 					{{ form_errors(form.recaptcha) }}
 					{% form_theme form 'EWZRecaptchaBundle:Form:ewz_recaptcha_widget.html.twig' %}
 					{{ form_widget(form.recaptcha) }}
 				</td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_centre v_align_middle" colspan="2">
-					<input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+				<td class="form_tool_strip" colspan="2">
+					<input type="submit" class="widget_submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
 				</td>
 			</tr>
 		</tbody>
