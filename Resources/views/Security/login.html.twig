@@ -32,21 +32,21 @@
 				<tbody>
 					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 						<td class="form_label"><label class="widget_label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label></td>
-						<td class="form_widget"><input class="widget_text" type="text" id="username" name="_username" value="{{ last_username }}" /></td>
+						<td class="form_widget"><input class="widget_text" type="text" id="username" name="_username" value="{{ last_username }}"></td>
 					</tr>
 					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 						<td class="form_label"><label class="widget_label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label></td>
-						<td class="form_widget"><input class="widget_text" type="password" id="password" name="_password" /></td>
+						<td class="form_widget"><input class="widget_text" type="password" id="password" name="_password"></td>
 					</tr>
 					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 						<td class="form_tool_strip" colspan="2">
-							<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+							<input type="checkbox" id="remember_me" name="_remember_me" value="on">
 							<label class="form_label" for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 						</td>
 					</tr>
 					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 						<td class="form_tool_strip" colspan="2">
-							<input type="submit" class="widget_submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+							<input type="submit" class="widget_submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
 							&nbsp;&#124;&nbsp;<a href="{{ path('fos_user_resetting_request') }}">{{ 'link.password.reset' |trans({}, 'CCDNUserUserBundle') }}</a>
 						</td>
 					</tr>

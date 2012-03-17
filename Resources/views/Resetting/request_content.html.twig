@@ -10,11 +10,11 @@
 	        {% endif %}
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 				<td class="form_label"><label for="username">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}</label></td>
-				<td class="form_widget"><input type="text" id="username" name="username" /></td>
+				<td class="form_widget"><input type="text" id="username" name="username"></td>
 			</tr>	
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 				<td class="form_tool_strip" colspan="2">
-			        <input type="submit" class="widget_submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+			        <input type="submit" class="widget_submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}">
 			    </td>
 			</tr>
 		</tbody>
