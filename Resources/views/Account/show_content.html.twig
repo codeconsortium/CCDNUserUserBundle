@@ -1,25 +1,19 @@
 	<table class="common_list">
-		<thead>
-			<th style="width: 30%;"></th>
-			<th style="width: 70%;"></th>
-		</thead>
-		<tfoot>
-		</tfoot>
 		<tbody>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}:</td>
-				<td class="h_align_left v_align_top">{{ user.username }}</td>
+				<td class="form_label">{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}:</td>
+				<td class="form_widget">{{ user.username }}</td>
 			</tr>	
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}:</td>
-				<td class="h_align_left v_align_top">{{ user.email }}</td>
+				<td class="form_label">{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}:</td>
+				<td class="form_widget">{{ user.email }}</td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_right v_align_top">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</td>
-				<td class="h_align_left v_align_top"><a href="{{ path('fos_user_change_password') }}">{{ 'change_password.submit'|trans({}, 'FOSUserBundle') }}</a></td>
+				<td class="form_label">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</td>
+				<td class="form_widget"><a href="{{ path('fos_user_change_password') }}">{{ 'change_password.submit'|trans({}, 'FOSUserBundle') }}</a></td>
 			</tr>
 			<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-				<td class="h_align_centre v_align_middle" colspan="2">
+				<td class="form_tool_strip" colspan="2">
 						<a href="{{ path('cc_user_account_edit') }}">{{ 'link.profile.edit' |trans({}, 'CCDNUserProfileBundle') }}</a>
 			    </td>
 			</tr>
