@@ -41,8 +41,8 @@ class DashboardIntegrator extends BaseIntegrator
 		$resources = array(
 			'user' => array(
 				'Account' => array(
-					'cc_user_account_show' => array('auth' => 'ROLE_USER', 'url' => $this->basePath . '/' . $this->locale . '/my/account', 'name' => 'My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
-					'cc_user_account_edit' => array('auth' => 'ROLE_USER', 'url' => $this->basePath . '/' . $this->locale . '/my/account/edit', 'name' => 'Edit My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),				
+					'cc_user_account_show' => array('auth' => 'ROLE_USER', 'url' => $this->baseUrl . '/' . $this->locale . '/user/my/account', 'name' => 'My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
+					'cc_user_account_edit' => array('auth' => 'ROLE_USER', 'url' => $this->baseUrl . '/' . $this->locale . '/user/my/account/edit', 'name' => 'Edit My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),				
 				),
 			),
 
