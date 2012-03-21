@@ -67,6 +67,10 @@ Installation:
 [CCDNComponentDashboardBundle]
     git=http://github.com/codeconsortium/DashboardBundle.git
     target=/bundles/CCDNComponent/DashboardBundle
+
+[CCDNUser]
+	git=http://github.com/codeconsortium/CCDNUser.git
+	target=/bundles/CCDNUser
 ```
 add to your autoload:
 
@@ -84,7 +88,7 @@ add to your autoload:
 
     new CCDNUser\MemberBundle\CCDNUserMemberBundle(),    
     new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),    
-    new CCDNUser\UserAdminBundle\CCDNUserAdminBundle(),    
+    new CCDNUser\AdminBundle\CCDNUserAdminBundle(),    
     new CCDNUser\UserBundle\CCDNUserUserBundle(),    
 ``` 
 
@@ -175,7 +179,7 @@ ccdn_user_profile:
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
          
 # for CCDNUser UserAdminBundle   
-ccdn_user_user_admin:
+ccdn_user_admin:
     user:
         profile_route: cc_profile_show_by_id 
     template:
