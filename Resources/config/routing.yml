@@ -4,19 +4,12 @@ fos_user_security:
 # All account routes
 cc_user_account_show:
     pattern: /{_locale}/user/my/account
-    defaults: { _controller: CCDNUserUserBundle:Account:show, user_id: 0 }
-
-cc_user_account_show_by_id:
-    pattern: /{_locale}/user/{user_id}/account
-    defaults: { _controller: CCDNUserUserBundle:Account:show, user_id: 0 }
+    defaults: { _controller: CCDNUserUserBundle:Account:show }
 
 cc_user_account_edit:
     pattern: /{_locale}/user/my/account/edit
-    defaults: { _controller: CCDNUserUserBundle:Account:edit, user_id: 0 }
+    defaults: { _controller: CCDNUserUserBundle:Account:edit }
 
-cc_user_account_edit_by_id:
-    pattern: /{_locale}/user/{user_id}/account/edit
-    defaults: { _controller: CCDNUserUserBundle:Account:edit, user_id: 0 }
 
 fos_user_profile_show:
     pattern: /{_locale}/user/my/account

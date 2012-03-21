@@ -40,33 +40,19 @@ class AccountController extends ContainerAware
 	 * @param int $user_id
 	 * @return RedirectResponse|RenderResponse
 	 */
-    public function showAction($user_id)
+    public function showAction()
     {
 		if ( ! $this->container->get('security.context')->isGranted('ROLE_USER'))
 		{
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 		
-		if (!$user_id || $user_id == 0)
-		{
-			$user = $this->container->get('security.context')->getToken()->getUser();
-		} else {
-			$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
-		}
+		$user = $this->container->get('security.context')->getToken()->getUser();
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
 		{
             throw new AccessDeniedException('You do not have access to this section.');
         }
-		
-		if ($user->getId() == $this->container->get('security.context')->getToken()->getUser()->getId()
-		|| $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN')
-		|| $this->container->get('security.context')->isGranted('ROLE_ADMIN')
-		|| $this->container->get('security.context')->isGranted('ROLE_MODERATOR'))
-		{
-		} else {
-			throw new AccessDeniedException('You do not have access to this section.');
-		}
 		
         return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Account:show.html.'.$this->container->getParameter('fos_user.template.engine'), array('user' => $user));
     }
@@ -75,49 +61,22 @@ class AccountController extends ContainerAware
 	/**
 	 *
 	 * @access public
-	 * @param int $user_id
 	 * @return RedirectResponse|RenderResponse
 	 */
-    public function editAction($user_id)
+    public function editAction()
     {
 		if ( ! $this->container->get('security.context')->isGranted('ROLE_USER'))
 		{
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 			
-		if ( ! $user_id || $user_id == 0)
-		{
-			$user = $this->container->get('security.context')->getToken()->getUser();
-		} else {
-			$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
-		}
+		$user = $this->container->get('security.context')->getToken()->getUser();
         
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
 		{
             throw new AccessDeniedException('You do not have access to this section.');
         }
-
-		if ($user->getId() == $this->container->get('security.context')->getToken()->getUser()->getId()
-		|| $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN')
-		|| $this->container->get('security.context')->isGranted('ROLE_ADMIN')
-		|| $this->container->get('security.context')->isGranted('ROLE_MODERATOR'))
-		{
-			
-		} else {
-		    throw new AccessDeniedException('You do not have access to this section.');
-		}
 		
-/*		if ( ! $this->container->get('security.context')->isGranted('ROLE_USER'))
-		{
-			throw new AccessDeniedException('You do not have access to this section.');
-		}
-		
-        $user = $this->container->get('security.context')->getToken()->getUser();
-
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('You do not have access to this section.');
-        }*/
-
         $form = $this->container->get('fos_user.profile.form');
         $formHandler = $this->container->get('fos_user.profile.form.handler');
 
@@ -126,7 +85,7 @@ class AccountController extends ContainerAware
         if ($process) {
             $this->setFlash('fos_user_success', 'flash.account.updated');
 
-            return new RedirectResponse($this->container->get('router')->generate('cc_user_account_show_by_id', array('user_id' => $user_id)));
+            return new RedirectResponse($this->container->get('router')->generate('cc_user_account_show'));
         }
 
         return $this->container->get('templating')->renderResponse(

@@ -1,6 +1,6 @@
 {% form_theme form theme %}
 
-<form action="{{ path('cc_user_account_edit_by_id') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+<form action="{{ path('cc_user_account_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
 	{{ form_row(form._token) }}
 	<div class="errors">{{ form_errors(form) }}</div>
 	<table class="common_list">
