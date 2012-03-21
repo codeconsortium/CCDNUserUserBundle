@@ -7,7 +7,7 @@ parameters:
     
     ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
     
-    ccdn_user_user.dashboard_integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
+    ccdn_user_user.dashboard.integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
     
 services:
     ccdn_user_user.listener.referer:
@@ -41,8 +41,8 @@ services:
             - { name: form.type, alias: ccdn_user_registration }
             
     
-    ccdn_user_user.dashboard_integrator:
-        class: %ccdn_user_user.dashboard_integrator.class%
+    ccdn_user_user.dashboard.integrator:
+        class: %ccdn_user_user.dashboard.integrator.class%
         arguments: [@service_container]
         tags:
-            - { name: ccdn_component_dashboard.registry }
+            - { name: ccdn_component_dashboard.integrator }
