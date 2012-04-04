@@ -69,6 +69,7 @@ class RefererListener
 		if ($route != 'fos_user_security_login'
 		&& $route != 'fos_user_security_check'
 		&& $route != 'fos_user_security_logout'
+		&& $route != 'cc_message_action_bulk'
 		&& $route[0] != '_') // last one checks incase of some of SF2 internal routes
 		{
 			$session = $request->getSession();		
