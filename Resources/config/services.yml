@@ -1,20 +1,58 @@
 parameters:
-    ccdn_user_user.login_success_handler.class:     CCDNUser\UserBundle\Service\LoginSuccessHandler
-    ccdn_user_user.logout_success_handler.class:    CCDNUser\UserBundle\Service\LogoutSuccessHandler
-    
-    ccdn_user_user.user.manager.class:              CCDNUser\UserBundle\Entity\Manager\UserManager
+
     ccdn_user_user.user.repository.class:           CCDNUser\UserBundle\Repository\UserRepository
+
+    ccdn_user_user.user.manager.class:              CCDNUser\UserBundle\Manager\UserManager
     
     ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
+    
+    ccdn_user_user.listener.referer.class:          CCDNUser\UserBundle\Listener\RefererListener
+    
+    ccdn_user_user.login_success_handler.class:     CCDNUser\UserBundle\Service\LoginSuccessHandler
+    ccdn_user_user.logout_success_handler.class:    CCDNUser\UserBundle\Service\LogoutSuccessHandler
     
     ccdn_user_user.dashboard.integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
     
 services:
+
+    #
+    # Repositories.
+    #
+    ccdn_user_user.user.repository:
+        class: %ccdn_user_user.user.repository.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository 
+        arguments:
+            - 'CCDNUser\UserBundle\Entity\User'
+
+    #
+    # Managers.
+    #
+    ccdn_user_user.user.manager:
+        class: %ccdn_user_user.user.manager.class%
+        arguments:  [@doctrine, @service_container]
+            
+    #
+    # Registration Forms.
+    #
+    ccdn_user_user.registration.form.type:
+        class: %ccdn_user_user.registration.form.type%
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: ccdn_user_registration }
+
+    #
+    # Referer Listener.
+    #
     ccdn_user_user.listener.referer:
-        class: CCDNUser\UserBundle\Listener\RefererListener
+        class: %ccdn_user_user.listener.referer.class%
         arguments: [@router, @service_container]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    #
+    # Login/Logout Success Handlers.
+    #
     ccdn_user_user.login_success_handler:
         class:  %ccdn_user_user.login_success_handler.class%
         arguments:  [@router, @security.context]
@@ -25,22 +63,10 @@ services:
         arguments:  [@router]
         tags:
             - { name: 'monolog.logger' channel: 'security' }
-    ccdn_user_user.user.manager:
-        class: %ccdn_user_user.user.manager.class%
-        arguments:  [@doctrine, @service_container]
-    ccdn_user_user.user.repository:
-        class: %ccdn_user_user.user.repository.class%
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository 
-        arguments:
-            - 'CCDNUser\UserBundle\Entity\User'
-    ccdn_user_user.registration.form.type:
-        class: %ccdn_user_user.registration.form.type%
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: ccdn_user_registration }
             
-    
+    #
+    # Dashboard Integrator.
+    #
     ccdn_user_user.dashboard.integrator:
         class: %ccdn_user_user.dashboard.integrator.class%
         arguments: [@service_container]

@@ -18,7 +18,6 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
-//use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserInterface;
 
 /*
@@ -83,7 +82,7 @@ class AccountController extends ContainerAware
         $process = $formHandler->process($user);
 
         if ($process) {
-            $this->setFlash('fos_user_success', 'flash.account.updated');
+            $this->setFlash('fos_user_success', $this->container->get('translator')->trans('flash.account.updated', array(), 'CCDNUserUserBundle'));
 
             return new RedirectResponse($this->container->get('router')->generate('cc_user_account_show'));
         }

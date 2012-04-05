@@ -1,7 +1,9 @@
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-# All account routes
+#
+# Account.
+#
 cc_user_account_show:
     pattern: /{_locale}/user/my/account
     defaults: { _controller: CCDNUserUserBundle:Account:show }
@@ -9,7 +11,6 @@ cc_user_account_show:
 cc_user_account_edit:
     pattern: /{_locale}/user/my/account/edit
     defaults: { _controller: CCDNUserUserBundle:Account:edit }
-
 
 fos_user_profile_show:
     pattern: /{_locale}/user/my/account
@@ -23,6 +24,9 @@ fos_user_profile_show:
 #    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
 #    prefix: /register
 
+#
+# Registration.
+#
 fos_user_registration_register:
     pattern: /{_locale}/register
     defaults: { _controller:FOSUserBundle:Registration:register, _locale: en }
@@ -32,22 +36,18 @@ fos_user_registration_check_email:
     defaults: { _controller:FOSUserBundle:Registration:checkEmail, _locale: en }
     requirements:
         _method: GET
-        #<requirement key="_method">GET</requirement>
 
 fos_user_registration_confirm:
     pattern: /{_locale}/register/confirm/{token}
     defaults: { _controller:FOSUserBundle:Registration:confirm, _locale: en }
     requirements:
         _method: GET
-        #<requirement key="_method">GET</requirement>
 
 fos_user_registration_confirmed:
     pattern: /{_locale}/register/confirmed
     defaults: { _controller: FOSUserBundle:Registration:confirmed, _locale: en }
     requirements:
         _method: GET
-        #<requirement key="_method">GET</requirement>
-
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
