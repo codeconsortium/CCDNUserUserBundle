@@ -46,7 +46,7 @@ class User extends BaseUser
 	 * @Recaptcha\True(groups={"Registration"})
 	 */
 	public $recaptcha;
-	
+
     public function __construct()
     {
         parent::__construct();
@@ -201,7 +201,6 @@ class User extends BaseUser
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
-        $this->setUsername($facebookId);
         $this->salt = '';
     }
 
@@ -230,6 +229,9 @@ class User extends BaseUser
         }
         if (isset($fbdata['email'])) {
             $this->setEmail($fbdata['email']);
+        }
+        if (isset($fbdata['username'])) {
+            $this->setUsername($fbdata['username']);
         }
     }
 }

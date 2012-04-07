@@ -56,10 +56,12 @@
 					<td class="right"><span class="table_label">{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}:</span></td>
 					<td class="left"><span class="table_data">{{ user.email }}</span></td>
 				</tr>
+                {% if user.facebookId is not defined %}
 				<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 					<td class="right"><span class="table_label">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</span></td>
 					<td class="left"><span class="table_data"><a href="{{ path('fos_user_change_password') }}">{{ 'change_password.submit'|trans({}, 'FOSUserBundle') }}</a></span></td>
 				</tr>
+                {% endif %}
 			</tbody>
 		</table>
 	</div>

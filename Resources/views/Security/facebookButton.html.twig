@@ -1,0 +1,22 @@
+
+
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+{{ facebook_login_button({'autologoutlink': true}) }}
+
+<script type="text/javascript">
+    function goLogIn(){
+        window.location.href = "{{ path('_facebook_login_check') }}";
+    }
+
+    function onFbInit() {
+        if (typeof(FB) != 'undefined' && FB != null ) {
+            FB.Event.subscribe('auth.statusChange', function(response) {
+                if (response.session || response.authResponse) {
+                    setTimeout(goLogIn, 500);
+                } else {
+                    window.location.href = "{{ path('_security_logout') }}";
+                }
+            });
+        }
+    }
+</script>
