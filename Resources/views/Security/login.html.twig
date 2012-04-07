@@ -12,18 +12,19 @@
 {% block body %}
 
 {% for key, message in app.session.getFlashes() %}
-<div class="common_box_5 padding_5 bg_flash_message">
+<div class="section_wrap_square padding_5 bg_flash_message">
 	<div class="flash_{{ key }}">
 	    {{ message | trans({}, 'FOSUserBundle') }}
 	</div>
 </div>
 {% endfor %}
 
-<div class="common_box_5 bg_header_smoke">
-	<div class="common_box_header">
-		<span class="heading_glow">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</span>
+<div class="section_wrap_square">
+	<div class="section_header">
+		<h2>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h2>
 	</div>
-	<div class="common_table_panel">
+	
+	<div class="section_table_panel">
 		{% if error %}
 		<div>{{ error }}</div>
 		{% endif %}
