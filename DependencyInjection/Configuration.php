@@ -178,6 +178,7 @@ class Configuration implements ConfigurationInterface
 								->scalarNode('login')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
 							->end()
 						->end()
+						->scalarNode('support_facebook')->defaultValue('false')->end()
 					->end()
 				->end()
 			->end();

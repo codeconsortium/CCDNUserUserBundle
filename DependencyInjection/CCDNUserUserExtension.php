@@ -115,6 +115,7 @@ class CCDNUserUserExtension extends Extension
 	private function getSecuritySection($container, $config)
 	{
 		$container->setParameter('ccdn_user_user.security.layout_templates.login', $config['security']['layout_templates']['login']);
+		$container->setParameter('ccdn_user_user.security.support_facebook', $config['security']['support_facebook']);
 	}
 	
 }
