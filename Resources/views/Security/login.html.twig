@@ -12,7 +12,7 @@
 {% block body %}
 
 {% for key, message in app.session.getFlashes() %}
-<div class="section_wrap_square bg_flash_message">
+<div class="bg_flash_message">
 	<div class="flash_{{ key }}">
 	    {{ message | trans({}, 'FOSUserBundle') }}
 	</div>
