@@ -28,7 +28,7 @@
 </div>
 {% endfor %}
 
-<div class="section_wrap_square">
+<div class="section_wrap_standalone">
 	<div class="section_header">
 		<h2>{{ 'title.register'|trans({}, 'CCDNUserUserBundle') }}</h2>
 	</div>
@@ -79,7 +79,7 @@
 					</tr>
 					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 						<td class="form_tool_strip" colspan="2">
-							<input type="submit" class="widget_submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}">
+							<input type="submit" class="button_blue" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}">
 						</td>
 					</tr>
 				</tbody>

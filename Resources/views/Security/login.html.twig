@@ -19,11 +19,13 @@
 </div>
 {% endfor %}
 
-<div class="section_wrap_square">
+<div class="section_wrap_standalone">
 	<div class="section_header">
 		<h2>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h2>
 	</div>
-	
+</div>
+
+<div class="section_wrap_standalone">
 	<div class="section_table_panel">
 		{% if error %}
 		<div>{{ error }}</div>
@@ -47,7 +49,7 @@
 					</tr>
 					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 						<td class="form_tool_strip" colspan="2">
-							<input type="submit" class="widget_submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
+							<input type="submit" class="button_blue" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
 							&nbsp;&#124;&nbsp;<a href="{{ path('fos_user_resetting_request') }}">{{ 'link.password.reset' |trans({}, 'CCDNUserUserBundle') }}</a>
 							{% if param('ccdn_user_user.security.support_facebook') %}
 	                            <br><br>{% include 'CCDNUserUserBundle:Security:facebookButton.html.twig' %}
@@ -59,5 +61,5 @@
 		</form>
 	</div>
 </div>
-</div>
+
 {% endblock body %}
