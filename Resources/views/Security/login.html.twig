@@ -1,4 +1,4 @@
-{% extends param('ccdn_user_user.security.layout_templates.login') %}
+{% extends param('ccdn_user_user.security.login.layout_template') %}
 
 {% block stylesheets %}
 	{{ parent() }}
@@ -53,7 +53,7 @@
 						<td class="form_tool_strip" colspan="2">
 							<input type="submit" class="button_blue" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
 							&nbsp;&#124;&nbsp;<a href="{{ path('fos_user_resetting_request') }}">{{ 'link.password.reset' |trans({}, 'CCDNUserUserBundle') }}</a>
-							{% if param('ccdn_user_user.security.support_facebook') %}
+							{% if param('ccdn_user_user.security.login.support_facebook') %}
 	                            <br><br>{% include 'CCDNUserUserBundle:Security:facebookButton.html.twig' %}
 							{% endif %}
 						</td>

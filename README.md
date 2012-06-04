@@ -42,7 +42,7 @@ Documentation can be found in the `Resources/doc/index.md` file in this bundle:
 
 ## Installation.
 
-All the installation instructions are located in [documentation](http://github.com/codeconsortium/CCDNUserUserBundle/blob/master/Resources/doc/Install.md).
+All the installation instructions are located in [documentation](http://github.com/codeconsortium/CCDNUserUserBundle/blob/master/Resources/doc/install.md).
 
 ## License.
 

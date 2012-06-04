@@ -94,28 +94,6 @@ ccdn_user_user:
         profile_route: cc_profile_show_by_id 
     template:
         engine: twig
-        theme: CCDNUserProfileBundle:Form:fields.html.twig
-    account:
-        layout_templates:
-            edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig     
-    password:
-        layout_templates:
-            change_password:  CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-    registration:
-        layout_templates:
-            check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            confirmed: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            register: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-    resetting:
-        layout_templates:
-            check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            password_already_requested: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            request: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            reset: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-    security:
-        layout_templates:
-            login: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
 ```   
 
@@ -162,4 +140,6 @@ Installation should now be complete!
 
 If you need further help/support, have suggestions or want to contribute please join the community at [Code Consortium](http://www.codeconsortium.com)
 
-[Return back to the docs index](http://github.com/codeconsortium/CCDNUserUserBundle/blob/master/Resources/doc/index.md).
+- [Return back to the docs index](index.md).
+- [Configuration Reference](configuration_reference.md).
+- [Default FOS UserBundle Reference](default_fos_configuration).

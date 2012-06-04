@@ -20,4 +20,6 @@ For more information about translations, check [Symfony documentation](http://sy
 
 ## Installation Documentation:
 
-- [Installing CCDNUser UserBundle for Symfony 2.0.11](http://github.com/codeconsortium/CCDNUserUserBundle/blob/master/Resources/doc/Install.md)
+- [Installing CCDNUser UserBundle for Symfony 2.0.11](install.md).
+- [Configuration Reference](configuration_reference.md).
+- [Default FOS UserBundle Reference](default_fos_configuration).

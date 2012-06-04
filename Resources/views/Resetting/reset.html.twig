@@ -1,4 +1,4 @@
-{% extends param('ccdn_user_user.resetting.layout_templates.reset') %}
+{% extends param('ccdn_user_user.resetting.reset.layout_template') %}
 
 {% block stylesheets %}
 	{{ parent() }}
@@ -27,8 +27,7 @@
 	</div>
 	
 	<div class="section_table_panel">
-		{% form_theme form theme %}
-
+		{% form_theme form param('ccdn_user_user.resetting.reset.form_theme') %}
 		<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset">
 			<table class="common_list">
 				<tbody>

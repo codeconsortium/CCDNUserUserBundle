@@ -41,7 +41,6 @@ class CCDNUserUserExtension extends Extension
 
 		$container->setParameter('ccdn_user_user.user.profile_route', $config['user']['profile_route']);
 		$container->setParameter('ccdn_user_user.template.engine', $config['template']['engine']);
-		$container->setParameter('ccdn_user_user.template.theme', $config['template']['theme']);
 		
 		$this->getAccountSection($container, $config);
 		$this->getChangePasswordSection($container, $config);
@@ -59,8 +58,11 @@ class CCDNUserUserExtension extends Extension
 	 */
 	private function getAccountSection($container, $config)
 	{
-		$container->setParameter('ccdn_user_user.account.layout_templates.edit', $config['account']['layout_templates']['edit']);
-		$container->setParameter('ccdn_user_user.account.layout_templates.show', $config['account']['layout_templates']['show']);
+		$container->setParameter('ccdn_user_user.account.show.layout_template', $config['account']['show']['layout_template']);
+		
+		$container->setParameter('ccdn_user_user.account.edit.layout_template', $config['account']['edit']['layout_template']);
+		$container->setParameter('ccdn_user_user.account.edit.form_theme', $config['account']['edit']['form_theme']);
+		
 	}
 	
 	
@@ -72,7 +74,8 @@ class CCDNUserUserExtension extends Extension
 	 */
 	private function getChangePasswordSection($container, $config)
 	{
-		$container->setParameter('ccdn_user_user.password.layout_templates.change_password', $config['password']['layout_templates']['change_password']);		
+		$container->setParameter('ccdn_user_user.password.change_password.layout_template', $config['password']['change_password']['layout_template']);		
+		$container->setParameter('ccdn_user_user.password.change_password.form_theme', $config['password']['change_password']['form_theme']);
 	}
 	
 	
@@ -85,9 +88,12 @@ class CCDNUserUserExtension extends Extension
 	 */
 	private function getRegistrationSection($container, $config)
 	{
-		$container->setParameter('ccdn_user_user.registration.layout_templates.check_email', $config['registration']['layout_templates']['check_email']);
-		$container->setParameter('ccdn_user_user.registration.layout_templates.confirmed', $config['registration']['layout_templates']['confirmed']);
-		$container->setParameter('ccdn_user_user.registration.layout_templates.register', $config['registration']['layout_templates']['register']);
+		$container->setParameter('ccdn_user_user.registration.register.layout_template', $config['registration']['register']['layout_template']);
+		$container->setParameter('ccdn_user_user.registration.register.form_theme', $config['registration']['register']['form_theme']);
+		
+		$container->setParameter('ccdn_user_user.registration.check_email.layout_template', $config['registration']['check_email']['layout_template']);
+		
+		$container->setParameter('ccdn_user_user.registration.confirmed.layout_template', $config['registration']['confirmed']['layout_template']);
 	}
 	
 	
@@ -99,10 +105,14 @@ class CCDNUserUserExtension extends Extension
 	 */
 	private function getResettingSection($container, $config)
 	{
-		$container->setParameter('ccdn_user_user.resetting.layout_templates.check_email', $config['resetting']['layout_templates']['check_email']);
-		$container->setParameter('ccdn_user_user.resetting.layout_templates.password_already_requested', $config['resetting']['layout_templates']['password_already_requested']);
-		$container->setParameter('ccdn_user_user.resetting.layout_templates.request', $config['resetting']['layout_templates']['request']);
-		$container->setParameter('ccdn_user_user.resetting.layout_templates.reset', $config['resetting']['layout_templates']['reset']);
+		$container->setParameter('ccdn_user_user.resetting.request.layout_template', $config['resetting']['request']['layout_template']);
+		
+		$container->setParameter('ccdn_user_user.resetting.password_already_requested.layout_template', $config['resetting']['password_already_requested']['layout_template']);
+		
+		$container->setParameter('ccdn_user_user.resetting.check_email.layout_template', $config['resetting']['check_email']['layout_template']);
+		
+		$container->setParameter('ccdn_user_user.resetting.reset.layout_template', $config['resetting']['reset']['layout_template']);
+		$container->setParameter('ccdn_user_user.resetting.reset.form_theme', $config['resetting']['reset']['form_theme']);
 	}
 	
 	
@@ -114,8 +124,8 @@ class CCDNUserUserExtension extends Extension
 	 */
 	private function getSecuritySection($container, $config)
 	{
-		$container->setParameter('ccdn_user_user.security.layout_templates.login', $config['security']['layout_templates']['login']);
-		$container->setParameter('ccdn_user_user.security.support_facebook', $config['security']['support_facebook']);
+		$container->setParameter('ccdn_user_user.security.login.layout_template', $config['security']['login']['layout_template']);
+		$container->setParameter('ccdn_user_user.security.login.support_facebook', $config['security']['login']['support_facebook']);
 	}
 	
 }

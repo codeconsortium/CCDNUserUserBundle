@@ -1,4 +1,4 @@
-{% extends param('ccdn_user_user.account.layout_templates.edit') %}
+{% extends param('ccdn_user_user.account.edit.layout_template') %}
 
 {% block stylesheets %}
 	{{ parent() }}
@@ -34,8 +34,7 @@
 	</div>
 	
 	<div class="section_table_panel">
-		{% form_theme form theme %}
-
+		{% form_theme form param('ccdn_user_user.account.edit.form_theme') %}
 		<form action="{{ path('cc_user_account_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
 			{{ form_row(form._token) }}
 			<div class="errors">{{ form_errors(form) }}</div>

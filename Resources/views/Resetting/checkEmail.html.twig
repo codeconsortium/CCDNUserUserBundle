@@ -1,4 +1,4 @@
-{% extends param('ccdn_user_user.resetting.layout_templates.check_email') %}
+{% extends param('ccdn_user_user.resetting.check_email.layout_template') %}
 
 {% block stylesheets %}
 	{{ parent() }}
@@ -27,9 +27,8 @@
 	</div>
 	
 	<div class="section_panel">
-            <p>
-			{{ 'resetting.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}
-			</p>
+		<p>{{ 'resetting.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p>
 	</div>
 </div>
+
 {% endblock body %}

@@ -53,7 +53,9 @@ class AccountController extends ContainerAware
             throw new AccessDeniedException('You do not have access to this section.');
         }
 		
-        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Account:show.html.'.$this->container->getParameter('fos_user.template.engine'), array('user' => $user));
+        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Account:show.html.' . $this->container->getParameter('fos_user.template.engine'), array(
+			'user' => $user
+		));
     }
 
 
@@ -87,9 +89,9 @@ class AccountController extends ContainerAware
             return new RedirectResponse($this->container->get('router')->generate('cc_user_account_show'));
         }
 
-        return $this->container->get('templating')->renderResponse(
-            'FOSUserBundle:Account:edit.html.'.$this->container->getParameter('fos_user.template.engine'),
-            array('form' => $form->createView(), 'theme' => $this->container->getParameter('fos_user.template.theme'))
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Account:edit.html.'.$this->container->getParameter('fos_user.template.engine'), array(
+			'form' => $form->createView(), 
+			'theme' => $this->container->getParameter('fos_user.template.theme'))
         );
     }
 

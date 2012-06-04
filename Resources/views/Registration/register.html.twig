@@ -1,4 +1,4 @@
-{% extends param('ccdn_user_user.registration.layout_templates.register') %}
+{% extends param('ccdn_user_user.registration.register.layout_template') %}
 
 {% block stylesheets %}
 	{{ parent() }}
@@ -27,8 +27,7 @@
 	</div>
 	
 	<div class="section_table_panel">
-		{% form_theme form theme %}
-
+		{% form_theme form param('ccdn_user_user.registration.register.form_theme') %}
 		<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
 			{{ form_row(form._token) }}
 			<div class="errors">{{ form_errors(form) }}</div>
