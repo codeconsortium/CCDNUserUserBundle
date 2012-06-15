@@ -40,10 +40,13 @@ ccdn_user_user:
 #        reset:
 #            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 #            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-#    security:
-#        login:
+    security:
+        login:
 #            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            support_facebook: true
+            support_facebook: false
+    sidebar:
+        members_route: cc_members_index
+        profile_route: cc_profile_show
 
 ```
 

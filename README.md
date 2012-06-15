@@ -38,11 +38,11 @@ Before installation of this bundle, you can download the [Sandbox](http://github
 
 Documentation can be found in the `Resources/doc/index.md` file in this bundle:
 
-[Read the Documentation](http://github.com/codeconsortium/CCDNUserUserBundle/blob/master/Resources/doc/index.md).
+[Read the Documentation](index.md).
 
 ## Installation.
 
-All the installation instructions are located in [documentation](http://github.com/codeconsortium/CCDNUserUserBundle/blob/master/Resources/doc/install.md).
+All the installation instructions are located in [documentation](install.md).
 
 ## License.
 

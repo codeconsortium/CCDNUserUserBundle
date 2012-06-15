@@ -94,6 +94,9 @@ ccdn_user_user:
         profile_route: cc_profile_show_by_id 
     template:
         engine: twig
+    sidebar:
+        members_route: cc_members_index
+        profile_route: cc_profile_show
 
 ```   
 
