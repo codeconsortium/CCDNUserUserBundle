@@ -57,6 +57,7 @@ class Configuration implements ConfigurationInterface
 		$this->addRegistrationSection($rootNode);
 		$this->addResettingSection($rootNode);
 		$this->addSecuritySection($rootNode);
+		$this->addSidebarSection($rootNode);
 		
         return $treeBuilder;
     }
@@ -227,6 +228,28 @@ class Configuration implements ConfigurationInterface
 								->scalarNode('support_facebook')->defaultValue('false')->end()
 							->end()
 						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addSidebarSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('sidebar')
+					->addDefaultsIfNotSet()
+					->canBeUnset()
+					->children()
+						->scalarNode('members_route')->defaultValue('cc_members_index')->end()
+						->scalarNode('profile_route')->defaultValue('cc_profile_show')->end()
 					->end()
 				->end()
 			->end();

@@ -1,7 +1,7 @@
 {% form_theme form theme %}
-<form action="{{ path('fos_user_group_edit', {'groupname': groupname} ) }}" {{ form_enctype(form) }} method="POST" class="fos_user_group_edit">
+<form action="{{ path('fos_user_group_edit', {'groupname': groupname} ) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
     {{ form_widget(form) }}
     <div>
-        <input type="submit" class="button_blue" value="{{ 'group.edit.submit'|trans([], 'FOSUserBundle') }}">
+        <input type="submit" class="btn btn-danger" value="{{ 'group.edit.submit'|trans([], 'FOSUserBundle') }}">
     </div>
 </form>

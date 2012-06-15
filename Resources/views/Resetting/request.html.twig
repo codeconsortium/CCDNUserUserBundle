@@ -9,45 +9,41 @@
 {% block sidebar %}
 	{{ parent() }}
 	
+	{% include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' %}
+	
 {% endblock %}
 
 {% block body %}
 
-{% for key, message in app.session.getFlashes() %}
-<div class="bg_flash_message">
-	<div class="flash_{{ key }}">
-	    {{ message | trans({}, 'FOSUserBundle') }}
+	{% for key, message in app.session.getFlashes() %}
+	<div class="bg_flash_message">
+		<div class="flash_{{ key }}">
+		    {{ message | trans({}, 'FOSUserBundle') }}
+		</div>
 	</div>
-</div>
-{% endfor %}
+	{% endfor %}
 
-<div class="section_wrap_standalone">
-	<div class="section_header">
-		<h2>{{ 'title.reset.request'|trans({}, 'CCDNUserUserBundle') }}</h2>
-	</div>
+	<h2>{{ 'title.reset.request'|trans({}, 'CCDNUserUserBundle') }}</h2>
 	
-	<div class="section_table_panel">
-		<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
-			<table class="common_list">
-				<tbody>
-					{% if invalid_username is defined %}
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_tool_strip" colspan="2">
-							<p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
-						</td>
-					</tr>
-			        {% endif %}
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_label"><label for="username">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}</label></td>
-						<td class="form_widget"><input type="text" id="username" name="username"></td>
-					</tr>	
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_tool_strip" colspan="2">
-					        <input type="submit" class="button_blue" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}">
-					    </td>
-					</tr>
-				</tbody>
-			</table>
+	<div class="well">
+		<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="form-horizontal">
+			<fieldset>
+				{% if invalid_username is defined %}
+					<p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+		        {% endif %}
+				
+				<div class="control-group">
+					<label for="username" class="control-label">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}</label>
+					<div class="controls row-fluid">
+						<input type="text" id="username" name="username" class="input-xlarge span8">
+					</div>
+				</div>
+				
+				<div class="form-actions">
+			        <input type="submit" class="btn btn-primary" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}">
+				</div>
+				
+			</fieldset>
 		</form>
 	</div>
 </div>

@@ -13,6 +13,13 @@ title.reset.request: Request Password Reset
 title.reset.check_mail: Password Reset Mail Sent
 title.reset.new_password: Reset Password
 
+sidebar.header.navigation: 'Navigation'
+sidebar.link.account.view: 'Account'
+sidebar.link.profile.view: 'Profile'
+
+link.account.overview: Account
+link.account.edit: Edit Account
+link.password_change: Change Password
 link.password.reset: Forgot Password?
 
 form.label.verify_password: 'Retype Password: '

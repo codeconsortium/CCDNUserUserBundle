@@ -47,6 +47,7 @@ class CCDNUserUserExtension extends Extension
 		$this->getRegistrationSection($container, $config);
 		$this->getResettingSection($container, $config);
 		$this->getSecuritySection($container, $config);
+		$this->getSidebarSection($container, $config);
     }
 	
 	
@@ -126,6 +127,20 @@ class CCDNUserUserExtension extends Extension
 	{
 		$container->setParameter('ccdn_user_user.security.login.layout_template', $config['security']['login']['layout_template']);
 		$container->setParameter('ccdn_user_user.security.login.support_facebook', $config['security']['login']['support_facebook']);
+	}
+	
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getSidebarSection($container, $config)
+	{
+		$container->setParameter('ccdn_user_user.sidebar.members_route', $config['sidebar']['members_route']);
+		$container->setParameter('ccdn_user_user.sidebar.profile_route', $config['sidebar']['profile_route']);
+		
 	}
 	
 }

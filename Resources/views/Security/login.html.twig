@@ -9,59 +9,60 @@
 {% block sidebar %}
 	{{ parent() }}
 	
+	{% include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' %}
+	
 {% endblock %}
 
 {% block body %}
 
-{% for key, message in app.session.getFlashes() %}
-<div class="bg_flash_message">
-	<div class="flash_{{ key }}">
-	    {{ message | trans({}, 'FOSUserBundle') }}
+	{% for key, message in app.session.getFlashes() %}
+	<div class="bg_flash_message">
+		<div class="flash_{{ key }}">
+		    {{ message | trans({}, 'FOSUserBundle') }}
+		</div>
 	</div>
-</div>
-{% endfor %}
+	{% endfor %}
 
-<div class="section_wrap_standalone">
-	<div class="section_header">
-		<h2>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h2>
-	</div>
-</div>
+	<h2>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h2>
 
-<div class="section_wrap_standalone">
-	<div class="section_table_panel">
+	<div class="well">
 		{% if error %}
 		<div>{{ error }}</div>
 		{% endif %}
-		<form action="{{ path("fos_user_security_check") }}" method="post">
-			<table class="common_list">
-				<tbody>
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_label"><label class="widget_label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label></td>
-						<td class="form_widget"><input class="widget_text" type="text" id="username" name="_username" value="{{ last_username }}"></td>
-					</tr>
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_label"><label class="widget_label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label></td>
-						<td class="form_widget"><input class="widget_text" type="password" id="password" name="_password"></td>
-					</tr>
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_tool_strip" colspan="2">
-							<input type="checkbox" id="remember_me" name="_remember_me" value="on">
-							<label class="form_label" for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-						</td>
-					</tr>
-					<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
-						<td class="form_tool_strip" colspan="2">
-							<input type="submit" class="button_blue" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
-							&nbsp;&#124;&nbsp;<a href="{{ path('fos_user_resetting_request') }}">{{ 'link.password.reset' |trans({}, 'CCDNUserUserBundle') }}</a>
-							{% if param('ccdn_user_user.security.login.support_facebook') %}
-	                            <br><br>{% include 'CCDNUserUserBundle:Security:facebookButton.html.twig' %}
-							{% endif %}
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+			<fieldset>
+				
+				<div class="control-group">
+					<label class="control-label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+					<div class="controls row-fluid">
+						<input class="input-xlarge span8" type="text" id="username" name="_username" value="{{ last_username }}">
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+					<div class="controls row-fluid">
+						<input class="input-xlarge span8" type="password" id="password" name="_password">
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+					<div class="controls row-fluid">
+						<input type="checkbox" id="remember_me" name="_remember_me" value="on">
+					</div>
+				</div>
+				
+				<div class="form-actions">
+					<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
+					&nbsp;&#124;&nbsp;<a href="{{ path('fos_user_resetting_request') }}">{{ 'link.password.reset' |trans({}, 'CCDNUserUserBundle') }}</a>
+					{% if param('ccdn_user_user.security.login.support_facebook') %}
+                           <br><br>{% include 'CCDNUserUserBundle:Security:facebookButton.html.twig' %}
+					{% endif %}
+				</div>
+				
+			</fieldset>
 		</form>
 	</div>
-</div>
 
 {% endblock body %}

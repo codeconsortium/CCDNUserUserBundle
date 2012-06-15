@@ -9,31 +9,29 @@
 {% block sidebar %}
 	{{ parent() }}
 	
+	{% include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' %}
+	
 {% endblock %}
 
 {% block body %}
 
-{% for key, message in app.session.getFlashes() %}
-<div class="bg_flash_message">
-	<div class="flash_{{ key }}">
-	    {{ message | trans({}, 'FOSUserBundle') }}
+	{% for key, message in app.session.getFlashes() %}
+	<div class="bg_flash_message">
+		<div class="flash_{{ key }}">
+		    {{ message | trans({}, 'FOSUserBundle') }}
+		</div>
 	</div>
-</div>
-{% endfor %}
+	{% endfor %}
 
-<div class="section_wrap_standalone">
-	<div class="section_header">
-		<h2>{{ 'title.register.activation.confirmed'|trans({}, 'CCDNUserUserBundle') }}</h2>
-	</div>
+	<h2>{{ 'title.register.activation.confirmed'|trans({}, 'CCDNUserUserBundle') }}</h2>
 	
-	<div class="section_panel">
+	<div class="well">
 	    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
 	    {% if app.session is not empty %}
 	        {% set targetUrl = app.session.get('_security.target_path') %}
 	        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
 	    {% endif %}
 	</div>
-</div>
 
 {% endblock body %}
 

@@ -44,7 +44,7 @@ class DashboardIntegrator extends BaseIntegrator implements IntegratorInterface
 			'user' => array(
 				'Account' => array(
 					'cc_user_account_show' => array('auth' => 'ROLE_USER', 'name' => 'My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
-					'cc_user_account_edit' => array('auth' => 'ROLE_USER', 'name' => 'Edit My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),				
+				//	'cc_user_account_edit' => array('auth' => 'ROLE_USER', 'name' => 'Edit My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),				
 				),
 			),
 
