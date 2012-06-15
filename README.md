@@ -35,6 +35,7 @@ UserBundle as a child of [FOSUserBundle](http://github.com/FriendsOfSymfony/FOSU
 3. Redirects on login/logout can be changed to specific pages based on USER_ROLE.
 4. Includes Facebook support. (Can be turned on/off in app/config/config.yml; see documentation).
 5. Includes support for [CCDNComponent DashboardBundle](http://github.com/codeconsortium/DashboardBundle) integration.
+6. Utilises Twitter-Bootstrap interface by default.
 
 Before installation of this bundle, you can download the [Sandbox](http://github.com/codeconsortium/CCDNSandBox) for testing/development and feature review, or alternatively see the product in use at [CodeConsortium](http://www.codeconsortium.com).
 
