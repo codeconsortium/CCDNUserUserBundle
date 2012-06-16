@@ -32,20 +32,20 @@
 			<fieldset>
 				
 				<div class="control-group">
-					{{ form_label(form.new, null, { 'label': 'fos_user_change_password_form_new_first' |trans({}, 'FOSUserBundle')}) }}
+					{{ form_label(form.new.first, null, { 'label': 'fos_user_change_password_form_new_first' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
-						{{ form_errors(form.new) }}
-						{{ form_widget(form.new) }}
+						{{ form_errors(form.new.first) }}
+						{{ form_widget(form.new.first) }}
 					</div>
 				</div>
 				
-{#				<div class="control-group">
+				<div class="control-group">
 					{{ form_label(form.new.second, null, { 'label': 'fos_user_resetting_form_new_second' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
-						{{ form_errors(form.second) }}
-						{{ form_widget(form.second) }}
+						{{ form_errors(form.new.second) }}
+						{{ form_widget(form.new.second) }}
 					</div>
-				</div>#}
+				</div>
 				
 				<div class="form-actions">
 			        <input type="submit" class="btn btn-primary" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}">
