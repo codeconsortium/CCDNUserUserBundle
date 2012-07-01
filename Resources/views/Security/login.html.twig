@@ -27,8 +27,9 @@
 
 	<div class="well">
 		{% if error %}
-		<div>{{ error }}</div>
+		<ul class="alert alert-error"><li>{{ error }}</li></ul>
 		{% endif %}
+
 		<form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
 			<fieldset>
 				

@@ -31,7 +31,9 @@
 		<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 			<fieldset>
 				
-				<div class="control-group">
+				{{ form_errors(form) }}
+				
+				<div class="control-group{{ (form.new.first.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.new.first, null, { 'label': 'fos_user_change_password_form_new_first' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.new.first) }}
@@ -39,7 +41,7 @@
 					</div>
 				</div>
 				
-				<div class="control-group">
+				<div class="control-group{{ (form.new.second.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.new.second, null, { 'label': 'fos_user_resetting_form_new_second' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.new.second) }}

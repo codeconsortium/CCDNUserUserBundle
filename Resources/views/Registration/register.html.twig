@@ -31,9 +31,12 @@
 		<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 			<div class="errors">{{ form_errors(form) }}</div>
 			<fieldset>
+				
+				{{ form_errors(form) }}
+				
 				<div class="control-group"><div class="controls row-fluid">{{ form_row(form._token) }}</div></div>
 			
-				<div class="control-group">
+				<div class="control-group{{ (form.username.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.username, null, { 'label': 'fos_user_registration_form_username' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.username) }}
@@ -41,7 +44,7 @@
 					</div>
 				</div>
 				
-				<div class="control-group">
+				<div class="control-group{{ (form.email.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.email, null, { 'label': 'fos_user_registration_form_email' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.email) }}
@@ -49,7 +52,7 @@
 					</div>
 				</div>
 				
-				<div class="control-group">
+				<div class="control-group{{ (form.plainPassword.first.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.plainPassword.first, null, { 'label': 'fos_user_registration_form_plainPassword_first' |trans({}, 'FOSUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.plainPassword.first) }}
@@ -57,7 +60,7 @@
 					</div>
 				</div>
 				
-				<div class="control-group">
+				<div class="control-group{{ (form.plainPassword.second.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.plainPassword.second, null, { 'label': 'form.label.verify_password' |trans({}, 'CCDNUserUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.plainPassword.second) }}
@@ -65,7 +68,7 @@
 					</div>
 				</div>
 				
-				<div class="control-group">
+				<div class="control-group{{ (form.recaptcha.vars.errors|length > 0) ? ' error': '' }}">
 					{{ form_label(form.recaptcha, null, { 'label': 'form.label.recaptcha' |trans({}, 'CCDNUserUserBundle')}) }}
 					<div class="controls row-fluid">
 						{{ form_errors(form.recaptcha) }}

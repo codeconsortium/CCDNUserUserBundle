@@ -22,6 +22,7 @@ link.account.edit: Edit Account
 link.password_change: Change Password
 link.password.reset: Forgot Password?
 
+form.field.required: 'This field is required'
 form.label.verify_password: 'Retype Password: '
 form.label.recaptcha: 'Type the picture text: '
 
