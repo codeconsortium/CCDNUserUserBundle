@@ -57,12 +57,12 @@ services:
         class:  %ccdn_user_user.login_success_handler.class%
         arguments:  [@router, @security.context]
         tags:
-            - { name: 'monolog.logger' channel: 'security' }
+            - { name: 'monolog.logger', channel: 'security' }
     ccdn_user_user.logout_success_handler:
         class:  %ccdn_user_user.logout_success_handler.class%
         arguments:  [@router]
         tags:
-            - { name: 'monolog.logger' channel: 'security' }
+            - { name: 'monolog.logger', channel: 'security' }
             
     #
     # Dashboard Integrator.
