@@ -17,61 +17,60 @@
 
 	{% for key, message in app.session.getFlashes() %}
 	<div class="bg_flash_message">
-		<div class="flash_{{ key }}">
-		    {{ message | trans({}, 'FOSUserBundle') }}
+		<div class="flash_{{- key -}}">
+		    {{- message | trans({}, 'FOSUserBundle') -}}
 		</div>
 	</div>
 	{% endfor %}
 
-	<h2>{{ app.user.getUsername |capitalize }}</h2>
+	<h2>{{- app.user.getUsername |capitalize -}}</h2>
 
 	<br>
 	
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="{{ path('cc_user_account_show') }}"><i class="icon-cog"></i>&nbsp;{{ 'link.account.overview' | trans({}, 'CCDNUserUserBundle') }}</a></li>
-		<li><a href="{{ path('fos_user_change_password') }}"><i class="icon-cog"></i>&nbsp;{{ 'link.password_change' | trans({}, 'CCDNUserUserBundle') }}</a></li>
+		<li class="active"><a href="{{- path('cc_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.account.overview' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li><a href="{{- path('fos_user_change_password') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.password_change' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 	</ul>
 	
-	<div class="well">
-		{% form_theme form param('ccdn_user_user.account.edit.form_theme') %}
-		
-		<form action="{{ path('cc_user_account_edit') }}" method="POST" {{ form_enctype(form) }} class="form-horizontal">
+	{%- spaceless -%}
+		{%- form_theme form param('ccdn_user_user.account.edit.form_theme') -%}
+		<form action="{{- path('cc_user_account_edit') -}}" method="POST" {{ form_enctype(form) }} class="form-horizontal">
 			<fieldset>
 
-				{{ form_errors(form) }}
-				
-				<div class="control-group"><div class="controls row-fluid">{{ form_row(form._token) }}</div></div>
-				
-				<div class="control-group{{ (form.user.username.vars.errors|length > 0) ? ' error': '' }}">
-					{{ form_label(form.user.username, null, { 'label': 'fos_user_profile_form_user_username' |trans({}, 'FOSUserBundle')}) }}
+				{{- form_errors(form) -}}
+			
+				<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
+			
+				<div class="control-group{{- (form.user.username.vars.errors|length > 0) ? ' error': '' -}}">
+					{{- form_label(form.user.username, null, { 'label': 'fos_user_profile_form_user_username' |trans({}, 'FOSUserBundle')}) -}}
 					<div class="controls row-fluid">
-						{{ form_errors(form.user.username) }}
-						{{ form_widget(form.user.username) }}
+						{{- form_errors(form.user.username) -}}
+						{{- form_widget(form.user.username) -}}
 					</div>
 				</div>
-				
-				<div class="control-group{{ (form.user.email.vars.errors|length > 0) ? ' error': '' }}">
-					{{ form_label(form.user.email, null, { 'label': 'fos_user_profile_form_user_email' |trans({}, 'FOSUserBundle')}) }}
+			
+				<div class="control-group{{- (form.user.email.vars.errors|length > 0) ? ' error': '' -}}">
+					{{- form_label(form.user.email, null, { 'label': 'fos_user_profile_form_user_email' |trans({}, 'FOSUserBundle')}) -}}
 					<div class="controls row-fluid">
-						{{ form_errors(form.user.email) }}
-						{{ form_widget(form.user.email) }}
+						{{- form_errors(form.user.email) -}}
+						{{- form_widget(form.user.email) -}}
 					</div>
 				</div>
-				
-				<div class="control-group{{ (form.current.vars.errors|length > 0) ? ' error': '' }}">
-					{{ form_label(form.current, null, { 'label': 'fos_user_profile_form_current' |trans({}, 'FOSUserBundle')}) }}
+			
+				<div class="control-group{{- (form.current.vars.errors|length > 0) ? ' error': '' -}}">
+					{{- form_label(form.current, null, { 'label': 'fos_user_profile_form_current' |trans({}, 'FOSUserBundle')}) -}}
 					<div class="controls row-fluid">
-						{{ form_errors(form.current) }}
-						{{ form_widget(form.current) }}
+						{{- form_errors(form.current) -}}
+						{{- form_widget(form.current) -}}
 					</div>
 				</div>
-				
+			
 				<div class="form-actions">
-			        <input type="submit" class="btn btn-danger" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}">
+			        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">
 				</div>
-				
+			
 			</fieldset>
 		</form>
-	</div>
-
+	{%- endspaceless -%}
+	
 {% endblock body %}
