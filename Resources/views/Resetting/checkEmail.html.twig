@@ -4,29 +4,33 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{ 'title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') }}{% endblock %}
+{% block title %}{{- 'title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
 	
-	{% include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' %}
+	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
 	
 {% endblock %}
 
 {% block body %}
 
-	{% for key, message in app.session.getFlashes() %}
+	{%- spaceless -%}
+	
+	{%- for key, message in app.session.getFlashes() -%}
 	<div class="bg_flash_message">
-		<div class="flash_{{ key }}">
-		    {{ message | trans({}, 'FOSUserBundle') }}
+		<div class="flash_{{- key -}}">
+		    {{- message | trans({}, 'FOSUserBundle') -}}
 		</div>
 	</div>
-	{% endfor %}
+	{%- endfor -%}
 
-	<h2>{{ 'title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') }}</h2>
+	<h2>{{- 'title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 	
 	<div class="well">
-		<p>{{ 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') }}</p>
+		<p>{{- 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') -}}</p>
 	</div>
 
+	{%- endspaceless -%}
+	
 {% endblock body %}

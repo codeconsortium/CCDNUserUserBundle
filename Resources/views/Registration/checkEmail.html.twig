@@ -4,29 +4,33 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{ 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') }}{% endblock %}
+{% block title %}{{- 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
 	
-	{% include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' %}
+	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
 	
 {% endblock %}
 
 {% block body %}
 
-	{% for key, message in app.session.getFlashes() %}
+	{%- spaceless -%}
+	
+	{%- for key, message in app.session.getFlashes() -%}
 	<div class="bg_flash_message">
-		<div class="flash_{{ key }}">
-		    {{ message | trans({}, 'FOSUserBundle') }}
+		<div class="flash_{{- key -}}">
+		    {{- message | trans({}, 'FOSUserBundle') -}}
 		</div>
 	</div>
-	{% endfor %}
+	{%- endfor -%}
 
-	<h2>{{ 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') }}</h2>
+	<h2>{{- 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 	
 	<div class="well">
-		<p>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p>
+		<p>{{- 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') -}}</p>
 	</div>
 
+	{%- endspaceless -%}
+	
 {% endblock body %}
