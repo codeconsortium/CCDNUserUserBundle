@@ -16,6 +16,9 @@ title.reset.new_password: Reset Password
 sidebar.header.navigation: 'Navigation'
 sidebar.link.account.view: 'Account'
 sidebar.link.profile.view: 'Profile'
+sidebar.link.login: 'Login'
+sidebar.link.register: 'Register'
+sidebar.link.reset: 'Forgot Password'
 
 link.account.overview: Account
 link.account.edit: Edit Account
