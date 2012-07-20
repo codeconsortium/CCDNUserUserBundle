@@ -225,7 +225,7 @@ class Configuration implements ConfigurationInterface
 							->addDefaultsIfNotSet()
 							->children()
 								->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
-								->scalarNode('support_facebook')->defaultValue('false')->end()
+								->scalarNode('support_facebook')->defaultValue(false)->end()
 							->end()
 						->end()
 					->end()
