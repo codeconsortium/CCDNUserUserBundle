@@ -5,12 +5,7 @@ parameters:
     ccdn_user_user.user.manager.class:              CCDNUser\UserBundle\Manager\UserManager
     
     ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
-    
-    ccdn_user_user.listener.referer.class:          CCDNUser\UserBundle\Listener\RefererListener
-    
-    ccdn_user_user.login_success_handler.class:     CCDNUser\UserBundle\Service\LoginSuccessHandler
-    ccdn_user_user.logout_success_handler.class:    CCDNUser\UserBundle\Service\LogoutSuccessHandler
-    
+        
     ccdn_user_user.dashboard.integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
     
 services:
@@ -40,29 +35,6 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ccdn_user_registration }
-
-    #
-    # Referer Listener.
-    #
-    ccdn_user_user.listener.referer:
-        class: %ccdn_user_user.listener.referer.class%
-        arguments: [@router, @service_container]
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
-
-    #
-    # Login/Logout Success Handlers.
-    #
-    ccdn_user_user.login_success_handler:
-        class:  %ccdn_user_user.login_success_handler.class%
-        arguments:  [@router, @security.context]
-        tags:
-            - { name: 'monolog.logger', channel: 'security' }
-    ccdn_user_user.logout_success_handler:
-        class:  %ccdn_user_user.logout_success_handler.class%
-        arguments:  [@router]
-        tags:
-            - { name: 'monolog.logger', channel: 'security' }
             
     #
     # Dashboard Integrator.
