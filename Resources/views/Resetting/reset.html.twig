@@ -8,15 +8,15 @@
 
 {% block sidebar %}
 	{{ parent() }}
-	
+
 	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-	
+
 {% endblock %}
 
 {% block body %}
 
 	{%- spaceless -%}
-	
+
 	{%- for key, message in app.session.getFlashes() -%}
 	<div class="bg_flash_message">
 		<div class="flash_{{- key -}}">
@@ -26,13 +26,13 @@
 	{%- endfor -%}
 
 	<h2>{{- 'title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-	
+
 	{%- form_theme form param('ccdn_user_user.resetting.reset.form_theme') -%}
 	<form action="{{- path('fos_user_resetting_reset', {'token': token}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 		<fieldset>
-		
+
 			{{- form_errors(form) -}}
-		
+
 			<div class="control-group{{- (form.new.first.vars.errors|length > 0) ? ' error': '' -}}">
 				{{- form_label(form.new.first, null, { 'label': 'fos_user_change_password_form_new_first' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
@@ -40,7 +40,7 @@
 					{{- form_widget(form.new.first) -}}
 				</div>
 			</div>
-		
+
 			<div class="control-group{{- (form.new.second.vars.errors|length > 0) ? ' error': '' -}}">
 				{{- form_label(form.new.second, null, { 'label': 'fos_user_resetting_form_new_second' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
@@ -48,14 +48,14 @@
 					{{- form_widget(form.new.second) -}}
 				</div>
 			</div>
-		
+
 			<div class="form-actions">
 		        <input type="submit" class="btn btn-primary" value="{{- 'resetting.reset.submit'|trans({}, 'FOSUserBundle') -}}">
 			</div>
-		
+
 		</fieldset>
 	</form>
 
 	{%- endspaceless -%}
-	
+
 {% endblock body %}

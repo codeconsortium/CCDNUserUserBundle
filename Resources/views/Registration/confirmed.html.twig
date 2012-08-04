@@ -8,9 +8,9 @@
 
 {% block sidebar %}
 	{{ parent() }}
-	
+
 	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-	
+
 {% endblock %}
 
 {% block body %}
@@ -26,7 +26,7 @@
 	{%- endfor -%}
 
 	<h2>{{- 'title.register.activation.confirmed'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-	
+
 	<div class="well">
 	    <p>{{- 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') -}}</p>
 	    {%- if app.session is not empty -%}
@@ -36,6 +36,5 @@
 	</div>
 
 	{%- endspaceless -%}
-	
-{% endblock body %}
 
+{% endblock body %}

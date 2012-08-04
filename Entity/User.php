@@ -3,8 +3,8 @@
 /*
  * This file is part of the CCDN UserBundle
  *
- * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/> 
- * 
+ * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/>
+ *
  * Available on github <http://www.github.com/codeconsortium/>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -32,20 +32,20 @@ class User extends BaseUser
      */
     protected $id;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=true)
-	 */
-	protected $registered_date;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $registered_date;
 
-	/**
-	 * @ORM\OneToOne(targetEntity="CCDNUser\ProfileBundle\Entity\Profile", cascade={"persist", "remove", "merge"}, orphanRemoval=true)
-	 */
-	protected $profile;
-	
-	/**
-	 * @Recaptcha\True(groups={"Registration"})
-	 */
-	public $recaptcha;
+    /**
+     * @ORM\OneToOne(targetEntity="CCDNUser\ProfileBundle\Entity\Profile", cascade={"persist", "remove", "merge"}, orphanRemoval=true)
+     */
+    protected $profile;
+
+    /**
+     * @Recaptcha\True(groups={"Registration"})
+     */
+    public $recaptcha;
 
     public function __construct()
     {
@@ -56,7 +56,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,16 +76,15 @@ class User extends BaseUser
     /**
      * Get profile
      *
-     * @return CCDNUser\ProfileBundle\Entity\Profile 
+     * @return CCDNUser\ProfileBundle\Entity\Profile
      */
     public function getProfile()
     {
-		if (empty($this->profile))
-		{
-			$this->profile = new Profile();
-			$this->profile->setUser($this);
-		}
-		
+        if (empty($this->profile)) {
+            $this->profile = new Profile();
+            $this->profile->setUser($this);
+        }
+
         return $this->profile;
     }
 
@@ -102,22 +101,22 @@ class User extends BaseUser
     /**
      * Get registered_date
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getRegisteredDate()
     {
         return $this->registered_date;
     }
 
-	/*
-	 *
-	 *
-	 *
-	 * FACEBOOK STUFF
-	 *
-	 *
-	 */
-	
+    /*
+     *
+     *
+     *
+     * FACEBOOK STUFF
+     *
+     *
+     */
+
     /**
      * @var string
      *
@@ -139,7 +138,6 @@ class User extends BaseUser
      */
     protected $facebookId;
 
-
     public function serialize()
     {
         return serialize(array($this->facebookId, parent::serialize()));
@@ -150,8 +148,6 @@ class User extends BaseUser
         list($this->facebookId, $parentData) = unserialize($data);
         parent::unserialize($parentData);
     }
-
-
 
     /**
      * @return string
@@ -195,7 +191,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $facebookId
+     * @param  string $facebookId
      * @return void
      */
     public function setFacebookId($facebookId)

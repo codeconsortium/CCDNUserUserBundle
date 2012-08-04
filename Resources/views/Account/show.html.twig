@@ -16,7 +16,7 @@
 {% block body %}
 
 	{%- spaceless -%}
-	
+
 	{%- for key, message in app.session.getFlashes() -%}
 	<div class="bg_flash_message">
 		<div class="flash_{{- key -}}">
@@ -28,22 +28,22 @@
 	<h2>{{- user.getUsername |capitalize -}}</h2>
 
 	<br>
-	
+
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="{{- path('cc_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.account.overview' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		<li><a href="{{- path('fos_user_change_password') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.password_change' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
-	</ul>		
+	</ul>
 
 	<div class="btn-toolbar pull-right">
 		<a class="btn btn-danger" href="{{- path('cc_user_account_edit') -}}">{{- 'link.profile.edit' |trans({}, 'CCDNUserProfileBundle') -}}</a>
 	</div>
-	
+
 	<table class="table table-striped table-bordered">
 		<tbody>
 			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
 				<td class="right">{{- 'profile.show.username'|trans({}, 'FOSUserBundle') -}}:</td>
 				<td class="left">{{- user.username -}}</td>
-			</tr>	
+			</tr>
 			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
 				<td class="right">{{- 'profile.show.email'|trans({}, 'FOSUserBundle') -}}:</td>
 				<td class="left">{{- user.email -}}</td>
@@ -58,5 +58,5 @@
 	</table>
 
 	{%- endspaceless -%}
-	
+
 {% endblock body %}

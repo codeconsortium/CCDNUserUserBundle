@@ -8,15 +8,15 @@
 
 {% block sidebar %}
 	{{ parent() }}
-	
+
 	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-	
+
 {% endblock %}
 
 {% block body %}
-	
+
 	{%- spaceless -%}
-	
+
 	{%- for key, message in app.session.getFlashes() -%}
 	<div class="bg_flash_message">
 		<div class="flash_{{- key -}}">
@@ -26,27 +26,27 @@
 	{%- endfor -%}
 
 	<h2>{{- 'title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-	
+
 	<form action="{{- path('fos_user_resetting_send_email') -}}" method="POST" class="form-horizontal">
 		<fieldset>
 			{%- if invalid_username is defined -%}
 				<p>{{- 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') -}}</p>
 	        {%- endif -%}
-		
+
 			<div class="control-group">
 				<label for="username" class="control-label">{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}</label>
 				<div class="controls row-fluid">
 					<input type="text" id="username" name="username" class="input-xlarge span8">
 				</div>
 			</div>
-		
+
 			<div class="form-actions">
 		        <input type="submit" class="btn btn-primary" value="{{- 'resetting.request.submit'|trans({}, 'FOSUserBundle') -}}">
 			</div>
-		
+
 		</fieldset>
 	</form>
-	
+
 	{%- endspaceless -%}
 
 {% endblock body %}

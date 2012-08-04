@@ -3,11 +3,11 @@ parameters:
     ccdn_user_user.user.repository.class:           CCDNUser\UserBundle\Repository\UserRepository
 
     ccdn_user_user.user.manager.class:              CCDNUser\UserBundle\Manager\UserManager
-    
+
     ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
-        
+
     ccdn_user_user.dashboard.integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
-    
+
 services:
 
     #
@@ -16,7 +16,7 @@ services:
     ccdn_user_user.user.repository:
         class: %ccdn_user_user.user.repository.class%
         factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository 
+        factory_method: getRepository
         arguments:
             - 'CCDNUser\UserBundle\Entity\User'
 
@@ -26,7 +26,7 @@ services:
     ccdn_user_user.user.manager:
         class: %ccdn_user_user.user.manager.class%
         arguments:  [@doctrine, @service_container]
-            
+
     #
     # Registration Forms.
     #
@@ -35,7 +35,7 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ccdn_user_registration }
-            
+
     #
     # Dashboard Integrator.
     #
