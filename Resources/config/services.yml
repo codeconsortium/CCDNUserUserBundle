@@ -25,7 +25,7 @@ services:
     #
     ccdn_user_user.user.manager:
         class: %ccdn_user_user.user.manager.class%
-        arguments:  [@doctrine, @service_container]
+        arguments:  [@doctrine]
 
     #
     # Registration Forms.

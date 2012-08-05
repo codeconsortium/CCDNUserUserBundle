@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the CCDN UserBundle
+ * This file is part of the CCDNUser UserBundle
  *
  * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/>
  *
@@ -13,8 +13,8 @@
 
 namespace CCDNUser\UserBundle\Manager;
 
-use CCDNComponent\CommonBundle\Manager\ManagerInterface;
-use CCDNComponent\CommonBundle\Manager\BaseManager;
+use CCDNUser\UserBundle\Manager\ManagerInterface;
+use CCDNUser\UserBundle\Manager\BaseManager;
 
 /**
  *
@@ -34,7 +34,7 @@ class UserManager extends BaseManager implements ManagerInterface
     {
         // insert a new row
         $this->persist($account);
-        $this->flushNow();
+        $this->flush();
 
         return $this;
     }
@@ -49,7 +49,7 @@ class UserManager extends BaseManager implements ManagerInterface
     {
         // update the record
         $this->persist($account);
-        $this->flushNow();
+        $this->flush();
 
         return $this;
     }
