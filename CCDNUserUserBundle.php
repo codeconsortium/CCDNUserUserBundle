@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the CCDN UserBundle
+ * This file is part of the CCDNUser UserBundle
  *
  * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/>
  *

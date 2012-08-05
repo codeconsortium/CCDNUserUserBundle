@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the CCDN UserBundle
+ * This file is part of the CCDNUser UserBundle
  *
  * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/>
  *
@@ -25,6 +25,7 @@ use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
  */
 class User extends BaseUser
 {
+	
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -47,6 +48,10 @@ class User extends BaseUser
      */
     public $recaptcha;
 
+	/**
+	 *
+	 * @access public
+	 */
     public function __construct()
     {
         parent::__construct();
