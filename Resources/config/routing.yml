@@ -4,11 +4,11 @@ fos_user_security:
 #
 # Account.
 #
-cc_user_account_show:
+ccdn_user_user_account_show:
     pattern: /{_locale}/user/my/account
     defaults: { _controller: CCDNUserUserBundle:Account:show }
 
-cc_user_account_edit:
+ccdn_user_user_account_edit:
     pattern: /{_locale}/user/my/account/edit
     defaults: { _controller: CCDNUserUserBundle:Account:edit }
 

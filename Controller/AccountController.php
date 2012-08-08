@@ -79,7 +79,7 @@ class AccountController extends ContainerAware
         if ($process) {
             $this->setFlash('fos_user_success', $this->container->get('translator')->trans('flash.account.updated', array(), 'CCDNUserUserBundle'));
 
-            return new RedirectResponse($this->container->get('router')->generate('cc_user_account_show'));
+            return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_account_show'));
         }
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Account:edit.html.'.$this->container->getParameter('fos_user.template.engine'), array(
