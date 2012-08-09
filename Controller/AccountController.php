@@ -34,8 +34,7 @@ class AccountController extends ContainerAware
     /**
      *
      * @access public
-     * @param  int $user_id
-     * @return RedirectResponse|RenderResponse
+     * @return RenderResponse
      */
     public function showAction()
     {
@@ -91,7 +90,8 @@ class AccountController extends ContainerAware
     /**
      *
      * @access protected
-     * @return string
+	 * @param String $action, String $value
+     * @return String
      */
     protected function setFlash($action, $value)
     {

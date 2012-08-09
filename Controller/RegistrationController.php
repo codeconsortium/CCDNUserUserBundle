@@ -31,7 +31,7 @@ class RegistrationController extends BaseController
 	/**
 	 *
 	 * @access public
-	 * @return RedirectResponse
+	 * @return RedirectResponse|RenderResponse
 	 */
     public function registerAction()
     {

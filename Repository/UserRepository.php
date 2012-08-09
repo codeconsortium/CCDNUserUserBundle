@@ -61,7 +61,7 @@ class UserRepository extends EntityRepository
             ->createQuery('
                 SELECT u, p FROM CCDNUserUserBundle:User u
                 INNER JOIN u.profile p
-                WHERE u.username LIKE :filter AND u.locked = 0 AND u.enabled = 1
+                WHERE u.username LIKE :filter AND u.enabled = 1
                 GROUP BY u.id
                 ORDER BY u.username ASC')
             ->setParameter('filter', $filter . '%');
