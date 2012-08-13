@@ -76,7 +76,7 @@ class AccountController extends ContainerAware
         $process = $formHandler->process($user);
 
         if ($process) {
-            $this->setFlash('fos_user_success', $this->container->get('translator')->trans('flash.account.updated', array(), 'CCDNUserUserBundle'));
+            $this->setFlash('fos_user_success', $this->container->get('translator')->trans('ccdn_user_user.flash.account.updated', array(), 'CCDNUserUserBundle'));
 
             return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_account_show'));
         }

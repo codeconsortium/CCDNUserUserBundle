@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- 'title.login'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'ccdn_user_user.title.login'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -57,7 +57,7 @@
 
 			<div class="form-actions">
 				<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}">
-				&nbsp;&#124;&nbsp;<a href="{{- path('fos_user_resetting_request') -}}">{{- 'link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}</a>
+				&nbsp;&#124;&nbsp;<a href="{{- path('fos_user_resetting_request') -}}">{{- 'ccdn_user_user.link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}</a>
 				{%- if param('ccdn_user_user.security.login.support_facebook') -%}
                           <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
 				{%- endif -%}

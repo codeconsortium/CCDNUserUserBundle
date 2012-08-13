@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- 'title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'ccdn_user_user.title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -25,7 +25,7 @@
 	</div>
 	{%- endfor -%}
 
-	<h2>{{- 'title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h2>
+	<h2>{{- 'ccdn_user_user.title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 
 	<form action="{{- path('fos_user_resetting_send_email') -}}" method="POST" class="form-horizontal">
 		<fieldset>

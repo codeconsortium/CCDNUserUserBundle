@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- 'title.account.edit' |trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'ccdn_user_user.title.account.edit' |trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -30,8 +30,8 @@
 	<br>
 
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.account.overview' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
-		<li><a href="{{- path('fos_user_change_password') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.password_change' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li class="active"><a href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.link.account.overview' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li><a href="{{- path('fos_user_change_password') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.link.password.change' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 	</ul>
 
 	{%- form_theme form param('ccdn_user_user.account.edit.form_theme') -%}
@@ -67,7 +67,8 @@
 			</div>
 
 			<div class="form-actions">
-		        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">
+		        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">&nbsp;
+				<a class="btn" href="{{- path('ccdn_user_user_account_show') -}}">{{- 'ccdn_user_user.form.button.cancel' |trans({}, 'CCDNUserUserBundle') -}}
 			</div>
 
 		</fieldset>

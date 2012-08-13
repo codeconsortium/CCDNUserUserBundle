@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- 'title.account.show' |trans({'%user_name%': user.getUsername }, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'ccdn_user_user.title.account.show' |trans({'%user_name%': user.getUsername }, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -30,12 +30,12 @@
 	<br>
 
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.account.overview' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
-		<li><a href="{{- path('fos_user_change_password') -}}"><i class="icon-cog"></i>&nbsp;{{- 'link.password_change' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li class="active"><a href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.link.account.overview' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li><a href="{{- path('fos_user_change_password') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.link.password.change' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 	</ul>
 
 	<div class="btn-toolbar pull-right">
-		<a class="btn btn-danger" href="{{- path('ccdn_user_user_account_edit') -}}">{{- 'link.profile.edit' |trans({}, 'CCDNUserProfileBundle') -}}</a>
+		<a class="btn btn-danger" href="{{- path('ccdn_user_user_account_edit') -}}">{{- 'ccdn_user_user.link.account.edit' |trans({}, 'CCDNUserUserBundle') -}}</a>
 	</div>
 
 	<table class="table table-striped table-bordered">

@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- 'title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'ccdn_user_user.title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -25,7 +25,7 @@
 	</div>
 	{%- endfor -%}
 
-	<h2>{{- 'title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') -}}</h2>
+	<h2>{{- 'ccdn_user_user.title.reset.check_mail'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 
 	<div class="well">
 		<p>{{- 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') -}}</p>

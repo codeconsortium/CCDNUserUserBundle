@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'ccdn_user_user.title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -25,7 +25,7 @@
 	</div>
 	{%- endfor -%}
 
-	<h2>{{- 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}</h2>
+	<h2>{{- 'ccdn_user_user.title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 
 	<div class="well">
 		<p>{{- 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') -}}</p>

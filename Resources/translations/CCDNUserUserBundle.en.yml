@@ -1,32 +1,57 @@
-title.login: Login
+#
+# Page Titles.
+#
+ccdn_user_user.title.login: 'Login'
+ccdn_user_user.title.account.edit: "Edit Account."
+ccdn_user_user.title.account.show: "%user_name%'s Account."
+ccdn_user_user.title.password.change: 'Change Password'
+ccdn_user_user.title.register: 'Register'
+ccdn_user_user.title.register.activation.pending: 'Activate Your Account'
+ccdn_user_user.title.register.activation.confirmed: 'Activation Complete'
+ccdn_user_user.title.reset.request: 'Request Password Reset'
+ccdn_user_user.title.reset.check_mail: 'Password Reset Mail Sent'
+ccdn_user_user.title.reset.new_password: 'Reset Password'
 
-title.account.edit: "Edit Account."
-title.account.show: "%user_name%'s Account."
+#
+# Crumbs.
+#
 
-title.password.change: Change Password
+#
+# Flash Messages.
+#
+ccdn_user_user.flash.account.updated: 'Your account was updated.'
 
-title.register: Register
-title.register.activation.pending: Activate Your Account
-title.register.activation.confirmed: Activation Complete
+#
+# Sidebar.
+#
+ccdn_user_user.sidebar.header.navigation: 'Navigation'
+ccdn_user_user.sidebar.link.account.view: 'Account'
+ccdn_user_user.sidebar.link.profile.view: 'Profile'
+ccdn_user_user.sidebar.link.login: 'Login'
+ccdn_user_user.sidebar.link.register: 'Register'
+ccdn_user_user.sidebar.link.reset: 'Forgot Password'
+ccdn_user_user.sidebar.link.members: 'Members'
 
-title.reset.request: Request Password Reset
-title.reset.check_mail: Password Reset Mail Sent
-title.reset.new_password: Reset Password
+#
+# Link Labels.
+#
+ccdn_user_user.link.account.overview: 'Account'
+ccdn_user_user.link.account.edit: 'Edit Account'
+ccdn_user_user.link.password.change: 'Change Password'
+ccdn_user_user.link.password.reset: 'Forgot Password?'
 
-sidebar.header.navigation: 'Navigation'
-sidebar.link.account.view: 'Account'
-sidebar.link.profile.view: 'Profile'
-sidebar.link.login: 'Login'
-sidebar.link.register: 'Register'
-sidebar.link.reset: 'Forgot Password'
+#
+# Forms.
+#
+ccdn_user_user.form.field.required: 'This field is required'
+ccdn_user_user.form.label.verify_password: 'Retype Password: '
+ccdn_user_user.form.label.recaptcha: 'Type the picture text: '
+ccdn_user_user.form.button.cancel: 'Cancel'
 
-link.account.overview: Account
-link.account.edit: Edit Account
-link.password_change: Change Password
-link.password.reset: Forgot Password?
+#
+# Table Labels.
+#
 
-form.field.required: 'This field is required'
-form.label.verify_password: 'Retype Password: '
-form.label.recaptcha: 'Type the picture text: '
-
-flash.account.updated: 'Your account was updated.'
+#
+# Generic.
+#
