@@ -68,7 +68,7 @@
 			</div>
 
 			<div class="control-group{{- (form.recaptcha.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.recaptcha, null, { 'label': 'ccdn_user_user.form.label.recaptcha' |trans({}, 'CCDNUserUserBundle')}) -}}
+				{#{{- form_label(form.recaptcha, null, { 'label': 'ccdn_user_user.form.label.recaptcha' |trans({}, 'CCDNUserUserBundle')}) -}}#}
 				<div class="controls row-fluid">
 					{{- form_errors(form.recaptcha) -}}
 					{%- form_theme form 'EWZRecaptchaBundle:Form:ewz_recaptcha_widget.html.twig' -%}

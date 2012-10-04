@@ -16,6 +16,9 @@ namespace CCDNUser\UserBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
+
+
 /**
  *
  * @author Reece Fowell <reece@codeconsortium.com>
@@ -51,11 +54,14 @@ class RegistrationFormType extends AbstractType
             ->add('email', 'email')
             ->add('plainPassword', 'repeated', array('type' => 'password'))
             ->add('recaptcha', 'ewz_recaptcha', array(
+                //'attr' => array(
+                //    'options' => array(
+                //        'theme' => 'clean')
+                //),
                 'property_path' => false,
-                'attr' => array(
-                    'options' => array(
-                        'theme' => 'clean')
-                ),
+		        //'constraints'   => array(
+		        //    new True()
+		        //)
             ));
     }
 
