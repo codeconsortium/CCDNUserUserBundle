@@ -39,7 +39,7 @@ class User extends BaseUser
     protected $registered_date;
 
     /**
-     * @ORM\OneToOne(targetEntity="CCDNUser\ProfileBundle\Entity\Profile", cascade={"remove"}, orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity="CCDNUser\ProfileBundle\Entity\Profile", cascade={"persist", "remove"}, orphanRemoval=true)
 	 * @ORM\JoinColumn(name="fk_profile_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $profile;

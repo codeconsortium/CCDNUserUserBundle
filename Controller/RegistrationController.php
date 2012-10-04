@@ -52,10 +52,13 @@ class RegistrationController extends BaseController
             $profile = new Profile();
             $profile->setUser($user);
 
+            $em = $this->container->get('doctrine')->getEntityManager();
+            $em->persist($profile);
+            $em->flush();
+
             $user->setProfile($profile);
             $user->setRegisteredDate(new \DateTime());
 
-            $em = $this->container->get('doctrine')->getEntityManager();
             $em->persist($user);
             $em->flush();
         }
