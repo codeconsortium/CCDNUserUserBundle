@@ -39,6 +39,7 @@ ccdn_user_user.link.account.overview: 'Account'
 ccdn_user_user.link.account.edit: 'Edit Account'
 ccdn_user_user.link.password.change: 'Change Password'
 ccdn_user_user.link.password.reset: 'Forgot Password?'
+ccdn_user_user.link.register: 'Register'
 
 #
 # Forms.
@@ -55,3 +56,4 @@ ccdn_user_user.form.button.cancel: 'Cancel'
 #
 # Generic.
 #
+ccdn_user_user.login.new: 'New? Why not Register?'
