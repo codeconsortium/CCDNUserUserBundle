@@ -57,6 +57,8 @@ class CCDNUserUserExtension extends Extension
         $this->getResettingSection($container, $config);
         $this->getSecuritySection($container, $config);
         $this->getSidebarSection($container, $config);
+        $this->getLegalSection($container, $config);
+
     }
 
     /**
@@ -136,6 +138,32 @@ class CCDNUserUserExtension extends Extension
     {
         $container->setParameter('ccdn_user_user.sidebar.members_route', $config['sidebar']['members_route']);
         $container->setParameter('ccdn_user_user.sidebar.profile_route', $config['sidebar']['profile_route']);
+
+    }
+
+    /**
+     *
+     * @access private
+     * @param $container, $config
+     */
+    private function getLegalSection($container, $config)
+    {
+        $container->setParameter('ccdn_user_user.legal_documents.terms_conditions', $config['legal_documents']['terms_conditions']);
+        $container->setParameter('ccdn_user_user.legal_documents.copyright_notice', $config['legal_documents']['copyright_notice']);
+        $container->setParameter('ccdn_user_user.legal_documents.privacy_policy', $config['legal_documents']['privacy_policy']);
+        $container->setParameter('ccdn_user_user.legal_documents.disclaimer', $config['legal_documents']['disclaimer']);
+
+        $container->setParameter('ccdn_user_user.legal_identification.company_name', $config['legal_identification']['company_name']);
+        $container->setParameter('ccdn_user_user.legal_identification.company_address', $config['legal_identification']['company_address']);
+        $container->setParameter('ccdn_user_user.legal_identification.company_registered_number', $config['legal_identification']['company_registered_number']);
+        $container->setParameter('ccdn_user_user.legal_identification.company_registered_house', $config['legal_identification']['company_registered_house']);
+        $container->setParameter('ccdn_user_user.legal_identification.copyright_year', $config['legal_identification']['copyright_year']);
+
+        $container->setParameter('ccdn_user_user.legal_identification.show_company_name', $config['legal_identification']['show_company_name']);
+        $container->setParameter('ccdn_user_user.legal_identification.show_company_address', $config['legal_identification']['show_company_address']);
+        $container->setParameter('ccdn_user_user.legal_identification.show_company_registered_number', $config['legal_identification']['show_company_registered_number']);
+        $container->setParameter('ccdn_user_user.legal_identification.show_company_registered_house', $config['legal_identification']['show_company_registered_house']);
+        $container->setParameter('ccdn_user_user.legal_identification.show_copyright_year', $config['legal_identification']['show_copyright_year']);
 
     }
 

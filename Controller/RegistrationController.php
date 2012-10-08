@@ -27,6 +27,41 @@ use CCDNUser\ProfileBundle\Entity\Profile;
  */
 class RegistrationController extends BaseController
 {
+
+	/**
+	 *
+	 * @access public
+	 * @return RedirectResponse|RenderResponse
+	 */
+	public function registerTermsAction()
+	{
+		
+		$request = $this->container->get('request');
+		
+		if ($request->request->get('accept_terms'))
+		{
+			$this->container->get('session')->set('accepted_terms', true);
+			
+            return new RedirectResponse($this->container->get('router')->generate('fos_user_registration_register'));
+		} else {
+			
+			// Warn user they must accept terms if this is second or more attempt.
+			if ($request->getMethod() == 'POST')
+			{
+	            $this->container->get('session')->setFlash('warning', $this->container->get('translator')->trans('ccdn_user_user.flash.registration.terms.must_accept', array(), 'CCDNUserUserBundle'));
+			}
+			
+			$crumbs = $this->container->get('ccdn_component_crumb.trail');
+            //	->add($this->container->get('translator')->trans('ccdn_user_member.crumbs.members', array(), 'CCDNUserMemberBundle'), $this->container->get('router')->generate('ccdn_user_member_index', array()), "users")
+            //	->add($this->container->get('translator')->trans('ccdn_user_profile.crumbs.profile', array('%user_name%' => ucfirst($user->getUsername())), 'CCDNUserProfileBundle'), $this->container->get('router')->generate('ccdn_user_profile_show_by_id', array('userId' => $user->getId())), "user");
+
+	        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Registration:terms.html.' . $this->getEngine(), array(
+	            'crumbs' => $crumbs,
+	        ));	
+
+		}		
+	}
+	
 	
 	/**
 	 *
@@ -35,35 +70,37 @@ class RegistrationController extends BaseController
 	 */
     public function registerAction()
     {
-        // work on previous action
-        $response = parent::registerAction();
+		$session = $this->container->get('session');
 
-        // Ensure that a redirect response was given, this means
-        // the form was successfully processed, otherwise a rendered
-        // response is given, meaning the form is presented awaiting
-        // input or ammendments to bad form data.
-        if ($response instanceof RedirectResponse) {
-            $user = $this->container->get("security.context")->getToken()->getUser();
+		if ($this->container->get('security.context')->isGranted('ROLE_USER'))
+		{
+       		$this->container->get('session')->setFlash('warning', $this->container->get('translator')->trans('ccdn_user_user.flash.registration.cannot_be_logged_in', array(), 'CCDNUserUserBundle'));
 
-            if ( ! is_object($user) || ! $user instanceof UserInterface) {
-                throw new NotFoundHttpException('the user account was not created successfully.');
-            }
+       		return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_account_show'));
+		}
+						
+		if ($session->has('accepted_terms'))
+		{
+			if ($session->get('accepted_terms')) 
+			{
+        		return parent::registerAction();
+			} else {
+            	return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_registration_terms'));
+			}
+		} else {
+           	return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_registration_terms'));
+		}
+    }
 
-        //    $profile = new Profile();
-        //    $profile->setUser($user);
-        //
-        //    $em = $this->container->get('doctrine')->getEntityManager();
-        //    $em->persist($profile);
-        //    $em->flush();
-        //
-        //    $user->setProfile($profile);
-        //    $user->setRegisteredDate(new \DateTime());
-        //
-        //    $em->persist($user);
-        //    $em->flush();
-        }
-
-        return $response;
+	
+    /**
+     *
+     * @access protected
+     * @return String
+     */
+    protected function getEngine()
+    {
+        return $this->container->getParameter('ccdn_user_user.template.engine');
     }
 
 }

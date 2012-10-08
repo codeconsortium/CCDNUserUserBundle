@@ -27,6 +27,10 @@ fos_user_profile_show:
 #
 # Registration.
 #
+ccdn_user_user_registration_terms:
+    pattern: /{_locale}/register/terms
+    defaults: { _controller:FOSUserBundle:Registration:registerTerms, _locale: en }
+    
 fos_user_registration_register:
     pattern: /{_locale}/register
     defaults: { _controller:FOSUserBundle:Registration:register, _locale: en }

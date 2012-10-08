@@ -17,13 +17,7 @@
 
 	{%- spaceless -%}
 
-	{%- for key, message in app.session.getFlashes() -%}
-	<div class="bg_flash_message">
-		<div class="flash_{{- key -}}">
-		    {{- message | trans({}, 'FOSUserBundle') -}}
-		</div>
-	</div>
-	{%- endfor -%}
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
 	<div class="pull-left" style="width:50%; padding:30px;">
 		<h2>{{- 'ccdn_user_user.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h2><hr>
@@ -39,12 +33,12 @@
 			</ul>
 		</p>
 		<hr>
-		<a class="btn btn-primary btn-large" href="{{- path('fos_user_registration_register') -}}"><i class="icon-hand-right icon-white"></i>&nbsp;&nbsp;{{- 'ccdn_user_user.link.register'|trans({}, 'CCDNUserUserBundle') -}}</a>
+		<a class="btn btn-primary btn-large" href="{{- path('ccdn_user_user_registration_terms') -}}"><i class="icon-hand-right icon-white"></i>&nbsp;&nbsp;{{- 'ccdn_user_user.link.register'|trans({}, 'CCDNUserUserBundle') -}}</a>
 	</div>
 	
 	
 	<div class="pull-right" style="width:40%; padding:30px;">
-		<form action="{{- path("fos_user_security_check") -}}" method="post" class="form-horizontal">
+		<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-horizontal">
 			<fieldset>				
 				<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2><hr>
 

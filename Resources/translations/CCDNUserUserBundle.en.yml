@@ -5,6 +5,7 @@ ccdn_user_user.title.login: 'Login'
 ccdn_user_user.title.account.edit: "Edit Account."
 ccdn_user_user.title.account.show: "%user_name%'s Account."
 ccdn_user_user.title.password.change: 'Change Password'
+ccdn_user_user.title.register.terms: 'Terms & Conditions'
 ccdn_user_user.title.register: 'Register'
 ccdn_user_user.title.register.activation.pending: 'Activate Your Account'
 ccdn_user_user.title.register.activation.confirmed: 'Activation Complete'
@@ -20,6 +21,8 @@ ccdn_user_user.title.reset.new_password: 'Reset Password'
 # Flash Messages.
 #
 ccdn_user_user.flash.account.updated: 'Your account was updated.'
+ccdn_user_user.flash.registration.terms.must_accept: 'You must accept the terms and conditions before you can register.'
+ccdn_user_user.flash.registration.cannot_be_logged_in: 'You cannot register an account while still logged in. Please log out first before continuing.'
 
 #
 # Sidebar.

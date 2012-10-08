@@ -17,13 +17,7 @@
 
 	{%- spaceless -%}
 
-	{%- for key, message in app.session.getFlashes() -%}
-	<div class="bg_flash_message">
-		<div class="flash_{{- key -}}">
-		    {{- message | trans({}, 'FOSUserBundle') -}}
-		</div>
-	</div>
-	{%- endfor -%}
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
 	<h2>{{- 'ccdn_user_user.title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 

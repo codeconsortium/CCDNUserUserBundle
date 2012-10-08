@@ -59,6 +59,7 @@ class Configuration implements ConfigurationInterface
         $this->addResettingSection($rootNode);
         $this->addSecuritySection($rootNode);
         $this->addSidebarSection($rootNode);
+        $this->addLegalSection($rootNode);
 
         return $treeBuilder;
     }
@@ -239,6 +240,49 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('members_route')->defaultValue('ccdn_user_member_index')->end()
                         ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show')->end()
+                    ->end()
+                ->end()
+            ->end();
+    }
+
+	
+    /**
+     *
+     * @access private
+     * @param ArrayNodeDefinition $node
+     */
+    private function addLegalSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('legal_documents')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->scalarNode('terms_conditions')->defaultValue('CCDNUserUserBundle:Legal:terms_conditions.txt.twig')->end()
+                        ->scalarNode('copyright_notice')->defaultValue('CCDNUserUserBundle:Legal:copyright_notice.txt.twig')->end()
+                        ->scalarNode('privacy_policy')->defaultValue('CCDNUserUserBundle:Legal:privacy_policy.txt.twig')->end()
+                        ->scalarNode('disclaimer')->defaultValue('CCDNUserUserBundle:Legal:disclaimer.txt.twig')->end()
+					->end()
+				->end()
+				->arrayNode('legal_identification')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+					->children()
+						->scalarNode('company_name')->defaultValue('')->end()
+						->scalarNode('show_company_name')->defaultValue(false)->end()
+
+						->scalarNode('company_address')->defaultValue('')->end()
+						->scalarNode('show_company_address')->defaultValue(false)->end()
+
+						->scalarNode('company_registered_number')->defaultValue('')->end()
+						->scalarNode('show_company_registered_number')->defaultValue(false)->end()
+
+						->scalarNode('company_registered_house')->defaultValue('')->end()
+						->scalarNode('show_company_registered_house')->defaultValue(false)->end()
+
+						->scalarNode('copyright_year')->defaultValue('')->end()
+						->scalarNode('show_copyright_year')->defaultValue(false)->end()
                     ->end()
                 ->end()
             ->end();
