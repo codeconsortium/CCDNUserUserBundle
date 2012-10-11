@@ -34,9 +34,9 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(name="registered_date", type="datetime", nullable=true)
      */
-    protected $registered_date;
+    protected $registeredDate;
 
     /**
      * @ORM\OneToOne(targetEntity="CCDNUser\ProfileBundle\Entity\Profile", cascade={"persist", "remove"}, orphanRemoval=true)
@@ -95,23 +95,23 @@ class User extends BaseUser
     }
 
     /**
-     * Set registered_date
+     * Set registeredDate
      *
      * @param datetime $registeredDate
      */
     public function setRegisteredDate($registeredDate)
     {
-        $this->registered_date = $registeredDate;
+        $this->registeredDate = $registeredDate;
     }
 
     /**
-     * Get registered_date
+     * Get registeredDate
      *
      * @return datetime
      */
     public function getRegisteredDate()
     {
-        return $this->registered_date;
+        return $this->registeredDate;
     }
 
     /*
