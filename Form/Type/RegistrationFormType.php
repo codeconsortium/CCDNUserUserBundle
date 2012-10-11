@@ -54,11 +54,11 @@ class RegistrationFormType extends AbstractType
             ->add('email', 'email')
             ->add('plainPassword', 'repeated', array('type' => 'password'))
             ->add('recaptcha', 'ewz_recaptcha', array(
-                //'attr' => array(
-                //    'options' => array(
-                //        'theme' => 'clean')
-                //),
                 'property_path' => false,
+                'attr' => array(
+                    'options' => array(
+                        'theme' => 'clean')
+                ),
 		        //'constraints'   => array(
 		        //    new True()
 		        //)
