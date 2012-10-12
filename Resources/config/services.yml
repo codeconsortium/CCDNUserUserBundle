@@ -1,20 +1,20 @@
 parameters:
 
-    ccdn_user_user.user.repository.class:           CCDNUser\UserBundle\Repository\UserRepository
+    ccdn_user_user.repository.user.class:                   CCDNUser\UserBundle\Repository\UserRepository
 
-    ccdn_user_user.user.manager.class:              CCDNUser\UserBundle\Manager\UserManager
+    ccdn_user_user.manager.user.class:                      CCDNUser\UserBundle\Manager\UserManager
 
-    ccdn_user_user.registration.form.type:          CCDNUser\UserBundle\Form\Type\RegistrationFormType
+    ccdn_user_user.form.type.registration:                  CCDNUser\UserBundle\Form\Type\RegistrationFormType
 
-    ccdn_user_user.dashboard.integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
+    ccdn_user_user.component.dashboard.integrator.class:    CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
 
 services:
 
     #
     # Repositories.
     #
-    ccdn_user_user.user.repository:
-        class: %ccdn_user_user.user.repository.class%
+    ccdn_user_user.repository.user:
+        class: %ccdn_user_user.repository.user.class%
         factory_service: doctrine.orm.default_entity_manager
         factory_method: getRepository
         arguments:
@@ -23,15 +23,15 @@ services:
     #
     # Managers.
     #
-    ccdn_user_user.user.manager:
-        class: %ccdn_user_user.user.manager.class%
+    ccdn_user_user.manager.user:
+        class: %ccdn_user_user.manager.user.class%
         arguments:  [@doctrine]
 
     #
     # Registration Forms.
     #
-    ccdn_user_user.registration.form.type:
-        class: %ccdn_user_user.registration.form.type%
+    ccdn_user_user.form.type.registration:
+        class: %ccdn_user_user.form.type.registration%
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ccdn_user_registration }
@@ -39,8 +39,8 @@ services:
     #
     # Dashboard Integrator.
     #
-    ccdn_user_user.dashboard.integrator:
-        class: %ccdn_user_user.dashboard.integrator.class%
+    ccdn_user_user.component.dashboard.integrator:
+        class: %ccdn_user_user.component.dashboard.integrator.class%
         arguments: [@service_container]
         tags:
             - { name: ccdn_component_dashboard.integrator }

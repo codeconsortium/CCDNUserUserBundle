@@ -128,7 +128,7 @@ class UserRepository extends EntityRepository
             ->createQuery('
                 SELECT u, p FROM CCDNUserUserBundle:User u
                 INNER JOIN u.profile p
-                WHERE u.registered_date > :date
+                WHERE u.registeredDate > :date
                 GROUP BY u.id
                 ORDER BY u.username ASC')
             ->setParameter('date', new \DateTime('-7 days'));
