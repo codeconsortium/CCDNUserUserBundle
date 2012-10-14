@@ -2,7 +2,7 @@
 	{%- set route = app.request.attributes.get('_route') -%}
 
 	<li class="nav-header">{{- 'ccdn_user_user.sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
-	<li><a href="{{- path(param('ccdn_user_user.sidebar.members_route')) -}}"><i class="icon-th-list"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.members' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+	<li><a href="{{- path(ccdn_user_user.sidebar.members_route) -}}"><i class="icon-th-list"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.members' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 	<li class="divider"></li>
 
 	{%- if is_granted("ROLE_USER") -%}
@@ -12,7 +12,7 @@
 		{%- else -%}
 		<li><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.account.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- endif -%}
-		<li><a rel="nofollow" href="{{- path(param('ccdn_user_user.sidebar.profile_route')) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.profile.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path(ccdn_user_user.sidebar.profile_route) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.profile.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 
 	{%- else -%}
 

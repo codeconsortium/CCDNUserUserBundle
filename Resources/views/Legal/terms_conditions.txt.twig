@@ -3,11 +3,11 @@ bound by the following terms and conditions of use, which together with our priv
 with you in relation to this website. If you disagree with any part of these terms and conditions, please do not 
 use our website.</p>
 
-<p>The term {{- param('ccdn_user_user.legal_identification.show_company_name') ? (" '" ~ param('ccdn_user_user.legal_identification.company_name') ~ "' or ") : ' ' -}} 
-'us' or 'we' refers to the owner of the website {%- if param('ccdn_user_user.legal_identification.show_company_address') %} whose registered office is 
-{{ param('ccdn_user_user.legal_identification.show_company_address') -}}{%- endif -%}.{%- if param('ccdn_user_user.legal_identification.show_company_registered_number') %} 
-Our company registration number is {{- param('ccdn_user_user.legal_identification.show_company_registered_number') -}}{%- if param('ccdn_user_user.legal_identification.show_company_registered_house') %} 
-{{ param('ccdn_user_user.legal_identification.company_registered_house') -}}{%- endif -%}.{%- endif %} The term 'you' refers to the user or viewer of our website.</p>
+<p>The term {{- ccdn_user_user.legal_identification.show_company_name ? (" '" ~ ccdn_user_user.legal_identification.company_name ~ "' or ") : ' ' -}} 
+'us' or 'we' refers to the owner of the website {%- if ccdn_user_user.legal_identification.show_company_address %} whose registered office is 
+{{ ccdn_user_user.legal_identification.show_company_address -}}{%- endif -%}.{%- if ccdn_user_user.legal_identification.show_company_registered_number %} 
+Our company registration number is {{- ccdn_user_user.legal_identification.show_company_registered_number -}}{%- if ccdn_user_user.legal_identification.show_company_registered_house %} 
+{{ ccdn_user_user.legal_identification.company_registered_house -}}{%- endif -%}.{%- endif %} The term 'you' refers to the user or viewer of our website.</p>
 
 <p>The use of this website is subject to the following terms of use:</p>
 

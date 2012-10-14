@@ -1,20 +1,20 @@
-{{- param('ccdn_user_user.legal_identification.company_name') -}}
-{{- param('ccdn_user_user.legal_identification.company_address') -}}
-{{- param('ccdn_user_user.legal_identification.company_registered_number') -}}
-{{- param('ccdn_user_user.legal_identification.company_registered_house') -}}
-{{- param('ccdn_user_user.legal_identification.copyright_year') -}}
-
-{{- param('ccdn_user_user.legal_identification.show_company_name') ? '' : '' -}}
-{{- param('ccdn_user_user.legal_identification.show_company_address') -}}
-{{- param('ccdn_user_user.legal_identification.show_company_registered_number') -}}
-{{- param('ccdn_user_user.legal_identification.show_company_registered_house') -}}
-{{- param('ccdn_user_user.legal_identification.show_copyright_year') -}}
-
-{{- param('ccdn_user_user.legal_identification.show_company_name') ? param('ccdn_user_user.legal_identification.company_name') : '' -}}
-{{- param('ccdn_user_user.legal_identification.show_company_address') ? param('ccdn_user_user.legal_identification.company_address') : '' -}}
-{{- param('ccdn_user_user.legal_identification.show_company_registered_number') ? param('ccdn_user_user.legal_identification.company_registered_number') : '' -}}
-{{- param('ccdn_user_user.legal_identification.show_company_registered_house') ? param('ccdn_user_user.legal_identification.company_registered_house') : '' -}}
-{{- param('ccdn_user_user.legal_identification.show_copyright_year') ? param('ccdn_user_user.legal_identification.copyright_year') : '' -}}
+{{- ccdn_user_user.legal_identification.company_name -}}
+{{- ccdn_user_user.legal_identification.company_address -}}
+{{- ccdn_user_user.legal_identification.company_registered_number -}}
+{{- ccdn_user_user.legal_identification.company_registered_house -}}
+{{- ccdn_user_user.legal_identification.copyright_year -}}
+    
+{{- ccdn_user_user.legal_identification.show_company_name ? '' : '' -}}
+{{- ccdn_user_user.legal_identification.show_company_address -}}
+{{- ccdn_user_user.legal_identification.show_company_registered_number -}}
+{{- ccdn_user_user.legal_identification.show_company_registered_house -}}
+{{- ccdn_user_user.legal_identification.show_copyright_year -}}
+    
+{{- ccdn_user_user.legal_identification.show_company_name ? ccdn_user_user.legal_identification.company_name : '' -}}
+{{- ccdn_user_user.legal_identification.show_company_address ? ccdn_user_user.legal_identification.company_address : '' -}}
+{{- ccdn_user_user.legal_identification.show_company_registered_number ? ccdn_user_user.legal_identification.company_registered_number : '' -}}
+{{- ccdn_user_user.legal_identification.show_company_registered_house ? ccdn_user_user.legal_identification.company_registered_house : '' -}}
+{{- ccdn_user_user.legal_identification.show_copyright_year ? ccdn_user_user.legal_identification.copyright_year : '' -}}
 
 <p>This privacy policy sets out how [business name] uses and protects any information that you give 
 [business name] when you use this website.</p>
