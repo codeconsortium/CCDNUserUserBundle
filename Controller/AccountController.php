@@ -90,8 +90,8 @@ class AccountController extends ContainerAware
     /**
      *
      * @access protected
-	 * @param String $action, String $value
-     * @return String
+	 * @param string $action, string $value
+     * @return string
      */
     protected function setFlash($action, $value)
     {

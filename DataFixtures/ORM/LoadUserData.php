@@ -29,13 +29,27 @@ use CCDNUser\UserBundle\Entity\User;
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
 
+	/**
+	 *
+	 * @access private
+	 */
     private $container;
 
+	/**
+	 *
+	 * @access public
+	 * @param ContainerInterface $container
+	 */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
+	/**
+	 *
+	 * @access public
+	 * @param ObjectManager $manager
+	 */
     public function load(ObjectManager $manager)
     {
 		$userAdmin = new User();
@@ -69,6 +83,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 		$this->addReference('user-test', $userTest);
     }
 
+	/**
+	 *
+	 * @access public
+	 * @return int
+	 */
 	public function getOrder()
 	{
 		return 1;

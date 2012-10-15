@@ -215,7 +215,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param Array
+     * @param array
      */
     public function setFBData($fbdata)
     {

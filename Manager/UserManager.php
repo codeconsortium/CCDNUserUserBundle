@@ -28,7 +28,7 @@ class UserManager extends BaseManager implements ManagerInterface
      *
      * @access public
      * @param $account
-     * @return $this
+     * @return self
      */
     public function insert($account)
     {
@@ -43,7 +43,7 @@ class UserManager extends BaseManager implements ManagerInterface
      *
      * @access public
      * @param $account
-     * @return $this
+     * @return self
      */
     public function update($account)
     {
@@ -58,7 +58,7 @@ class UserManager extends BaseManager implements ManagerInterface
      *
      * @access public
      * @param $user
-     * @return $this
+     * @return self
      */
     public function activate($user)
     {
@@ -72,7 +72,7 @@ class UserManager extends BaseManager implements ManagerInterface
      *
      * @access public
      * @param $user
-     * @return $this
+     * @return self
      */
     public function forceReActivate($user)
     {
@@ -86,7 +86,7 @@ class UserManager extends BaseManager implements ManagerInterface
      *
      * @access public
      * @param $user
-     * @return $this
+     * @return self
      */
     public function ban($user)
     {
@@ -100,7 +100,7 @@ class UserManager extends BaseManager implements ManagerInterface
      *
      * @access public
      * @param $user
-     * @return $this
+     * @return self
      */
     public function unban($user)
     {

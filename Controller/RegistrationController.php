@@ -96,7 +96,7 @@ class RegistrationController extends BaseController
     /**
      *
      * @access protected
-     * @return String
+     * @return string
      */
     protected function getEngine()
     {
