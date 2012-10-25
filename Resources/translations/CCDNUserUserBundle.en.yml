@@ -12,7 +12,10 @@ ccdn_user_user.title.register.activation.confirmed: 'Activation Complete'
 ccdn_user_user.title.reset.request: 'Request Password Reset'
 ccdn_user_user.title.reset.check_mail: 'Password Reset Mail Sent'
 ccdn_user_user.title.reset.new_password: 'Reset Password'
-
+ccdn_user_user.title.legal.copyright_notice: 'Copyright Notice'
+ccdn_user_user.title.legal.disclaimer: 'Disclaimer'
+ccdn_user_user.title.legal.privacy_policy: 'Privacy Policy'
+ccdn_user_user.title.legal.terms_conditions: 'Terms and Conditions'
 #
 # Crumbs.
 #
