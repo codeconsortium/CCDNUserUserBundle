@@ -42,8 +42,10 @@ class DashboardIntegrator extends BaseIntegrator implements IntegratorInterface
         $resources = array(
             'user' => array(
                 'Account' => array(
-                    'ccdn_user_user_account_show' => array('auth' => 'ROLE_USER', 'name' => 'My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
-                //	'ccdn_user_user_account_edit' => array('auth' => 'ROLE_USER', 'name' => 'Edit My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
+                    'ccdn_user_user_account_show' 		=> array('auth' => 'ROLE_USER', 'name' => 'My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
+                //	'ccdn_user_user_account_edit' 		=> array('auth' => 'ROLE_USER', 'name' => 'Edit My Account', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
+					'fos_user_security_login' 			=> array('no_auth' => true, 'name' => 'Login', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
+					'ccdn_user_user_registration_terms' => array('no_auth' => true, 'name' => 'Register', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png'),
                 ),
             ),
 
