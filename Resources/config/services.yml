@@ -8,6 +8,8 @@ parameters:
 
     ccdn_user_user.component.dashboard.integrator.class:    CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
 
+    ccdn_user_user.component.menu_builder.menu.class:       CCDNUser\UserBundle\Component\MenuBuilder\Menu
+    
 services:
 
     #
@@ -44,3 +46,12 @@ services:
         arguments: [@service_container]
         tags:
             - { name: ccdn_component_dashboard.integrator }
+    
+    #
+    # Menu Builder.
+    #
+    ccdn_user_user.component.menu_builder.menu:
+        class: %ccdn_user_user.component.menu_builder.menu.class%
+        tags:
+            - { name: ccdn_component_menu.menu_builder }
+    

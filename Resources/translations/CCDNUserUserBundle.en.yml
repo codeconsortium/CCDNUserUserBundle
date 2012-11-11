@@ -1,3 +1,7 @@
+ccdn_user_user.layout.header.account: 'Account'
+ccdn_user_user.layout.header.login: 'Login'
+ccdn_user_user.layout.header.logout: 'Logout'
+
 #
 # Page Titles.
 #
@@ -16,6 +20,7 @@ ccdn_user_user.title.legal.copyright_notice: 'Copyright Notice'
 ccdn_user_user.title.legal.disclaimer: 'Disclaimer'
 ccdn_user_user.title.legal.privacy_policy: 'Privacy Policy'
 ccdn_user_user.title.legal.terms_conditions: 'Terms and Conditions'
+
 #
 # Crumbs.
 #
@@ -46,6 +51,10 @@ ccdn_user_user.link.account.edit: 'Edit Account'
 ccdn_user_user.link.password.change: 'Change Password'
 ccdn_user_user.link.password.reset: 'Forgot Password?'
 ccdn_user_user.link.register: 'Register'
+ccdn_user_user.link.legal.copyright_notice: 'Copyright Notice'
+ccdn_user_user.link.legal.disclaimer: 'Disclaimer'
+ccdn_user_user.link.legal.privacy_policy: 'Privacy Policy'
+ccdn_user_user.link.legal.terms_conditions: 'Terms and Conditions'
 
 #
 # Forms.

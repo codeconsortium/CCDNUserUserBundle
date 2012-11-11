@@ -67,19 +67,19 @@ fos_user_change_password:
 # Legal Documents
 #
 ccdn_user_user_legal_copyright_notice:
-    pattern: /{_locale}/legal/copyright_notice
+    pattern: /{_locale}/user/legal/copyright_notice
     defaults: { _controller: CCDNUserUserBundle:Legal:showCopyrightNotice, _locale: en }
     
 ccdn_user_user_legal_disclaimer:
-    pattern: /{_locale}/legal/disclaimer
+    pattern: /{_locale}/user/legal/disclaimer
     defaults: { _controller: CCDNUserUserBundle:Legal:showDisclaimer, _locale: en }
 
 ccdn_user_user_legal_privacy_policy:
-    pattern: /{_locale}/legal/privacy_policy
+    pattern: /{_locale}/user/legal/privacy_policy
     defaults: { _controller: CCDNUserUserBundle:Legal:showPrivacyPolicy, _locale: en }
 
 ccdn_user_user_legal_terms_conditions:
-    pattern: /{_locale}/legal/terms_and_conditions
+    pattern: /{_locale}/user/legal/terms_and_conditions
     defaults: { _controller: CCDNUserUserBundle:Legal:showTermsConditions, _locale: en }
     
     
