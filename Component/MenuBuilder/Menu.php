@@ -21,6 +21,13 @@ namespace CCDNUser\UserBundle\Component\MenuBuilder;
 class Menu
 {
 
+	private $container;
+	
+	public function __construct($container)
+	{
+		$this->container = $container;
+	}
+	
     /**
      *      
 	 * @access public
@@ -28,7 +35,14 @@ class Menu
      */
     public function buildMenu($builder)
     {
-	
+		$container = $this->container;
+		
+		$usernameCallback = function() use($container) {
+			$user = $container->get('security.context')->getToken()->getUser(); 
+			
+			return $user->getUsername() . ' ';
+		};
+		
 		$builder
 			->arrayNode('layout')
 				->arrayNode('header')
@@ -44,7 +58,7 @@ class Menu
 							'div_class' => 'btn-group',
 							'div_style' => 'vertical-align:middle;margin-left:30px;border:0px;',
 							'button_link' => '#',
-							'button_label_trans' => 'Me haha ',
+							'button_label_trans' => $usernameCallback,
 							'button_label_trans_params' => array(),
 							'button_label_trans_bundle' => 'CCDNUserUserBundle',
 							'button_class' => 'btn dropdown-toggle',
