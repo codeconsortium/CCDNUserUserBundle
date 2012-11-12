@@ -27,6 +27,8 @@
 
 			{{- form_errors(form) -}}
 
+			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
+
 			<div class="control-group{{- (form.new.first.vars.errors|length > 0) ? ' error': '' -}}">
 				{{- form_label(form.new.first, null, { 'label': 'fos_user_change_password_form_new_first' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
