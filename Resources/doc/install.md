@@ -4,12 +4,11 @@ Installing CCDNUser UserBundle 1.2
 ## Dependencies:
 
 1. [FOSUserBundle](http://github.com/FriendsOfSymfony/FOSUserBundle).
-2. [EWZTimeBundle](http://github.com/excelwebzone/EWZRecaptchaBundle).
+2. [EWZRecaptchaBundle](http://github.com/excelwebzone/EWZRecaptchaBundle).
 3. [PagerFanta](https://github.com/whiteoctober/Pagerfanta).
 4. [PagerFantaBundle](http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle).
 5. [CCDNComponent CommonBundle](https://github.com/codeconsortium/CommonBundle/tree/v1.2).
 6. [CCDNComponent CrumbTrailBundle](https://github.com/codeconsortium/CrumbTrailBundle/tree/v1.2).
-7. [CCDNComponent DashboardBundle](https://github.com/codeconsortium/DashboardBundle/tree/v1.2).
 
 ## Installation:
 

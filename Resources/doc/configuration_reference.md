@@ -47,6 +47,22 @@ ccdn_user_user:
     sidebar:
         members_route: ccdn_user_member_index
         profile_route: ccdn_user_profile_show
+	legal_documents:
+		terms_conditions: CCDNUserUserBundle:Legal:terms_conditions.txt.twig
+		copyright_notice: CCDNUserUserBundle:Legal:copyright_notice.txt.twig
+		privacy_policy: CCDNUserUserBundle:Legal:privacy_policy.txt.twig
+		disclaimer: CCDNUserUserBundle:Legal:disclaimer.txt.twig
+	legal_identification:
+		company_name: ''
+		show_company_name: false
+		company_address: ''
+		show_company_address: false
+		company_registered_number: ''
+		show_company_registered_number: false
+		company_registered_house: ''
+		show_company_registered_house: false
+		copyright_year: ''
+		show_copyright_year: false
 
 ```
 
