@@ -40,13 +40,16 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
         $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('user')
+                    ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show_by_id')->end()
                     ->end()
                 ->end()
                 ->arrayNode('template')
+                    ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('engine')->defaultValue('twig')->end()
                     ->end()
@@ -72,10 +75,10 @@ class Configuration implements ConfigurationInterface
     private function addAccountSection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('account')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->arrayNode('show')
                             ->addDefaultsIfNotSet()
@@ -103,10 +106,10 @@ class Configuration implements ConfigurationInterface
     private function addChangePasswordSection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('password')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->arrayNode('change_password')
                             ->addDefaultsIfNotSet()
@@ -128,10 +131,10 @@ class Configuration implements ConfigurationInterface
     private function addRegistrationSection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('registration')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->arrayNode('register')
                             ->addDefaultsIfNotSet()
@@ -165,10 +168,10 @@ class Configuration implements ConfigurationInterface
     private function addResettingSection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('resetting')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->arrayNode('request')
                             ->addDefaultsIfNotSet()
@@ -208,10 +211,10 @@ class Configuration implements ConfigurationInterface
     private function addSecuritySection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('security')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->arrayNode('login')
                             ->addDefaultsIfNotSet()
@@ -233,10 +236,10 @@ class Configuration implements ConfigurationInterface
     private function addSidebarSection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('sidebar')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->scalarNode('members_route')->defaultValue('ccdn_user_member_index')->end()
                         ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show')->end()
@@ -254,10 +257,10 @@ class Configuration implements ConfigurationInterface
     private function addLegalSection(ArrayNodeDefinition $node)
     {
         $node
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('legal_documents')
                     ->addDefaultsIfNotSet()
-                    ->canBeUnset()
                     ->children()
                         ->scalarNode('terms_conditions')->defaultValue('CCDNUserUserBundle:Legal:terms_conditions.txt.twig')->end()
                         ->scalarNode('copyright_notice')->defaultValue('CCDNUserUserBundle:Legal:copyright_notice.txt.twig')->end()
