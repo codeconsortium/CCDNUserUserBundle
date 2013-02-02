@@ -2,7 +2,7 @@
     "name": "codeconsortium/ccdn-user-bundle",
     "type": "symfony-bundle",
     "description": "CCDN User Bundle",
-    "keywords": ["ccdn", "user", "child of FOSUserBundle"],
+    "keywords": ["ccdn", "codeconsortium", "user", "child of FOSUserBundle"],
     "homepage": "http://github.com/codeconsortium/CCDNUserUserBundle",
     "license": "MIT",
     "authors": [
