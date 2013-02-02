@@ -51,6 +51,7 @@ class CCDNUserUserExtension extends Extension
         $container->setParameter('ccdn_user_user.user.profile_route', $config['user']['profile_route']);
         $container->setParameter('ccdn_user_user.template.engine', $config['template']['engine']);
 
+        $this->getSEOSection($container, $config);
         $this->getAccountSection($container, $config);
         $this->getChangePasswordSection($container, $config);
         $this->getRegistrationSection($container, $config);
@@ -59,6 +60,16 @@ class CCDNUserUserExtension extends Extension
         $this->getSidebarSection($container, $config);
         $this->getLegalSection($container, $config);
 
+    }
+
+    /**
+     *
+     * @access protected
+     * @param $container, $config
+     */
+    protected function getSEOSection($container, $config)
+    {
+        $container->setParameter('ccdn_user_user.seo.title_length', $config['seo']['title_length']);
     }
 
     /**

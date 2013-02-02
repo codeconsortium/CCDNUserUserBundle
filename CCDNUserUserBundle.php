@@ -38,7 +38,7 @@ class CCDNUserUserBundle extends Bundle
 		$twig = $this->container->get('twig');	
 		$twig->addGlobal('ccdn_user_user', array(
 			'seo' => array(
-				'title_length' => $this->container->getParameter('ccdn_user_profile.seo.title_length'),
+				'title_length' => $this->container->getParameter('ccdn_user_user.seo.title_length'),
 			),
 			'legal_documents' => array(
 				'terms_conditions' => $this->container->getParameter('ccdn_user_user.legal_documents.terms_conditions'),

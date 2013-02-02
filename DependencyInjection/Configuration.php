@@ -41,21 +41,25 @@ class Configuration implements ConfigurationInterface
         // more information on that topic.
         $rootNode
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('user')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show_by_id')->end()
                     ->end()
                 ->end()
                 ->arrayNode('template')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->scalarNode('engine')->defaultValue('twig')->end()
                     ->end()
                 ->end()
             ->end();
 
+        $this->addSEOSection($rootNode);
         $this->addAccountSection($rootNode);
         $this->addChangePasswordSection($rootNode);
         $this->addRegistrationSection($rootNode);
@@ -69,6 +73,27 @@ class Configuration implements ConfigurationInterface
 
     /**
      *
+     * @access protected
+     * @param ArrayNodeDefinition $node
+     */
+    protected function addSEOSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->canBeUnset()
+            ->children()
+                ->arrayNode('seo')
+                ->addDefaultsIfNotSet()
+                ->canBeUnset()
+                    ->children()
+                        ->scalarNode('title_length')->defaultValue('67')->end()
+                    ->end()
+                ->end()
+            ->end();
+    }
+
+    /**
+     *
      * @access private
      * @param ArrayNodeDefinition $node
      */
@@ -76,18 +101,22 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('account')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->arrayNode('show')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
                         ->end()
                         ->arrayNode('edit')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                                 ->scalarNode('form_theme')->defaultValue('CCDNUserUserBundle:Form:fields.html.twig')->end()
@@ -107,12 +136,15 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('password')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->arrayNode('change_password')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                                 ->scalarNode('form_theme')->defaultValue('CCDNUserUserBundle:Form:fields.html.twig')->end()
@@ -132,12 +164,15 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('registration')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->arrayNode('register')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                                 ->scalarNode('form_theme')->defaultValue('CCDNUserUserBundle:Form:fields.html.twig')->end()
@@ -145,12 +180,14 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->arrayNode('check_email')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
                         ->end()
                         ->arrayNode('confirmed')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
@@ -169,30 +206,36 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('resetting')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->arrayNode('request')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
                         ->end()
                         ->arrayNode('password_already_requested')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
                         ->end()
                         ->arrayNode('check_email')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
                         ->end()
                         ->arrayNode('reset')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                                 ->scalarNode('form_theme')->defaultValue('CCDNUserUserBundle:Form:fields.html.twig')->end()
@@ -212,12 +255,15 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('security')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->arrayNode('login')
                             ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
                                 ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                                 ->scalarNode('support_facebook')->defaultValue(false)->end()
@@ -237,9 +283,11 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('sidebar')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->scalarNode('members_route')->defaultValue('ccdn_user_member_index')->end()
                         ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show')->end()
@@ -258,9 +306,11 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->addDefaultsIfNotSet()
+            ->canBeUnset()
             ->children()
                 ->arrayNode('legal_documents')
                     ->addDefaultsIfNotSet()
+                    ->canBeUnset()
                     ->children()
                         ->scalarNode('terms_conditions')->defaultValue('CCDNUserUserBundle:Legal:terms_conditions.txt.twig')->end()
                         ->scalarNode('copyright_notice')->defaultValue('CCDNUserUserBundle:Legal:copyright_notice.txt.twig')->end()
