@@ -3,7 +3,7 @@ CCDNUser UserBundle Documentation.
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.1.x.
+This version of the bundle requires Symfony 2.1.x
 
 ### Translations
 
@@ -20,7 +20,7 @@ For more information about translations, check [Symfony documentation](http://sy
 
 ## Installation Documentation:
 
-- [Installing CCDNUser UserBundle for Symfony 2.0.11](install.md).
+- [Installing CCDNUser UserBundle for Symfony 2.1.x](install.md).
 - [Configuration Reference](configuration_reference.md).
-- [Default FOS UserBundle Reference](default_fos_configuration).
+- [Default FOS UserBundle Reference](default_fos_configuration.md).
 - [Enabling Facebook Login Support](enable_facebook_support.md).
