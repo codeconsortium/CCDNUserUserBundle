@@ -13,7 +13,7 @@
 
 {% endblock %}
 
-{% block body %}
+{% block body_content %}
 
 {% for key, message in app.session.getFlashes() %}
 <div class="bg_flash_message">
@@ -33,4 +33,4 @@
 	</div>
 </div>
 
-{% endblock body %}
+{% endblock body_content %}
