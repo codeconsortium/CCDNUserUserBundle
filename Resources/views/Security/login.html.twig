@@ -46,17 +46,19 @@
 				<ul class="alert alert-error"><li>{{- error -}}</li></ul>
 				{%- endif -%}
 		
+			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+				
 				<div class="control-group">
 					<label class="control-label" for="username">{{- 'security.login.username'|trans({}, 'FOSUserBundle') -}}</label>
 					<div class="controls row-fluid">
-						<input class="input-xlarge span8" type="text" id="username" name="_username" value="{{- last_username -}}">
+						<input class="input-xlarge span8" type="text" id="username" name="_username" value="{{- last_username -}}" required="required">
 					</div>
 				</div>
 
 				<div class="control-group">
 					<label class="control-label" for="password">{{- 'security.login.password'|trans({}, 'FOSUserBundle') -}}</label>
 					<div class="controls row-fluid">
-						<input class="input-xlarge span8" type="password" id="password" name="_password">
+						<input class="input-xlarge span8" type="password" id="password" name="_password" required="required">
 					</div>
 				</div>
 

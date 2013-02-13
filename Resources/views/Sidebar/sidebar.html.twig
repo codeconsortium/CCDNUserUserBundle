@@ -2,39 +2,36 @@
 	{%- set route = app.request.attributes.get('_route') -%}
 
 	<li class="nav-header">{{- 'ccdn_user_user.sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
-	<li><a href="{{- path(ccdn_user_user.sidebar.members_route) -}}"><i class="icon-th-list"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.members' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
-	<li class="divider"></li>
-
 	{%- if is_granted("ROLE_USER") -%}
 
 		{%- if route == 'ccdn_user_user_account_show' or route == 'ccdn_user_user_account_edit' or route == 'fos_user_change_password' -%}
-		<li class="active"><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-white icon-cog"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.account.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li class="active"><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-white icon-cog"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.account.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- else -%}
-		<li><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.account.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.account.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- endif -%}
-		<li><a rel="nofollow" href="{{- path(ccdn_user_user.sidebar.profile_route) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.profile.view' | trans({}, 'CCDNUserUserBundle') -}}</a></li>
 
 	{%- else -%}
 
 		{%- if route == 'fos_user_security_login' -%}
-		<li class="active"><a rel="nofollow" href="{{- path('fos_user_security_login') -}}"><i class="icon-white icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.login' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li class="active"><a rel="nofollow" href="{{- path('fos_user_security_login') -}}"><i class="icon-white icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.login' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- else -%}
-		<li><a rel="nofollow" href="{{- path('fos_user_security_login') -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.login' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li><a rel="nofollow" href="{{- path('fos_user_security_login') -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.login' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- endif -%}
 
 
 		{%- if route == 'fos_user_registration_register' -%}
-		<li class="active"><a rel="nofollow" href="{{- path('fos_user_registration_register') -}}"><i class="icon-white icon-asterisk"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.register' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li class="active"><a rel="nofollow" href="{{- path('fos_user_registration_register') -}}"><i class="icon-white icon-asterisk"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.register' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- else -%}
-		<li><a rel="nofollow" href="{{- path('fos_user_registration_register') -}}"><i class="icon-asterisk"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.register' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li><a rel="nofollow" href="{{- path('fos_user_registration_register') -}}"><i class="icon-asterisk"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.register' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- endif -%}
 
 
 		{%- if route == 'fos_user_resetting_request' -%}
-		<li class="active"><a rel="nofollow" href="{{- path('fos_user_resetting_request') -}}"><i class="icon-white icon-lock"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.reset' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li class="active"><a rel="nofollow" href="{{- path('fos_user_resetting_request') -}}"><i class="icon-white icon-lock"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.reset' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- else -%}
-		<li><a rel="nofollow" href="{{- path('fos_user_resetting_request') -}}"><i class="icon-lock"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.reset' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+			<li><a rel="nofollow" href="{{- path('fos_user_resetting_request') -}}"><i class="icon-lock"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.reset' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 		{%- endif -%}
 
 	{%- endif -%}
+
 {%- endspaceless -%}

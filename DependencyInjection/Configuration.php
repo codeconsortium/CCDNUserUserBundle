@@ -65,8 +65,8 @@ class Configuration implements ConfigurationInterface
         $this->addRegistrationSection($rootNode);
         $this->addResettingSection($rootNode);
         $this->addSecuritySection($rootNode);
-        $this->addSidebarSection($rootNode);
         $this->addLegalSection($rootNode);
+        $this->addSidebarSection($rootNode);
 
         return $treeBuilder;
     }
@@ -279,29 +279,6 @@ class Configuration implements ConfigurationInterface
      * @access private
      * @param ArrayNodeDefinition $node
      */
-    private function addSidebarSection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->addDefaultsIfNotSet()
-            ->canBeUnset()
-            ->children()
-                ->arrayNode('sidebar')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
-                    ->children()
-                        ->scalarNode('members_route')->defaultValue('ccdn_user_member_index')->end()
-                        ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show')->end()
-                    ->end()
-                ->end()
-            ->end();
-    }
-
-	
-    /**
-     *
-     * @access private
-     * @param ArrayNodeDefinition $node
-     */
     private function addLegalSection(ArrayNodeDefinition $node)
     {
         $node
@@ -341,4 +318,33 @@ class Configuration implements ConfigurationInterface
             ->end();
     }
 
+    /**
+     *
+     * @access private
+     * @param ArrayNodeDefinition $node
+     */
+    private function addSidebarSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->canBeUnset()
+            ->children()
+                ->arrayNode('sidebar')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('links')
+                            ->prototype('array')
+                                ->children()
+                                    ->scalarNode('bundle')->end()
+                                    ->scalarNode('label')->end()
+                                    ->scalarNode('route')->defaultNull()->end()
+                                    ->scalarNode('path')->defaultNull()->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+    }
 }

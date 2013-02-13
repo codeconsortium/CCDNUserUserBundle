@@ -108,8 +108,7 @@ class CCDNUserUserBundle extends Bundle
 				),
 			),
 			'sidebar' => array(
-				'members_route' => $this->container->getParameter('ccdn_user_user.sidebar.members_route'),
-				'profile_route' => $this->container->getParameter('ccdn_user_user.sidebar.profile_route'),
+				'links' => $this->container->getParameter('ccdn_user_user.sidebar.links'),
 			)
 		));
 	}

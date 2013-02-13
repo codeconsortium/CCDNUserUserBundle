@@ -57,9 +57,8 @@ class CCDNUserUserExtension extends Extension
         $this->getRegistrationSection($container, $config);
         $this->getResettingSection($container, $config);
         $this->getSecuritySection($container, $config);
-        $this->getSidebarSection($container, $config);
         $this->getLegalSection($container, $config);
-
+        $this->getSidebarSection($container, $config);
     }
 
     /**
@@ -145,18 +144,6 @@ class CCDNUserUserExtension extends Extension
      * @access private
      * @param $container, $config
      */
-    private function getSidebarSection($container, $config)
-    {
-        $container->setParameter('ccdn_user_user.sidebar.members_route', $config['sidebar']['members_route']);
-        $container->setParameter('ccdn_user_user.sidebar.profile_route', $config['sidebar']['profile_route']);
-
-    }
-
-    /**
-     *
-     * @access private
-     * @param $container, $config
-     */
     private function getLegalSection($container, $config)
     {
         $container->setParameter('ccdn_user_user.legal_documents.terms_conditions', $config['legal_documents']['terms_conditions']);
@@ -178,4 +165,13 @@ class CCDNUserUserExtension extends Extension
 
     }
 
+    /**
+     *
+     * @access private
+     * @param $container, $config
+     */
+    private function getSidebarSection($container, $config)
+    {
+        $container->setParameter('ccdn_user_user.sidebar.links', $config['sidebar']['links']);
+    }
 }
