@@ -39,14 +39,18 @@
 	
 	
 	<div class="span3">
+		<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2><hr>
+	
 		<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-horizontal">
 			<fieldset>				
-				<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2><hr>
-
 				{%- if error -%}
-					<ul class="alert alert-error"><li>{{- error -}}</li></ul>
-				{%- endif -%}
-		
+					<div class="alert alert-error alert-block">
+					    <ul>
+							<li>{{- error -}}</li>
+						</ul>
+					</div>
+				{%- endif -%}		
+				
 			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 				
 				<div class="control-group">

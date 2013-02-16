@@ -61,12 +61,12 @@
 					{{- form_widget(form.current_password) -}}
 				</div>
 			</div>
-
+			#}
 			<div class="form-actions">
 		        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">&nbsp;
 				<a class="btn" href="{{- path('ccdn_user_user_account_show') -}}">{{- 'ccdn_user_user.form.button.cancel' |trans({}, 'CCDNUserUserBundle') -}}</a>
 			</div>
-			#}
+			
 		</fieldset>
 	</form>
 	
