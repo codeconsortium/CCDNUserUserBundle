@@ -8,15 +8,15 @@
 
 {% block sidebar %}
 	{{ parent() }}
-
+	
 	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-
+	
 {% endblock %}
 
 {% block body_content %}
 
 	{%- spaceless -%}
-
+	
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
 	<h2>{{- app.user.getUsername |capitalize -}}</h2>
@@ -29,34 +29,36 @@
 	</ul>
 
 	{%- form_theme form ccdn_user_user.account.edit.form_theme -%}
+	
 	<form action="{{- path('ccdn_user_user_account_edit') -}}" method="POST" {{ form_enctype(form) }} class="form-horizontal">
 		<fieldset>
-
+			{{- form_widget(form) -}}
+			{#
 			{{- form_errors(form) -}}
 
 			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
 
-			<div class="control-group{{- (form.user.username.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.user.username, null, { 'label': 'fos_user_profile_form_user_username' |trans({}, 'FOSUserBundle')}) -}}
+			<div class="control-group{{- (form.username.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.username, null, { 'label': 'form.username' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
-					{{- form_errors(form.user.username) -}}
-					{{- form_widget(form.user.username) -}}
+					{{- form_errors(form.username) -}}
+					{{- form_widget(form.username) -}}
 				</div>
 			</div>
 
-			<div class="control-group{{- (form.user.email.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.user.email, null, { 'label': 'fos_user_profile_form_user_email' |trans({}, 'FOSUserBundle')}) -}}
+			<div class="control-group{{- (form.email.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.email, null, { 'label': 'form.email' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
-					{{- form_errors(form.user.email) -}}
-					{{- form_widget(form.user.email) -}}
+					{{- form_errors(form.email) -}}
+					{{- form_widget(form.email) -}}
 				</div>
 			</div>
 
-			<div class="control-group{{- (form.current.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.current, null, { 'label': 'fos_user_profile_form_current' |trans({}, 'FOSUserBundle')}) -}}
+			<div class="control-group{{- (form.current_password.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.current_password, null, { 'label': 'form.current_password' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
-					{{- form_errors(form.current) -}}
-					{{- form_widget(form.current) -}}
+					{{- form_errors(form.current_password) -}}
+					{{- form_widget(form.current_password) -}}
 				</div>
 			</div>
 
@@ -64,10 +66,10 @@
 		        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">&nbsp;
 				<a class="btn" href="{{- path('ccdn_user_user_account_show') -}}">{{- 'ccdn_user_user.form.button.cancel' |trans({}, 'CCDNUserUserBundle') -}}</a>
 			</div>
-
+			#}
 		</fieldset>
 	</form>
-
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

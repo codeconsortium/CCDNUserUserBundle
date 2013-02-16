@@ -28,9 +28,11 @@
 	        {%- endif -%}
 
 			<div class="control-group">
-				<label for="username" class="control-label">{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}</label>
+				<label for="username" class="control-label">
+					{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}		
+				</label>
 				<div class="controls row-fluid">
-					<input type="text" id="username" name="username" class="input-xlarge span8">
+					<input type="text" id="username" name="username" class="input-xlarge span6">
 				</div>
 			</div>
 

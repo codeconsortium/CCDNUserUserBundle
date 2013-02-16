@@ -21,16 +21,18 @@
 
 	<h2>{{- 'ccdn_user_user.title.register'|trans({}, 'CCDNUserUserBundle') -}}</h2>
 
+	<br>
 	{%- form_theme form ccdn_user_user.registration.register.form_theme -%}
 	<form action="{{- path('fos_user_registration_register') -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 		<fieldset>
-
+			{{- form_widget(form) -}}
+			{#
 			{{- form_errors(form) -}}
 
 			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
 
 			<div class="control-group{{- (form.username.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.username, null, { 'label': 'fos_user_registration_form_username' |trans({}, 'FOSUserBundle')}) -}}
+				{{- form_label(form.username, null, { 'label': 'form.username' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
 					{{- form_errors(form.username) -}}
 					{{- form_widget(form.username) -}}
@@ -38,7 +40,7 @@
 			</div>
 
 			<div class="control-group{{- (form.email.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.email, null, { 'label': 'fos_user_registration_form_email' |trans({}, 'FOSUserBundle')}) -}}
+				{{- form_label(form.email, null, { 'label': 'form.email' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
 					{{- form_errors(form.email) -}}
 					{{- form_widget(form.email) -}}
@@ -46,7 +48,7 @@
 			</div>
 
 			<div class="control-group{{- (form.plainPassword.first.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.plainPassword.first, null, { 'label': 'fos_user_registration_form_plainPassword_first' |trans({}, 'FOSUserBundle')}) -}}
+				{{- form_label(form.plainPassword.first, null, { 'label': 'form.password' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
 					{{- form_errors(form.plainPassword.first) -}}
 					{{- form_widget(form.plainPassword.first) -}}
@@ -54,7 +56,7 @@
 			</div>
 
 			<div class="control-group{{- (form.plainPassword.second.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.plainPassword.second, null, { 'label': 'ccdn_user_user.form.label.verify_password' |trans({}, 'CCDNUserUserBundle')}) -}}
+				{{- form_label(form.plainPassword.second, null, { 'label': 'form.password_confirmation' |trans({}, 'FOSUserBundle')}) -}}
 				<div class="controls row-fluid">
 					{{- form_errors(form.plainPassword.second) -}}
 					{{- form_widget(form.plainPassword.second) -}}
@@ -63,7 +65,7 @@
 
 			<div class="control-group{{- (form.recaptcha.vars.errors|length > 0) ? ' error': '' -}}">
 				{#{{- form_label(form.recaptcha, null, { 'label': 'ccdn_user_user.form.label.recaptcha' |trans({}, 'CCDNUserUserBundle')}) -}}#}
-				<div class="controls row-fluid">
+			{#	<div class="controls row-fluid">
 					{{- form_errors(form.recaptcha) -}}
 					{%- form_theme form 'EWZRecaptchaBundle:Form:ewz_recaptcha_widget.html.twig' -%}
 					{{- form_widget(form.recaptcha) -}}
@@ -73,7 +75,7 @@
 			<div class="form-actions">
 				<input type="submit" class="btn btn-primary" value="{{- 'registration.submit'|trans({}, 'FOSUserBundle') -}}">
 			</div>
-
+			#}
 		</fieldset>
 	</form>
 

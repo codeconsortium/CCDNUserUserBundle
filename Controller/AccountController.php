@@ -83,7 +83,8 @@ class AccountController extends ContainerAware
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Account:edit.html.'.$this->container->getParameter('fos_user.template.engine'), array(
             'form' => $form->createView(),
-            'theme' => $this->container->getParameter('fos_user.template.theme'))
+            //'theme' => $this->container->getParameter('fos_user.template.theme')
+			)
         );
     }
 

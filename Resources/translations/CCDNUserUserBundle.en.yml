@@ -64,6 +64,8 @@ ccdn_user_user.form.label.verify_password: 'Retype Password: '
 ccdn_user_user.form.label.recaptcha: 'Type the picture text: '
 ccdn_user_user.form.button.cancel: 'Cancel'
 
+ccdn_user_user.form.username: 'Username'
+ccdn_user_user.form.password: 'Password'
 #
 # Table Labels.
 #

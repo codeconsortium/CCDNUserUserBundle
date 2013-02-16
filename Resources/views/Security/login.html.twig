@@ -18,8 +18,8 @@
 	{%- spaceless -%}
 
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
-
-	<div class="pull-left" style="width:50%; padding:30px;">
+	
+	<div class="span8">
 		<h2>{{- 'ccdn_user_user.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h2><hr>
 		
 		<h3>Register today and join a growing community of developers!</h3>
@@ -34,46 +34,47 @@
 		</p>
 		<hr>
 		<a class="btn btn-primary btn-large" href="{{- path('ccdn_user_user_registration_terms') -}}"><i class="icon-hand-right icon-white"></i>&nbsp;&nbsp;{{- 'ccdn_user_user.link.register'|trans({}, 'CCDNUserUserBundle') -}}</a>
+		
 	</div>
 	
 	
-	<div class="pull-right" style="width:40%; padding:30px;">
+	<div class="span3">
 		<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-horizontal">
 			<fieldset>				
 				<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2><hr>
 
 				{%- if error -%}
-				<ul class="alert alert-error"><li>{{- error -}}</li></ul>
+					<ul class="alert alert-error"><li>{{- error -}}</li></ul>
 				{%- endif -%}
 		
 			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 				
 				<div class="control-group">
-					<label class="control-label" for="username">{{- 'security.login.username'|trans({}, 'FOSUserBundle') -}}</label>
-					<div class="controls row-fluid">
-						<input class="input-xlarge span8" type="text" id="username" name="_username" value="{{- last_username -}}" required="required">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-user"></i></span>
+						<input class="input-xxlarge span5" type="text" id="username" name="_username" value="{{- last_username -}}" required="required" placeholder="{{- 'ccdn_user_user.form.username'|trans({}, 'CCDNUserUserBundle') -}}" />
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label class="control-label" for="password">{{- 'security.login.password'|trans({}, 'FOSUserBundle') -}}</label>
-					<div class="controls row-fluid">
-						<input class="input-xlarge span8" type="password" id="password" name="_password" required="required">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-lock"></i></span>
+						<input class="input-xxlarge span5" type="password" id="password" name="_password" required="required" placeholder="{{- 'ccdn_user_user.form.password'|trans({}, 'CCDNUserUserBundle') -}}" />
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label class="control-label" for="remember_me">{{- 'security.login.remember_me'|trans({}, 'FOSUserBundle') -}}</label>
-					<div class="controls row-fluid">
-						<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-					</div>
+					<label class="checkbox" for="remember_me">
+						<input type="checkbox" id="remember_me" name="_remember_me" value="on" /> 
+						{{- 'security.login.remember_me'|trans({}, 'FOSUserBundle') -}}
+					</label>
 				</div>
 
-				<div class="form-actions" style="margin-bottom:0px !important;">
-					<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}">
+				<div class="control-group">
+					<input type="submit" class="btn btn-primary btn-large" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}">
 					&nbsp;&#124;&nbsp;<a href="{{- path('fos_user_resetting_request') -}}">{{- 'ccdn_user_user.link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}</a>
 					{%- if ccdn_user_user.security.login.support_facebook -%}
-	                          <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
+	                    <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
 					{%- endif -%}
 				</div>
 

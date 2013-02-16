@@ -44,11 +44,12 @@ class User extends BaseUser
      */
     protected $profile;
 
-    /**
+    /*
      * @Recaptcha\True(groups={"Registration"})
-     */
+     *
     public $recaptcha;
-
+	*/
+	
 	/**
 	 *
 	 * @access public
