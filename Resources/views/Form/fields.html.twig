@@ -42,13 +42,14 @@
 {% endblock form_errors %}
 
 
-{#
+
 {% block form_widget %}
 	{% spaceless %}
 	    {% if compound %}
 	        {{ block('form_widget_compound') }}
 	    {% else %}
-	        {{ block('form_widget_simple') }}
+	        {#{{ block('form_widget_simple') }}#}
+			{{ block('form_row') }}
 	    {% endif %}
 	{% endspaceless %}
 {% endblock form_widget %}
@@ -71,16 +72,19 @@
 		    </div>
 		{% endspaceless %}
 	{% endblock form_widget_compound %}
-#}
+
+
 
 {% block form_row %}
-	<div class="control-group{{- (form.vars.errors|length > 0) ? ' error': '' -}}">
-		{{- form_label(form) -}}
-		<div class="controls row-fluid">
-			{{- form_errors(form) -}}
-			{{- form_widget(form) -}}
+	{%- spaceless -%}
+		<div class="control-group{{- (form.vars.errors|length > 0) ? ' error': '' -}}">
+			{{- form_label(form) -}}
+			<div class="controls row-fluid">
+				{{- form_errors(form) -}}
+				{{- form_widget(form) -}}
+			</div>
 		</div>
-	</div>
+	{%- endspaceless -%}
 {% endblock form_row %}
 
 

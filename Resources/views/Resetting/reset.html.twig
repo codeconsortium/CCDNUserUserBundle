@@ -24,7 +24,11 @@
 	{%- form_theme form ccdn_user_user.resetting.reset.form_theme -%}
 	<form action="{{- path('fos_user_resetting_reset', {'token': token}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 		<fieldset>
-
+			{{- form_errors(form) -}}
+			
+			{{- form_widget(form) -}}
+			
+			{#
 			{{- form_errors(form) -}}
 
 			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
@@ -44,7 +48,7 @@
 					{{- form_widget(form.new.second) -}}
 				</div>
 			</div>
-
+			#}
 			<div class="form-actions">
 		        <input type="submit" class="btn btn-primary" value="{{- 'resetting.reset.submit'|trans({}, 'FOSUserBundle') -}}">
 			</div>
