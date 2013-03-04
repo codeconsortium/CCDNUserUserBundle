@@ -62,7 +62,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 		$userAdmin->setEnabled(true);
 		$userAdmin->setRoles(array('ROLE_USER', 'ROLE_MODERATOR', 'ROLE_ADMIN'));
 		$userAdmin->setSuperAdmin(true);
-  	
+  		$userAdmin->setRegisteredDate(new \DateTime('now'));
+		
 		$userTest = new User();
 		
 		$userTest->setUsername('test');
@@ -72,6 +73,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 		$userTest->setEmailCanonical('test@codeconsortium.com');
 		$userTest->setEnabled(true);
 		$userTest->setRoles(array('ROLE_USER'));
+		$userTest->setRegisteredDate(new \DateTime('now'));
 		
 		$userManager = $this->container->get('fos_user.user_manager');
 		$userManager->updateUser($userAdmin);
