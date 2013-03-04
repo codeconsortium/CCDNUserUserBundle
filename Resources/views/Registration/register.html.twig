@@ -1,17 +1,11 @@
-{% extends ccdn_user_user.registration.register.layout_template %}
+{% extends 'CCDNUserUserBundle::base.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+{% set LayoutTemplate = ccdn_user_user.registration.register.layout_template %}
 
 {% block title %}{{- 'ccdn_user_user.title.register'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block sidebar %}
-	{{ parent() }}
+{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
 
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-
-{% endblock %}
 
 {% block body_content %}
 
@@ -19,18 +13,22 @@
 
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
-	<h2>{{- 'ccdn_user_user.title.register'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-
-	<br>
 	{%- form_theme form ccdn_user_user.registration.register.form_theme -%}
 	<form action="{{- path('fos_user_registration_register') -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 		<fieldset>
+			
+			<div class="control-group">
+				<div class="controls">
+					<h3>{{- 'ccdn_user_user.title.register'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+				</div>
+			</div>
+			
 			{{- form_errors(form) -}}
 			
 			{{- form_widget(form) -}}
 
 			<div class="form-actions">
-				<input type="submit" class="btn btn-primary btn-large" value="{{- 'registration.submit'|trans({}, 'FOSUserBundle') -}}">
+				<input type="submit" class="btn btn-primary" value="{{- 'registration.submit'|trans({}, 'FOSUserBundle') -}}">
 			</div>
 			
 		</fieldset>

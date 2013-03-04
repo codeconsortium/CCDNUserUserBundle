@@ -1,17 +1,9 @@
-{% extends ccdn_user_user.registration.register.layout_template %}
+{% extends 'CCDNUserUserBundle::base.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+{% set LayoutTemplate = ccdn_user_user.registration.register.layout_template  %}
 
 {% block title %}{{- 'ccdn_user_user.title.legal.disclaimer'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block sidebar %}
-	{{ parent() }}
-
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-
-{% endblock %}
 
 {% block body_content %}
 

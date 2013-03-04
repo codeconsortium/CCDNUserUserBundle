@@ -1,17 +1,9 @@
-{% extends ccdn_user_user.resetting.reset.layout_template %}
+{% extends 'CCDNUserUserBundle::base.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+{% set LayoutTemplate = ccdn_user_user.resetting.reset.layout_template  %}
 
 {% block title %}{{- 'ccdn_user_user.title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block sidebar %}
-	{{ parent() }}
-
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-
-{% endblock %}
 
 {% block body_content %}
 
@@ -19,11 +11,16 @@
 
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
-	<h2>{{- 'ccdn_user_user.title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-
 	{%- form_theme form ccdn_user_user.resetting.reset.form_theme -%}
 	<form action="{{- path('fos_user_resetting_reset', {'token': token}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 		<fieldset>
+			
+			<div class="control-group">
+				<div class="controls">
+					<h3>{{- 'ccdn_user_user.title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+				</div>
+			</div>
+			
 			{{- form_errors(form) -}}
 			
 			{{- form_widget(form) -}}

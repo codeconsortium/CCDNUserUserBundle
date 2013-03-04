@@ -1,0 +1,61 @@
+{% extends LayoutTemplate %}
+
+
+
+{% block stylesheets %}
+    {{ parent() }}
+	{% block stylesheets_extra %}
+	{% endblock stylesheets_extra %}
+{% endblock stylesheets %}
+
+
+
+{% block javascripts %}
+	{{ parent() }}
+	{% block javascripts_extra %}
+	{% endblock javascripts_extra %}
+{% endblock javascripts %}
+
+
+
+{% block tool_bar %}
+	<div id="sub-nav" class="row-fluid">
+	    <div class="span2">
+			<h3>
+				{% block sub_title %}
+					{%- if is_granted('ROLE_USER') -%}
+						<a href="{{ path('ccdn_user_user_account_show') }}">
+							{{- app.user.getUsername |capitalize -}}
+						</a>
+					{%- endif -%}
+				{% endblock sub_title %}
+			</h3>			
+		</div>
+				
+		<nav class="span10">
+			{%- if crumbs is defined -%}
+				{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+			{%- endif -%}
+		</nav>
+	</div>	
+{% endblock tool_bar %}
+
+
+
+{% block sidebar %}
+    {{ parent() }}
+
+	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+
+{% block body %}
+	{%- spaceless -%}
+
+	{% block body_content %}
+	{% endblock body_content %}
+
+	{%- endspaceless -%}
+{% endblock body %}

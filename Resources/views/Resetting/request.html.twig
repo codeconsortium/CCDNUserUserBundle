@@ -1,17 +1,11 @@
-{% extends ccdn_user_user.resetting.request.layout_template %}
+{% extends 'CCDNUserUserBundle::base.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+{% set LayoutTemplate = ccdn_user_user.resetting.request.layout_template  %}
 
 {% block title %}{{- 'ccdn_user_user.title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block sidebar %}
-	{{ parent() }}
+{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
 
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
-
-{% endblock %}
 
 {% block body_content %}
 
@@ -19,10 +13,15 @@
 
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
-	<h2>{{- 'ccdn_user_user.title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-
 	<form action="{{- path('fos_user_resetting_send_email') -}}" method="POST" class="form-horizontal">
 		<fieldset>
+			
+			<div class="control-group">
+				<div class="controls">
+					<h3>{{- 'ccdn_user_user.title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+				</div>
+			</div>
+					
 			{%- if invalid_username is defined -%}
 				<p>{{- 'resetting.request.invalid_username'|trans({'%user_name%': invalid_username}, 'FOSUserBundle') -}}</p>
 	        {%- endif -%}
@@ -31,8 +30,8 @@
 				<label for="username" class="control-label">
 					{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}		
 				</label>
-				<div class="controls row-fluid">
-					<input type="text" id="username" name="username" class="input-xlarge span6">
+				<div class="controls">
+					<input type="text" id="username" name="username" class="input-xxlarge span10">
 				</div>
 			</div>
 
