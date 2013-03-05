@@ -9,11 +9,13 @@
 
 	{%- spaceless -%}
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+	<header>
+		<h3>{{- 'ccdn_user_user.title.legal.copyright_notice'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+	</header>
 
-	<h2>{{- 'ccdn_user_user.title.legal.copyright_notice'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-
-	{%- include ccdn_user_user.legal_documents.copyright_notice -%}
+	<section>
+		{%- include ccdn_user_user.legal_documents.copyright_notice -%}
+	</section>
 	
 	{%- endspaceless -%}
 

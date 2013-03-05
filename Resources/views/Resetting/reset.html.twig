@@ -9,50 +9,29 @@
 
 	{%- spaceless -%}
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
-
-	{%- form_theme form ccdn_user_user.resetting.reset.form_theme -%}
-	<form action="{{- path('fos_user_resetting_reset', {'token': token}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
-		<fieldset>
+	<section>
+		{%- form_theme form ccdn_user_user.resetting.reset.form_theme -%}
+		<form action="{{- path('fos_user_resetting_reset', {'token': token}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+			<fieldset>
 			
-			<div class="control-group">
-				<div class="controls">
-					<h3>{{- 'ccdn_user_user.title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+				<div class="control-group">
+					<div class="controls">
+						<h3>{{- 'ccdn_user_user.title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+					</div>
 				</div>
-			</div>
 			
-			{{- form_errors(form) -}}
+				{{- form_errors(form) -}}
 			
-			{{- form_widget(form) -}}
+				{{- form_widget(form) -}}
 			
-			{#
-			{{- form_errors(form) -}}
-
-			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
-
-			<div class="control-group{{- (form.new.first.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.new.first, null, { 'label': 'fos_user_change_password_form_new_first' |trans({}, 'FOSUserBundle')}) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.new.first) -}}
-					{{- form_widget(form.new.first) -}}
+				<div class="form-actions">
+			        <input type="submit" class="btn btn-primary" value="{{- 'resetting.reset.submit'|trans({}, 'FOSUserBundle') -}}">
 				</div>
-			</div>
 
-			<div class="control-group{{- (form.new.second.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.new.second, null, { 'label': 'fos_user_resetting_form_new_second' |trans({}, 'FOSUserBundle')}) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.new.second) -}}
-					{{- form_widget(form.new.second) -}}
-				</div>
-			</div>
-			#}
-			<div class="form-actions">
-		        <input type="submit" class="btn btn-primary" value="{{- 'resetting.reset.submit'|trans({}, 'FOSUserBundle') -}}">
-			</div>
-
-		</fieldset>
-	</form>
-
+			</fieldset>
+		</form>
+	</section>
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

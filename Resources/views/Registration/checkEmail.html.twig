@@ -9,14 +9,16 @@
 
 	{%- spaceless -%}
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+	<header>
+		<h3>{{- 'ccdn_user_user.title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+	</header>
 
-	<h3>{{- 'ccdn_user_user.title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}</h3>
-
-	<div class="well">
-		<p>{{- 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') -}}</p>
-	</div>
-
+	<section>
+		<div class="well">
+			<p>{{- 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') -}}</p>
+		</div>
+	</section>
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

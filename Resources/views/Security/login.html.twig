@@ -14,7 +14,9 @@
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 	
 	<div class="span8">
-		<h2>{{- 'ccdn_user_user.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h2><hr>
+		<h2>{{- 'ccdn_user_user.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h2>
+		
+		<hr>
 		
 		<h3>Register today and join a growing community of developers!</h3>
 
@@ -41,7 +43,9 @@
 	
 	
 	<div class="span3">
-		<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2><hr>
+		<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2>
+		
+		<hr>
 	
 		<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-horizontal">
 			<fieldset>				
@@ -93,6 +97,7 @@
 			</fieldset>
 		</form>
 	</div>
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}
