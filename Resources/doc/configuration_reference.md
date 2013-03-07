@@ -8,8 +8,6 @@ All available configuration options are listed below with their default values.
 # for CCDNUser UserBundle   
 #
 ccdn_user_user:
-    user:
-        profile_route:        ccdn_user_profile_show_by_id
     template:
         engine:               twig
     seo:
@@ -46,9 +44,6 @@ ccdn_user_user:
         login:
             layout_template:      CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
             support_facebook:     false
-    sidebar:
-        members_route:        ccdn_user_member_index
-        profile_route:        ccdn_user_profile_show
     legal_documents:
         terms_conditions:     CCDNUserUserBundle:Legal:terms_conditions.txt.twig
         copyright_notice:     CCDNUserUserBundle:Legal:copyright_notice.txt.twig

@@ -48,7 +48,6 @@ class CCDNUserUserExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->setParameter('ccdn_user_user.user.profile_route', $config['user']['profile_route']);
         $container->setParameter('ccdn_user_user.template.engine', $config['template']['engine']);
 
         $this->getSEOSection($container, $config);
@@ -58,7 +57,6 @@ class CCDNUserUserExtension extends Extension
         $this->getResettingSection($container, $config);
         $this->getSecuritySection($container, $config);
         $this->getLegalSection($container, $config);
-        $this->getSidebarSection($container, $config);
     }
 
     /**
@@ -163,15 +161,5 @@ class CCDNUserUserExtension extends Extension
         $container->setParameter('ccdn_user_user.legal_identification.show_company_registered_house', $config['legal_identification']['show_company_registered_house']);
         $container->setParameter('ccdn_user_user.legal_identification.show_copyright_year', $config['legal_identification']['show_copyright_year']);
 
-    }
-
-    /**
-     *
-     * @access private
-     * @param $container, $config
-     */
-    private function getSidebarSection($container, $config)
-    {
-        $container->setParameter('ccdn_user_user.sidebar.links', $config['sidebar']['links']);
     }
 }

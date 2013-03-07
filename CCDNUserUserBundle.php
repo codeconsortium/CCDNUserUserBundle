@@ -107,9 +107,6 @@ class CCDNUserUserBundle extends Bundle
 					'form_theme' => $this->container->getParameter('ccdn_user_user.password.change_password.form_theme'),
 				),
 			),
-			'sidebar' => array(
-				'links' => $this->container->getParameter('ccdn_user_user.sidebar.links'),
-			)
 		));
 	}
 	

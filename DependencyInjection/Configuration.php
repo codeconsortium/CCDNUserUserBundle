@@ -43,13 +43,6 @@ class Configuration implements ConfigurationInterface
             ->addDefaultsIfNotSet()
             ->canBeUnset()
             ->children()
-                ->arrayNode('user')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
-                    ->children()
-                        ->scalarNode('profile_route')->defaultValue('ccdn_user_profile_show_by_id')->end()
-                    ->end()
-                ->end()
                 ->arrayNode('template')
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
@@ -66,7 +59,6 @@ class Configuration implements ConfigurationInterface
         $this->addResettingSection($rootNode);
         $this->addSecuritySection($rootNode);
         $this->addLegalSection($rootNode);
-        $this->addSidebarSection($rootNode);
 
         return $treeBuilder;
     }
@@ -313,36 +305,6 @@ class Configuration implements ConfigurationInterface
 
 						->scalarNode('copyright_year')->defaultValue('')->end()
 						->scalarNode('show_copyright_year')->defaultValue(false)->end()
-                    ->end()
-                ->end()
-            ->end();
-    }
-
-    /**
-     *
-     * @access private
-     * @param ArrayNodeDefinition $node
-     */
-    private function addSidebarSection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->addDefaultsIfNotSet()
-            ->canBeUnset()
-            ->children()
-                ->arrayNode('sidebar')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
-                    ->children()
-                        ->arrayNode('links')
-                            ->prototype('array')
-                                ->children()
-                                    ->scalarNode('bundle')->end()
-                                    ->scalarNode('label')->end()
-                                    ->scalarNode('route')->defaultNull()->end()
-                                    ->scalarNode('path')->defaultNull()->end()
-                                ->end()
-                            ->end()
-                        ->end()
                     ->end()
                 ->end()
             ->end();
