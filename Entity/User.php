@@ -53,24 +53,28 @@ class User extends AbstractUser
     }
 
     /**
-     * Set registeredDate
-     *
-     * @param datetime $registeredDate
-     */
-    public function setRegisteredDate($registeredDate)
-    {
-        $this->registeredDate = $registeredDate;
-    }
-
-    /**
      * Get registeredDate
      *
-     * @return datetime
+     * @return \Datetime
      */
     public function getRegisteredDate()
     {
         return $this->registeredDate;
     }
+	
+    /**
+     * Set registeredDate
+     *
+     * @param \Datetime $registeredDate
+	 * @return User
+     */
+    public function setRegisteredDate($registeredDate)
+    {
+        $this->registeredDate = $registeredDate;
+		
+		return $this;
+    }
+
 	
 	
 	

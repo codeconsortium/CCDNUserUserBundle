@@ -32,16 +32,6 @@ abstract class User extends BaseUser
         parent::__construct();
         // your own logic
     }
-	
-    /**
-     * Set profile
-     *
-     * @param CCDNUser\ProfileBundle\Entity\Profile $profile
-     */
-    public function setProfile(Profile $profile)
-    {
-        $this->profile = $profile;
-    }
 
     /**
      * Get profile
@@ -56,5 +46,18 @@ abstract class User extends BaseUser
         }
 
         return $this->profile;
+    }
+	
+    /**
+     * Set profile
+     *
+     * @param CCDNUser\ProfileBundle\Entity\Profile $profile
+	 * @return User
+     */
+    public function setProfile(Profile $profile)
+    {
+        $this->profile = $profile;
+		
+		return $this;
     }
 }
