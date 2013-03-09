@@ -15,40 +15,15 @@ namespace CCDNUser\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use FOS\UserBundle\Entity\User as BaseUser;
-use CCDNUser\ProfileBundle\Entity\Profile;
-use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
+use CCDNUser\UserBundle\Model\User as AbstractUser;
 
-/**
- * @ORM\Entity(repositoryClass="CCDNUser\UserBundle\Repository\UserRepository")
- * @ORM\Table(name="fos_user")
- */
-class User extends BaseUser
+class User extends AbstractUser
 {
-	
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\generatedValue(strategy="AUTO")
-     */
+    /** @var integer $id */
     protected $id;
 
-    /**
-     * @ORM\Column(name="registered_date", type="datetime", nullable=true)
-     */
+    /** @var \DateTime $registeredDate */
     protected $registeredDate;
-
-    /**
-     * @ORM\OneToOne(targetEntity="CCDNUser\ProfileBundle\Entity\Profile", cascade={"persist", "remove"}, orphanRemoval=true)
-	 * @ORM\JoinColumn(name="fk_profile_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
-     */
-    protected $profile;
-
-    /*
-     * @Recaptcha\True(groups={"Registration"})
-     *
-    public $recaptcha;
-	*/
 	
 	/**
 	 *
@@ -60,6 +35,13 @@ class User extends BaseUser
         // your own logic
     }
 
+	public function setRegistrationDate()
+	{
+		if (null == $this->registeredDate) {
+			$this->registeredDate = new \DateTime('now');			
+		}
+	}
+	
     /**
      * Get id
      *
@@ -68,31 +50,6 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set profile
-     *
-     * @param CCDNUser\ProfileBundle\Entity\Profile $profile
-     */
-    public function setProfile(\CCDNUser\ProfileBundle\Entity\Profile $profile)
-    {
-        $this->profile = $profile;
-    }
-
-    /**
-     * Get profile
-     *
-     * @return CCDNUser\ProfileBundle\Entity\Profile
-     */
-    public function getProfile()
-    {
-        if (empty($this->profile)) {
-            $this->profile = new Profile();
-            $this->profile->setUser($this);
-        }
-
-        return $this->profile;
     }
 
     /**
@@ -114,6 +71,9 @@ class User extends BaseUser
     {
         return $this->registeredDate;
     }
+	
+	
+	
 
     /*
      *

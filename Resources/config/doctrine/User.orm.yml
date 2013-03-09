@@ -1,0 +1,23 @@
+CCDNUser\UserBundle\Entity\User:
+    type: entity
+    table: CC_User
+    repositoryClass: CCDNUser\UserBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        registeredDate:
+            type: datetime
+            column: registered_date
+    oneToOne:
+        profile:
+            targetEntity: CCDNUser\ProfileBundle\Entity\Profile
+            cascade: ["persist"]
+            nullable: true
+            joinColumn:
+                name: fk_profile_id
+                referencedColumnName: id
+                onDelete: SET NULL
+    lifecycleCallbacks:
+        prePersist: [ setRegistrationDate ]

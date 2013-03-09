@@ -22,7 +22,7 @@
 				</div>
 					
 				{%- if invalid_username is defined -%}
-					<p>{{- 'resetting.request.invalid_username'|trans({'%user_name%': invalid_username}, 'FOSUserBundle') -}}</p>
+					<p>{{- 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') -}}</p>
 		        {%- endif -%}
 
 				<div class="control-group">
