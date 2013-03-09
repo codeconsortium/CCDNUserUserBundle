@@ -3,8 +3,14 @@
 
 	<li class="nav-header">{{- 'ccdn_user_user.sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
 
-	{%- if is_granted("ROLE_USER") -%}
+	<li>
+		<a href="{{- path('ccdn_user_member_index') -}}">
+			<i class="icon-th-list"></i>
+			{{- 'ccdn_user_member.sidebar.link.members' |trans({}, 'CCDNUserMemberBundle') -}}
+		</a>
+	</li>
 
+	{%- if is_granted("ROLE_USER") -%}
 		{%- if route == 'ccdn_user_user_account_show' or route == 'ccdn_user_user_account_edit' or route == 'fos_user_change_password' -%}
 			<li class="active">
 				<a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}">
@@ -20,6 +26,14 @@
 				</a>
 			</li>
 		{%- endif -%}
+
+		<li>
+			<a rel="nofollow" href="{{- path('ccdn_user_profile_show') -}}">
+				<i class="icon-user"></i>
+				{{- 'ccdn_user_member.sidebar.link.profile.view' | trans({}, 'CCDNUserMemberBundle') -}}
+			</a>
+		</li>
+
 
 	{%- else -%}
 
