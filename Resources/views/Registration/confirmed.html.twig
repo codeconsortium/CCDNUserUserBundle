@@ -14,14 +14,36 @@
 	</header>
 
 	<section>
-	    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
-
+	    <p>{{- 'registration.confirmed'|trans({'%username%': '<bdi><b>' ~ user.username ~ '</b></bdi>'}, 'FOSUserBundle') |raw -}}</p>
+	</section>
+	
 	    {%- if app.session is not empty -%}
-			<br>
-			
 	        {%- set targetUrl = app.session.get('_security.target_path') -%}
-	        {%- if targetUrl is not empty -%}<p><a href="{{- targetUrl -}}">{{- 'registration.back'|trans({}, 'FOSUserBundle') -}}</a></p>{%- endif -%}
+	        {%- if targetUrl is not empty -%}
+				<section>		
+
+					<p>
+						<a href="{{- targetUrl -}}">{{- 'registration.back'|trans({}, 'FOSUserBundle') -}}</a>
+					</p>
+				</section>
+			{%- endif -%}
 	    {%- endif -%}
+
+	<section>
+		<br><br>
+		
+		<span class="lead">Whats next?</span>
+		
+		<br><br>
+		
+		<ol>
+			<li>
+				<a href="{{- path('ccdn_user_profile_show') -}}">Add Your Profile</a>
+			</li>
+			<li>
+				<a href="{{- path('ccdn_forum_forum_index') -}}">Visit Forum</a>
+			</li>
+		</ol>
 	</section>
 	
 	{%- endspaceless -%}

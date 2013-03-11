@@ -40,11 +40,11 @@ abstract class User extends BaseUser
      */
     public function getProfile()
     {
-        if (empty($this->profile)) {
+        if (null == $this->profile) {
             $this->profile = new Profile();
             $this->profile->setUser($this);
         }
-
+		
         return $this->profile;
     }
 	
@@ -54,10 +54,15 @@ abstract class User extends BaseUser
      * @param CCDNUser\ProfileBundle\Entity\Profile $profile
 	 * @return User
      */
-    public function setProfile(Profile $profile)
+    public function setProfile(Profile $profile = null)
     {
         $this->profile = $profile;
-		
+
+        if (null == $this->profile) {
+            $this->profile = new Profile();
+            $this->profile->setUser($this);
+        }
+				
 		return $this;
     }
 }
