@@ -1,3 +1,5 @@
+{%- spaceless -%}
+
 <p>This website and its content is copyright 
 {{- ccdn_user_user.legal_identification.show_company_name ? ' of ' ~ ccdn_user_user.legal_identification.company_name ~ ' - © ' ~ ccdn_user_user.legal_identification.company_name : '' -}}
 {{- ccdn_user_user.legal_identification.show_copyright_year ? ccdn_user_user.legal_identification.copyright_year : '' -}}. All rights reserved.</p>
@@ -12,3 +14,5 @@
 
 <p>You may not, except with our express written permission, distribute or commercially exploit the content. Nor may you transmit 
 it or store it in any other website or other form of electronic retrieval system.</p>
+
+{%- endspaceless -%}

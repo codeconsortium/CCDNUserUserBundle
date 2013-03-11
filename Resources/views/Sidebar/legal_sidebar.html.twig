@@ -1,0 +1,70 @@
+{%- spaceless -%}
+	{%- set route = app.request.attributes.get('_route') -%}
+
+	<li class="nav-header">{{- 'ccdn_user_user.sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
+
+	{%- if route == 'ccdn_user_user_legal_copyright_notice' -%}
+		<li class="active">
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_copyright_notice') -}}">
+				<i class="icon-white icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.copyright_notice' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- else -%}
+		<li>
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_copyright_notice') -}}">
+				<i class="icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.copyright_notice' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- endif -%}
+	
+	{%- if route == 'ccdn_user_user_legal_disclaimer' -%}
+		<li class="active">
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_disclaimer') -}}">
+				<i class="icon-white icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.disclaimer' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- else -%}
+		<li>
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_disclaimer') -}}">
+				<i class="icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.disclaimer' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- endif -%}
+	
+	{%- if route == 'ccdn_user_user_legal_privacy_policy' -%}
+		<li class="active">
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_privacy_policy') -}}">
+				<i class="icon-white icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.privacy_policy' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- else -%}
+		<li>
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_privacy_policy') -}}">
+				<i class="icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.privacy_policy' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- endif -%}
+	
+	{%- if route == 'ccdn_user_user_legal_terms_conditions' -%}
+		<li class="active">
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_terms_conditions') -}}">
+				<i class="icon-white icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.terms_conditions' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- else -%}
+		<li>
+			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_terms_conditions') -}}">
+				<i class="icon-file"></i>
+				{{- 'ccdn_user_user.title.legal.terms_conditions' | trans({}, 'CCDNUserUserBundle') -}}
+			</a>
+		</li>
+	{%- endif -%}
+		
+{%- endspaceless -%}

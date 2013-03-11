@@ -1,8 +1,16 @@
 {% extends 'CCDNUserUserBundle::base.html.twig' %}
 
-{% set LayoutTemplate = ccdn_user_user.registration.register.layout_template  %}
+{% set LayoutTemplate = ccdn_user_user.legal.terms_conditions.layout_template  %}
 
 {% block title %}{{- 'ccdn_user_user.title.legal.terms_conditions'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+
+{% block sidebar %}
+
+	{%- include 'CCDNUserUserBundle:Sidebar:legal_sidebar.html.twig' -%}
+
+{% endblock %}
+
+{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
 
 
 {% block body_content %}
@@ -13,10 +21,14 @@
 		<h3>{{- 'ccdn_user_user.title.legal.terms_conditions'|trans({}, 'CCDNUserUserBundle') -}}</h3>
 	</header>
 
-	<section>
-		{%- include ccdn_user_user.legal_documents.terms_conditions -%}
-	</section>
+	<article>
+		<pre>
+			{%- include ccdn_user_user.legal.terms_conditions.document -%}
+		</pre>
+	</article>
 
+	{%- include 'CCDNUserUserBundle:Footer:footer.html.twig' -%}
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

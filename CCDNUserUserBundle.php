@@ -40,11 +40,23 @@ class CCDNUserUserBundle extends Bundle
 			'seo' => array(
 				'title_length' => $this->container->getParameter('ccdn_user_user.seo.title_length'),
 			),
-			'legal_documents' => array(
-				'terms_conditions' => $this->container->getParameter('ccdn_user_user.legal_documents.terms_conditions'),
-				'copyright_notice' => $this->container->getParameter('ccdn_user_user.legal_documents.copyright_notice'),
-				'privacy_policy' => $this->container->getParameter('ccdn_user_user.legal_documents.privacy_policy'),
-				'disclaimer' => $this->container->getParameter('ccdn_user_user.legal_documents.disclaimer'),
+			'legal' => array(
+				'terms_conditions' => array(
+					'layout_template' => $this->container->getParameter('ccdn_user_user.legal.terms_conditions.layout_template'),
+					'document' => $this->container->getParameter('ccdn_user_user.legal.terms_conditions.document'),
+				),
+				'copyright_notice' => array(
+					'layout_template' => $this->container->getParameter('ccdn_user_user.legal.copyright_notice.layout_template'),
+					'document' => $this->container->getParameter('ccdn_user_user.legal.copyright_notice.document'),
+				),
+				'privacy_policy' => array(
+					'layout_template' => $this->container->getParameter('ccdn_user_user.legal.privacy_policy.layout_template'),
+					'document' => $this->container->getParameter('ccdn_user_user.legal.privacy_policy.document'),
+				),
+				'disclaimer' => array(
+					'layout_template' => $this->container->getParameter('ccdn_user_user.legal.disclaimer.layout_template'),
+					'document' => $this->container->getParameter('ccdn_user_user.legal.disclaimer.document'),
+				),
 			),
 			'legal_identification' => array(
 				'company_name' => $this->container->getParameter('ccdn_user_user.legal_identification.company_name'),

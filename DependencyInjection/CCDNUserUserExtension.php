@@ -144,10 +144,18 @@ class CCDNUserUserExtension extends Extension
      */
     private function getLegalSection($container, $config)
     {
-        $container->setParameter('ccdn_user_user.legal_documents.terms_conditions', $config['legal_documents']['terms_conditions']);
-        $container->setParameter('ccdn_user_user.legal_documents.copyright_notice', $config['legal_documents']['copyright_notice']);
-        $container->setParameter('ccdn_user_user.legal_documents.privacy_policy', $config['legal_documents']['privacy_policy']);
-        $container->setParameter('ccdn_user_user.legal_documents.disclaimer', $config['legal_documents']['disclaimer']);
+        $container->setParameter('ccdn_user_user.legal.terms_conditions.layout_template', $config['legal']['terms_conditions']['layout_template']);
+        $container->setParameter('ccdn_user_user.legal.terms_conditions.document', $config['legal']['terms_conditions']['document']);
+		
+        $container->setParameter('ccdn_user_user.legal.copyright_notice.layout_template', $config['legal']['copyright_notice']['layout_template']);
+        $container->setParameter('ccdn_user_user.legal.copyright_notice.document', $config['legal']['copyright_notice']['document']);
+		
+        $container->setParameter('ccdn_user_user.legal.privacy_policy.layout_template', $config['legal']['privacy_policy']['layout_template']);
+        $container->setParameter('ccdn_user_user.legal.privacy_policy.document', $config['legal']['privacy_policy']['document']);
+		
+        $container->setParameter('ccdn_user_user.legal.disclaimer.layout_template', $config['legal']['disclaimer']['layout_template']);
+        $container->setParameter('ccdn_user_user.legal.disclaimer.document', $config['legal']['disclaimer']['document']);
+		
 
         $container->setParameter('ccdn_user_user.legal_identification.company_name', $config['legal_identification']['company_name']);
         $container->setParameter('ccdn_user_user.legal_identification.company_address', $config['legal_identification']['company_address']);
