@@ -33,6 +33,19 @@ abstract class User extends BaseUser
         // your own logic
     }
 
+	/**
+	 * Setup Profile before being persisted.
+	 *
+	 */
+	public function prePersistAddProfile()
+	{
+		if (null == $this->profile) {
+			$this->profile = new Profile();
+		
+			$this->profile->setUser($this);			
+		}
+	}
+	
     /**
      * Get profile
      *

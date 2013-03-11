@@ -20,4 +20,4 @@ CCDNUser\UserBundle\Entity\User:
                 referencedColumnName: id
                 onDelete: SET NULL
     lifecycleCallbacks:
-        prePersist: [ setRegistrationDate ]
+        prePersist: [ prePersistSetRegistrationDate, prePersistAddProfile ]

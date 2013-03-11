@@ -52,8 +52,6 @@ class RegistrationController extends BaseController
 			}
 			
 			$crumbs = $this->container->get('ccdn_component_crumb.trail');
-            //	->add($this->container->get('translator')->trans('ccdn_user_member.crumbs.members', array(), 'CCDNUserMemberBundle'), $this->container->get('router')->generate('ccdn_user_member_index', array()), "users")
-            //	->add($this->container->get('translator')->trans('ccdn_user_profile.crumbs.profile', array('%user_name%' => ucfirst($user->getUsername())), 'CCDNUserProfileBundle'), $this->container->get('router')->generate('ccdn_user_profile_show_by_id', array('userId' => $user->getId())), "user");
 
 	        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Registration:terms.html.' . $this->getEngine(), array(
 	            'crumbs' => $crumbs,

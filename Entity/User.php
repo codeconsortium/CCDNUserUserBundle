@@ -35,7 +35,11 @@ class User extends AbstractUser
         // your own logic
     }
 
-	public function setRegistrationDate()
+	/**
+	 * Add registration date before being persisted.
+	 *
+	 */
+	public function prePersistSetRegistrationDate()
 	{
 		if (null == $this->registeredDate) {
 			$this->registeredDate = new \DateTime('now');			
