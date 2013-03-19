@@ -1,6 +1,6 @@
 CCDNUser\UserBundle\Entity\User:
     type: entity
-    table: CC_User
+    table: cc_user
     repositoryClass: CCDNUser\UserBundle\Repository\UserRepository
     id:
         id:
