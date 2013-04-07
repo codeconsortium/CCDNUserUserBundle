@@ -13,11 +13,7 @@
 
 namespace CCDNUser\UserBundle\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
-use FOS\UserBundle\Model\UserInterface;
+use CCDNUser\UserBundle\Controller\BaseController;
 
 /*
  * Deals with routes:
@@ -28,9 +24,8 @@ use FOS\UserBundle\Model\UserInterface;
  * @author Reece Fowell <reece@codeconsortium.com>
  * @version 1.0
  */
-class AccountController extends ContainerAware
+class AccountController extends BaseController
 {
-
     /**
      *
      * @access public
@@ -38,17 +33,11 @@ class AccountController extends ContainerAware
      */
     public function showAction()
     {
-        if ( ! $this->container->get('security.context')->isGranted('ROLE_USER')) {
-            throw new AccessDeniedException('You do not have access to this section.');
-        }
+        $this->isAuthorised('ROLE_USER');
 
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $user = $this->getUser();
 
-        if ( ! is_object($user) || ! $user instanceof UserInterface) {
-            throw new AccessDeniedException('You do not have access to this section.');
-        }
-
-        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Account:show.html.' . $this->container->getParameter('fos_user.template.engine'), array(
+        return $this->renderResponse('CCDNUserUserBundle:Account:show.html.', array(
             'user' => $user,
         ));
     }
@@ -60,15 +49,9 @@ class AccountController extends ContainerAware
      */
     public function editAction()
     {
-        if ( ! $this->container->get('security.context')->isGranted('ROLE_USER')) {
-            throw new AccessDeniedException('You do not have access to this section.');
-        }
+        $this->isAuthorised('ROLE_USER');
 
-        $user = $this->container->get('security.context')->getToken()->getUser();
-
-        if ( ! is_object($user) || ! $user instanceof UserInterface) {
-            throw new AccessDeniedException('You do not have access to this section.');
-        }
+        $user = $this->getUser();
 
         $form = $this->container->get('fos_user.profile.form');
         $formHandler = $this->container->get('fos_user.profile.form.handler');
@@ -76,25 +59,15 @@ class AccountController extends ContainerAware
         $process = $formHandler->process($user);
 
         if ($process) {
-            $this->setFlash('fos_user_success', $this->container->get('translator')->trans('ccdn_user_user.flash.account.updated', array(), 'CCDNUserUserBundle'));
+            $this->setFlash('fos_user_success', $this->trans('ccdn_user_user.flash.account.updated'));
 
-            return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_account_show'));
+            return $this->redirectResponse($this->path('ccdn_user_user_account_show'));
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Account:edit.html.'.$this->container->getParameter('fos_user.template.engine'), array(
-            'form' => $form->createView(),
-		));
+        return $this->renderResponse('FOSUserBundle:Account:edit.html.',
+			array(
+	            'form' => $form->createView(),
+			)
+		);
     }
-
-    /**
-     *
-     * @access protected
-	 * @param string $action, string $value
-     * @return string
-     */
-    protected function setFlash($action, $value)
-    {
-        $this->container->get('session')->setFlash($action, $value);
-    }
-
 }

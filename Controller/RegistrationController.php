@@ -13,10 +13,7 @@
 
 namespace CCDNUser\UserBundle\Controller;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
-
-use FOS\UserBundle\Controller\RegistrationController as BaseController;
-use FOS\UserBundle\Model\UserInterface;
+use CCDNUser\UserBundle\Controller\BaseController;
 
 use CCDNUser\ProfileBundle\Entity\Profile;
 
@@ -27,7 +24,6 @@ use CCDNUser\ProfileBundle\Entity\Profile;
  */
 class RegistrationController extends BaseController
 {
-
 	/**
 	 *
 	 * @access public
@@ -35,31 +31,28 @@ class RegistrationController extends BaseController
 	 */
 	public function registerTermsAction()
 	{
+		$request = $this->getRequest();
 		
-		$request = $this->container->get('request');
-		
-		if ($request->request->get('accept_terms'))
-		{
+		if ($request->request->get('accept_terms')) {
 			$this->container->get('session')->set('accepted_terms', true);
 			
-            return new RedirectResponse($this->container->get('router')->generate('fos_user_registration_register'));
-		} else {
+            return $this->redirectResponse($this->path('fos_user_registration_register'));
+		}
 			
-			// Warn user they must accept terms if this is second or more attempt.
-			if ($request->getMethod() == 'POST')
-			{
-	            $this->container->get('session')->setFlash('warning', $this->container->get('translator')->trans('ccdn_user_user.flash.registration.terms.must_accept', array(), 'CCDNUserUserBundle'));
-			}
-			
-			$crumbs = $this->container->get('ccdn_component_crumb.trail');
+		// Warn user they must accept terms if this is second or more attempt.
+		if ($request->getMethod() == 'POST')
+		{
+            $this->setFlash('warning', $this->trans('ccdn_user_user.flash.registration.terms.must_accept'));
+		}
+		
+		$crumbs = $this->getCrumbs();
 
-	        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:Registration:terms.html.' . $this->getEngine(), array(
+        return $this->renderResponse('CCDNUserUserBundle:Registration:terms.html.',
+			array(
 	            'crumbs' => $crumbs,
-	        ));	
-
-		}		
+	        )
+		);
 	}
-	
 	
 	/**
 	 *
@@ -70,35 +63,20 @@ class RegistrationController extends BaseController
     {
 		$session = $this->container->get('session');
 
-		if ($this->container->get('security.context')->isGranted('ROLE_USER'))
-		{
-       		$this->container->get('session')->setFlash('warning', $this->container->get('translator')->trans('ccdn_user_user.flash.registration.cannot_be_logged_in', array(), 'CCDNUserUserBundle'));
+		if ($this->isGranted('ROLE_USER')) {
+       		$this->setFlash('warning', $this->trans('ccdn_user_user.flash.registration.cannot_be_logged_in'));
 
-       		return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_account_show'));
+       		return $this->redirectResponse($this->path('ccdn_user_user_account_show'));
 		}
 						
-		if ($session->has('accepted_terms'))
-		{
-			if ($session->get('accepted_terms')) 
-			{
+		if ($session->has('accepted_terms')) {
+			if ($session->get('accepted_terms')) {
         		return parent::registerAction();
 			} else {
-            	return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_registration_terms'));
+            	return $this->redirectResponse($this->path('ccdn_user_user_registration_terms'));
 			}
-		} else {
-           	return new RedirectResponse($this->container->get('router')->generate('ccdn_user_user_registration_terms'));
 		}
+		
+        return $this->redirectResponse($this->path('ccdn_user_user_registration_terms'));
     }
-
-	
-    /**
-     *
-     * @access protected
-     * @return string
-     */
-    protected function getEngine()
-    {
-        return $this->container->getParameter('ccdn_user_user.template.engine');
-    }
-
 }

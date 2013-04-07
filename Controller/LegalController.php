@@ -13,17 +13,15 @@
 
 namespace CCDNUser\UserBundle\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use CCDNUser\UserBundle\Controller\BaseController;
 
 /*
  *
  * @author Reece Fowell <reece@codeconsortium.com>
  * @version 1.0
  */
-class LegalController extends ContainerAware
+class LegalController extends BaseController
 {
-
     /**
      *
      * @access public
@@ -31,7 +29,7 @@ class LegalController extends ContainerAware
      */
     public function showCopyrightNoticeAction()
     {
-        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:legal:show_copyright_notice.html.' . $this->container->getParameter('fos_user.template.engine'), array());
+        return $this->renderResponse('CCDNUserUserBundle:legal:show_copyright_notice.html.', array());
     }
 
     /**
@@ -41,7 +39,7 @@ class LegalController extends ContainerAware
      */
     public function showDisclaimerAction()
     {
-        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:legal:show_disclaimer.html.' . $this->container->getParameter('fos_user.template.engine'), array());
+        return $this->renderResponse('CCDNUserUserBundle:legal:show_disclaimer.html.', array());
     }
 
     /**
@@ -51,7 +49,7 @@ class LegalController extends ContainerAware
      */
     public function showPrivacyPolicyAction()
     {
-        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:legal:show_privacy_policy.html.' . $this->container->getParameter('fos_user.template.engine'), array());
+        return $this->renderResponse('CCDNUserUserBundle:legal:show_privacy_policy.html.', array());
     }
 
     /**
@@ -61,7 +59,6 @@ class LegalController extends ContainerAware
      */
     public function showTermsConditionsAction()
     {
-        return $this->container->get('templating')->renderResponse('CCDNUserUserBundle:legal:show_terms_conditions.html.' . $this->container->getParameter('fos_user.template.engine'), array());
+        return $this->renderResponse('CCDNUserUserBundle:legal:show_terms_conditions.html.', array());
     }
-
 }
