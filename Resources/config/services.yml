@@ -7,7 +7,6 @@ parameters:
     ccdn_user_user.form.type.registration:                  CCDNUser\UserBundle\Form\Type\RegistrationFormType
 
     ccdn_user_user.component.dashboard.integrator.class:        CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
-    ccdn_user_user.component.menu_builder.menu.class:           CCDNUser\UserBundle\Component\MenuBuilder\Menu
     ccdn_user_user.component.route_referer_ignore.list.class:   CCDNUser\UserBundle\Component\RouteRefererIgnore\RouteRefererIgnoreList
 
 services:
@@ -46,15 +45,6 @@ services:
         arguments: [@service_container]
         tags:
             - { name: ccdn_component_dashboard.integrator }
-    
-    #
-    # Menu Builder.
-    #
-    ccdn_user_user.component.menu_builder.menu:
-        class: %ccdn_user_user.component.menu_builder.menu.class%
-        arguments: [@service_container]
-        tags:
-            - { name: ccdn_component_menu.menu_builder }
     
     #
     # Route Referer.
