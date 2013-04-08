@@ -51,8 +51,6 @@ class Configuration implements ConfigurationInterface
 
 		// Class file namespaces.
 		$this->addEntitySection($rootNode);
-		$this->addGatewaySection($rootNode);
-		$this->addManagerSection($rootNode);
 		
 		// Configuration stuff.
         $this->addSEOSection($rootNode);
@@ -85,58 +83,6 @@ class Configuration implements ConfigurationInterface
 		                    ->canBeUnset()
 				            ->children()
 								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Entity\User')->end()
-							->end()
-						->end()
-					->end()
-				->end()
-			->end();
-	}
-	
-    /**
-     *
-     * @access private
-     * @param ArrayNodeDefinition $node
-     */
-    private function addGatewaySection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->addDefaultsIfNotSet()
-            ->children()
-                ->arrayNode('gateway')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
-                    ->children()
-                        ->arrayNode('user')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-                            ->children()
-								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Gateway\UserGateway')->end()							
-							->end()
-						->end()
-					->end()
-				->end()
-			->end();
-	}
-	
-    /**
-     *
-     * @access private
-     * @param ArrayNodeDefinition $node
-     */
-    private function addManagerSection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->addDefaultsIfNotSet()
-            ->children()
-                ->arrayNode('manager')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
-                    ->children()
-                        ->arrayNode('user')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-                            ->children()
-								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Manager\UserManager')->end()							
 							->end()
 						->end()
 					->end()

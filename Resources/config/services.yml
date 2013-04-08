@@ -1,13 +1,11 @@
 parameters:
 
-    ccdn_user_user.repository.user.class:                   CCDNUser\UserBundle\Repository\UserRepository
+    ccdn_user_user.repository.user.class:                     CCDNUser\UserBundle\Repository\UserRepository
 
-#    ccdn_user_user.manager.user.class:                      CCDNUser\UserBundle\Manager\UserManager
+    ccdn_user_user.form.type.registration:                    CCDNUser\UserBundle\Form\Type\RegistrationFormType
 
-    ccdn_user_user.form.type.registration:                  CCDNUser\UserBundle\Form\Type\RegistrationFormType
-
-    ccdn_user_user.component.dashboard.integrator.class:        CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
-    ccdn_user_user.component.route_referer_ignore.list.class:   CCDNUser\UserBundle\Component\RouteRefererIgnore\RouteRefererIgnoreList
+    ccdn_user_user.component.dashboard.integrator.class:      CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator
+    ccdn_user_user.component.route_referer_ignore.list.class: CCDNUser\UserBundle\Component\RouteRefererIgnore\RouteRefererIgnoreList
 
 services:
 
@@ -19,14 +17,7 @@ services:
         factory_service: doctrine.orm.default_entity_manager
         factory_method: getRepository
         arguments:
-            - 'CCDNUser\UserBundle\Entity\User'
-
-    #
-    # Managers.
-    #
-    ccdn_user_user.manager.user:
-        class: %ccdn_user_user.manager.user.class%
-        arguments:  [@doctrine]
+            - %ccdn_user_user.entity.user.class%
 
     #
     # Registration Forms.

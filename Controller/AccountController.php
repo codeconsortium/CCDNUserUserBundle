@@ -37,9 +37,11 @@ class AccountController extends BaseController
 
         $user = $this->getUser();
 
-        return $this->renderResponse('CCDNUserUserBundle:Account:show.html.', array(
-            'user' => $user,
-        ));
+        return $this->renderResponse('CCDNUserUserBundle:Account:show.html.',
+			array(
+	            'user' => $user,
+	        )
+		);
     }
 
     /**

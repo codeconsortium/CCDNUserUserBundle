@@ -46,8 +46,6 @@ class CCDNUserUserExtension extends Extension
 
 		// Class file namespaces.
         $this->getEntitySection($container, $config);
-        $this->getGatewaySection($container, $config);
-        $this->getManagerSection($container, $config);
 		
 		// Configuration stuff.
         $container->setParameter('ccdn_user_user.template.engine', $config['template']['engine']);
@@ -64,7 +62,6 @@ class CCDNUserUserExtension extends Extension
         $loader->load('services.yml');
     }
 
-
     /**
      *
      * @access private
@@ -73,26 +70,6 @@ class CCDNUserUserExtension extends Extension
     private function getEntitySection($container, $config)
     {
         $container->setParameter('ccdn_user_user.entity.user.class', $config['entity']['user']['class']);				
-	}
-	
-    /**
-     *
-     * @access private
-     * @param $container, $config
-     */
-    private function getGatewaySection($container, $config)
-    {
-        $container->setParameter('ccdn_user_user.gateway.user.class', $config['gateway']['user']['class']);
-	}
-	
-    /**
-     *
-     * @access private
-     * @param $container, $config
-     */
-    private function getManagerSection($container, $config)
-    {
-        $container->setParameter('ccdn_user_user.manager.user.class', $config['manager']['user']['class']);		
 	}
 	
     /**
@@ -116,7 +93,6 @@ class CCDNUserUserExtension extends Extension
 
         $container->setParameter('ccdn_user_user.account.edit.layout_template', $config['account']['edit']['layout_template']);
         $container->setParameter('ccdn_user_user.account.edit.form_theme', $config['account']['edit']['form_theme']);
-
     }
 
     /**
