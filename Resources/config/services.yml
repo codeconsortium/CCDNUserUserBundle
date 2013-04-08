@@ -2,7 +2,7 @@ parameters:
 
     ccdn_user_user.repository.user.class:                   CCDNUser\UserBundle\Repository\UserRepository
 
-    ccdn_user_user.manager.user.class:                      CCDNUser\UserBundle\Manager\UserManager
+#    ccdn_user_user.manager.user.class:                      CCDNUser\UserBundle\Manager\UserManager
 
     ccdn_user_user.form.type.registration:                  CCDNUser\UserBundle\Form\Type\RegistrationFormType
 

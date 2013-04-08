@@ -36,9 +36,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('ccdn_user_user');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
         $rootNode
             ->addDefaultsIfNotSet()
             ->canBeUnset()
@@ -52,6 +49,12 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
 
+		// Class file namespaces.
+		$this->addEntitySection($rootNode);
+		$this->addGatewaySection($rootNode);
+		$this->addManagerSection($rootNode);
+		
+		// Configuration stuff.
         $this->addSEOSection($rootNode);
         $this->addAccountSection($rootNode);
         $this->addChangePasswordSection($rootNode);
@@ -63,6 +66,84 @@ class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
+    /**
+     *
+     * @access private
+     * @param ArrayNodeDefinition $node
+     */
+    private function addEntitySection(ArrayNodeDefinition $node)
+	{
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('entity')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+				        ->arrayNode('user')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+				            ->children()
+								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Entity\User')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+    /**
+     *
+     * @access private
+     * @param ArrayNodeDefinition $node
+     */
+    private function addGatewaySection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('gateway')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('user')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+                            ->children()
+								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Gateway\UserGateway')->end()							
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+    /**
+     *
+     * @access private
+     * @param ArrayNodeDefinition $node
+     */
+    private function addManagerSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('manager')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('user')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+                            ->children()
+								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Manager\UserManager')->end()							
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
     /**
      *
      * @access protected

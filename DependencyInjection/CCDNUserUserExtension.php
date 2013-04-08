@@ -28,7 +28,6 @@ use Symfony\Component\Config\FileLocator;
  */
 class CCDNUserUserExtension extends Extension
 {
-
     /**
      * {@inheritDoc}
      */
@@ -45,11 +44,13 @@ class CCDNUserUserExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-
+		// Class file namespaces.
+        $this->getEntitySection($container, $config);
+        $this->getGatewaySection($container, $config);
+        $this->getManagerSection($container, $config);
+		
+		// Configuration stuff.
         $container->setParameter('ccdn_user_user.template.engine', $config['template']['engine']);
-
         $this->getSEOSection($container, $config);
         $this->getAccountSection($container, $config);
         $this->getChangePasswordSection($container, $config);
@@ -57,8 +58,43 @@ class CCDNUserUserExtension extends Extension
         $this->getResettingSection($container, $config);
         $this->getSecuritySection($container, $config);
         $this->getLegalSection($container, $config);
+		
+		// Load Service definitions.
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
     }
 
+
+    /**
+     *
+     * @access private
+     * @param $container, $config
+     */
+    private function getEntitySection($container, $config)
+    {
+        $container->setParameter('ccdn_user_user.entity.user.class', $config['entity']['user']['class']);				
+	}
+	
+    /**
+     *
+     * @access private
+     * @param $container, $config
+     */
+    private function getGatewaySection($container, $config)
+    {
+        $container->setParameter('ccdn_user_user.gateway.user.class', $config['gateway']['user']['class']);
+	}
+	
+    /**
+     *
+     * @access private
+     * @param $container, $config
+     */
+    private function getManagerSection($container, $config)
+    {
+        $container->setParameter('ccdn_user_user.manager.user.class', $config['manager']['user']['class']);		
+	}
+	
     /**
      *
      * @access protected
