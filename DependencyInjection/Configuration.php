@@ -51,6 +51,9 @@ class Configuration implements ConfigurationInterface
 
 		// Class file namespaces.
 		$this->addEntitySection($rootNode);
+		$this->addRepositorySection($rootNode);
+		$this->addFormSection($rootNode);
+		$this->addComponentSection($rootNode);
 		
 		// Configuration stuff.
         $this->addSEOSection($rootNode);
@@ -67,7 +70,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addEntitySection(ArrayNodeDefinition $node)
 	{
@@ -92,8 +95,111 @@ class Configuration implements ConfigurationInterface
 	
     /**
      *
+     * @access private
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     */
+    private function addRepositorySection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('repository')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('user')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+                            ->children()
+								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Repository\UserRepository')->end()							
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+    /**
+     *
+     * @access private
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     */
+    private function addFormSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('form')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('type')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+                            ->children()
+		                        ->arrayNode('registration')
+				                    ->addDefaultsIfNotSet()
+				                    ->canBeUnset()
+		                            ->children()
+										->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Form\Type\RegistrationFormType')->end()							
+									->end()
+								->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+    /**
+     *
+     * @access private
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     */
+    private function addComponentSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('component')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+		                ->arrayNode('dashboard')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+		                    ->children()
+				                ->arrayNode('integrator')
+				                    ->addDefaultsIfNotSet()
+				                    ->canBeUnset()
+				                    ->children()
+										->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator')->end()							
+									->end()		
+								->end()
+							->end()
+						->end()
+		                ->arrayNode('route_referer_ignore')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+		                    ->children()
+				                ->arrayNode('list')
+				                    ->addDefaultsIfNotSet()
+				                    ->canBeUnset()
+				                    ->children()
+										->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Component\RouteRefererIgnore\RouteRefererIgnoreList')->end()							
+									->end()		
+								->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+    /**
+     *
      * @access protected
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     protected function addSEOSection(ArrayNodeDefinition $node)
     {
@@ -114,7 +220,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addAccountSection(ArrayNodeDefinition $node)
     {
@@ -149,7 +255,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addChangePasswordSection(ArrayNodeDefinition $node)
     {
@@ -177,7 +283,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addRegistrationSection(ArrayNodeDefinition $node)
     {
@@ -219,7 +325,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addResettingSection(ArrayNodeDefinition $node)
     {
@@ -268,7 +374,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addSecuritySection(ArrayNodeDefinition $node)
     {
@@ -296,7 +402,7 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param ArrayNodeDefinition $node
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
      */
     private function addLegalSection(ArrayNodeDefinition $node)
     {

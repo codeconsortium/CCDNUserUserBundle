@@ -20,7 +20,6 @@ namespace CCDNUser\UserBundle\Component\RouteRefererIgnore;
  */
 class RouteRefererIgnoreList
 {
-
     /**
      *
  	 * @access public
@@ -46,5 +45,4 @@ class RouteRefererIgnoreList
 		
 		return $ignore;
     }
-
 }
