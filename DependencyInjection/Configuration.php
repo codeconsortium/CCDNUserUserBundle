@@ -27,11 +27,12 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
  */
 class Configuration implements ConfigurationInterface
 {
-	
     /**
-     * {@inheritDoc}
+     *
+	 * @access public
+	 * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
      */
-    public function getConfigTreeBuilder()
+	public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('ccdn_user_user');
@@ -50,19 +51,23 @@ class Configuration implements ConfigurationInterface
             ->end();
 
 		// Class file namespaces.
-		$this->addEntitySection($rootNode);
-		$this->addRepositorySection($rootNode);
-		$this->addFormSection($rootNode);
-		$this->addComponentSection($rootNode);
+		$this
+			->addEntitySection($rootNode)
+			->addRepositorySection($rootNode)
+			->addFormSection($rootNode)
+			->addComponentSection($rootNode)
+		;
 		
 		// Configuration stuff.
-        $this->addSEOSection($rootNode);
-        $this->addAccountSection($rootNode);
-        $this->addChangePasswordSection($rootNode);
-        $this->addRegistrationSection($rootNode);
-        $this->addResettingSection($rootNode);
-        $this->addSecuritySection($rootNode);
-        $this->addLegalSection($rootNode);
+        $this
+			->addSEOSection($rootNode)
+	        ->addAccountSection($rootNode)
+	        ->addChangePasswordSection($rootNode)
+	        ->addRegistrationSection($rootNode)
+	        ->addResettingSection($rootNode)
+	        ->addSecuritySection($rootNode)
+	        ->addLegalSection($rootNode)
+		;
 
         return $treeBuilder;
     }
@@ -71,6 +76,7 @@ class Configuration implements ConfigurationInterface
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addEntitySection(ArrayNodeDefinition $node)
 	{
@@ -90,13 +96,17 @@ class Configuration implements ConfigurationInterface
 						->end()
 					->end()
 				->end()
-			->end();
+			->end()
+		;
+		
+		return $this;
 	}
 	
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addRepositorySection(ArrayNodeDefinition $node)
     {
@@ -116,13 +126,17 @@ class Configuration implements ConfigurationInterface
 						->end()
 					->end()
 				->end()
-			->end();
+			->end()
+		;
+		
+		return $this;
 	}
 	
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addFormSection(ArrayNodeDefinition $node)
     {
@@ -148,13 +162,17 @@ class Configuration implements ConfigurationInterface
 						->end()
 					->end()
 				->end()
-			->end();
+			->end()
+		;
+		
+		return $this;
 	}
 	
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addComponentSection(ArrayNodeDefinition $node)
     {
@@ -193,13 +211,17 @@ class Configuration implements ConfigurationInterface
 						->end()
 					->end()
 				->end()
-			->end();
+			->end()
+		;
+		
+		return $this;
 	}
 	
     /**
      *
      * @access protected
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     protected function addSEOSection(ArrayNodeDefinition $node)
     {
@@ -214,13 +236,17 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('title_length')->defaultValue('67')->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addAccountSection(ArrayNodeDefinition $node)
     {
@@ -249,13 +275,17 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addChangePasswordSection(ArrayNodeDefinition $node)
     {
@@ -277,13 +307,17 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addRegistrationSection(ArrayNodeDefinition $node)
     {
@@ -319,13 +353,17 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addResettingSection(ArrayNodeDefinition $node)
     {
@@ -368,13 +406,17 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addSecuritySection(ArrayNodeDefinition $node)
     {
@@ -396,13 +438,17 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addLegalSection(ArrayNodeDefinition $node)
     {
@@ -468,6 +514,9 @@ class Configuration implements ConfigurationInterface
 						->scalarNode('show_copyright_year')->defaultValue(false)->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 }

@@ -29,7 +29,9 @@ use Symfony\Component\Config\FileLocator;
 class CCDNUserUserExtension extends Extension
 {
     /**
-     * {@inheritDoc}
+	 *
+     * @access public
+	 * @return string
      */
     public function getAlias()
     {
@@ -38,7 +40,7 @@ class CCDNUserUserExtension extends Extension
 
     /**
      *
-     * @access private
+     * @access public
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
@@ -48,20 +50,25 @@ class CCDNUserUserExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
 		// Class file namespaces.
-        $this->getEntitySection($config, $container);
-        $this->getRepositorySection($config, $container);
-		$this->getFormSection($config, $container);
-		$this->getComponentSection($config, $container);
+        $this
+			->getEntitySection($config, $container)
+	        ->getRepositorySection($config, $container)
+			->getFormSection($config, $container)
+			->getComponentSection($config, $container)
+		;
 		
 		// Configuration stuff.
         $container->setParameter('ccdn_user_user.template.engine', $config['template']['engine']);
-        $this->getSEOSection($config, $container);
-        $this->getAccountSection($config, $container);
-        $this->getChangePasswordSection($config, $container);
-        $this->getRegistrationSection($config, $container);
-        $this->getResettingSection($config, $container);
-        $this->getSecuritySection($config, $container);
-        $this->getLegalSection($config, $container);
+		
+        $this
+			->getSEOSection($config, $container)
+	        ->getAccountSection($config, $container)
+	        ->getChangePasswordSection($config, $container)
+	        ->getRegistrationSection($config, $container)
+	        ->getResettingSection($config, $container)
+	        ->getSecuritySection($config, $container)
+	        ->getLegalSection($config, $container)
+		;
 		
 		// Load Service definitions.
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
@@ -73,10 +80,13 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getEntitySection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.entity.user.class', $config['entity']['user']['class']);				
+		
+		return $this;
 	}
 	
     /**
@@ -84,10 +94,13 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getRepositorySection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.repository.user.class', $config['repository']['user']['class']);
+		
+		return $this;
 	}
 	
     /**
@@ -95,22 +108,28 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getFormSection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.form.type.registration.class', $config['form']['type']['registration']['class']);
+		
+		return $this;
 	}
 	
     /**
      *
      * @access private
-     * @param array $config
-	 * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @param array $config
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getComponentSection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.component.dashboard.integrator.class', $config['component']['dashboard']['integrator']['class']);		
         $container->setParameter('ccdn_user_user.component.route_referer_ignore.list.class', $config['component']['route_referer_ignore']['list']['class']);		
+		
+		return $this;
 	}
 	
     /**
@@ -118,10 +137,13 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
-    protected function getSEOSection(array $config, ContainerBuilder $container)
+    private function getSEOSection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.seo.title_length', $config['seo']['title_length']);
+		
+		return $this;
     }
 
     /**
@@ -129,6 +151,7 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getAccountSection(array $config, ContainerBuilder $container)
     {
@@ -136,6 +159,8 @@ class CCDNUserUserExtension extends Extension
 
         $container->setParameter('ccdn_user_user.account.edit.layout_template', $config['account']['edit']['layout_template']);
         $container->setParameter('ccdn_user_user.account.edit.form_theme', $config['account']['edit']['form_theme']);
+		
+		return $this;
     }
 
     /**
@@ -143,11 +168,14 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getChangePasswordSection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.password.change_password.layout_template', $config['password']['change_password']['layout_template']);
         $container->setParameter('ccdn_user_user.password.change_password.form_theme', $config['password']['change_password']['form_theme']);
+		
+		return $this;
     }
 
     /**
@@ -155,6 +183,7 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getRegistrationSection(array $config, ContainerBuilder $container)
     {
@@ -164,6 +193,8 @@ class CCDNUserUserExtension extends Extension
         $container->setParameter('ccdn_user_user.registration.check_email.layout_template', $config['registration']['check_email']['layout_template']);
 
         $container->setParameter('ccdn_user_user.registration.confirmed.layout_template', $config['registration']['confirmed']['layout_template']);
+		
+		return $this;
     }
 
     /**
@@ -171,6 +202,7 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getResettingSection(array $config, ContainerBuilder $container)
     {
@@ -182,6 +214,8 @@ class CCDNUserUserExtension extends Extension
 
         $container->setParameter('ccdn_user_user.resetting.reset.layout_template', $config['resetting']['reset']['layout_template']);
         $container->setParameter('ccdn_user_user.resetting.reset.form_theme', $config['resetting']['reset']['form_theme']);
+		
+		return $this;
     }
 
     /**
@@ -189,11 +223,14 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getSecuritySection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_user_user.security.login.layout_template', $config['security']['login']['layout_template']);
         $container->setParameter('ccdn_user_user.security.login.support_facebook', $config['security']['login']['support_facebook']);
+		
+		return $this;
     }
 
     /**
@@ -201,6 +238,7 @@ class CCDNUserUserExtension extends Extension
      * @access private
 	 * @param array $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNUser\UserBundle\DependencyInjection\CCDNUserUserExtension
      */
     private function getLegalSection(array $config, ContainerBuilder $container)
     {
@@ -229,5 +267,6 @@ class CCDNUserUserExtension extends Extension
         $container->setParameter('ccdn_user_user.legal_identification.show_company_registered_house', $config['legal_identification']['show_company_registered_house']);
         $container->setParameter('ccdn_user_user.legal_identification.show_copyright_year', $config['legal_identification']['show_copyright_year']);
 
+		return $this;
     }
 }
