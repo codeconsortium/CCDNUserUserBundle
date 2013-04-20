@@ -1,3 +1,12 @@
+ccdn_user_user:
+    dashboard:
+        pages:
+            account: Account
+        categories:
+            account: Account
+        links:
+            show_account: My Account
+
 ccdn_user_user.layout.header.account: 'Account'
 ccdn_user_user.layout.header.login: 'Login'
 ccdn_user_user.layout.header.logout: 'Logout'
