@@ -26,8 +26,9 @@ use Doctrine\ORM\EntityRepository;
  * @version  Release: 2.0
  * @link     https://github.com/codeconsortium/CCDNUserUserBundle
  *
+ *
+ * @deprecated (use managers instead)
  */
 class UserRepository extends EntityRepository
 {
-
 }
