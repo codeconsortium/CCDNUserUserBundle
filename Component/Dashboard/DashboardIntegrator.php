@@ -17,47 +17,53 @@ use CCDNComponent\DashboardBundle\Component\Integrator\Model\BuilderInterface;
 
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 2.0
+ * @category CCDNUser
+ * @package  UserBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 2.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class DashboardIntegrator
 {
     /**
-	 * 
-	 * @access public
+     *
+     * @access public
      * @param CCDNComponent\DashboardBundle\Component\Integrator\Model\BuilderInterface $builder
      */
     public function build(BuilderInterface $builder)
     {
-		$builder
-			->addCategory('account')
-				->setLabel('ccdn_user_user.dashboard.categories.account', array(), 'CCDNUserUserBundle')
-				->addPages()
-					->addPage('account')
-						->setLabel('ccdn_user_user.dashboard.pages.account', array(), 'CCDNUserUserBundle')
-					->end()
-				->end()
-				->addLinks()	
-					->addLink('account_show')
-						->setAuthRole('ROLE_USER')
-						->setRoute('ccdn_user_user_account_show')
-						->setIcon('/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png')
-						->setLabel('ccdn_user_user.dashboard.links.show_account', array(), 'CCDNUserUserBundle')
-					->end()
-					->addLink('login')
-						->setLessThanAuthRole('ROLE_USER')
-						->setRoute('fos_user_security_login')
-						->setIcon('/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png')
-						->setLabel('ccdn_user_user.title.login', array(), 'CCDNUserUserBundle')
-					->end()
-					->addLink('register')
-						->setLessThanAuthRole('ROLE_USER')
-						->setRoute('ccdn_user_user_registration_terms')
-						->setIcon('/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png')
-						->setLabel('ccdn_user_user.title.register', array(), 'CCDNUserUserBundle')
-					->end()
-				->end()
-			->end()
-		;
+        $builder
+            ->addCategory('account')
+                ->setLabel('ccdn_user_user.dashboard.categories.account', array(), 'CCDNUserUserBundle')
+                ->addPages()
+                    ->addPage('account')
+                        ->setLabel('ccdn_user_user.dashboard.pages.account', array(), 'CCDNUserUserBundle')
+                    ->end()
+                ->end()
+                ->addLinks()
+                    ->addLink('account_show')
+                        ->setAuthRole('ROLE_USER')
+                        ->setRoute('ccdn_user_user_account_show')
+                        ->setIcon('/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png')
+                        ->setLabel('ccdn_user_user.dashboard.links.show_account', array(), 'CCDNUserUserBundle')
+                    ->end()
+                    ->addLink('login')
+                        ->setLessThanAuthRole('ROLE_USER')
+                        ->setRoute('fos_user_security_login')
+                        ->setIcon('/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png')
+                        ->setLabel('ccdn_user_user.title.login', array(), 'CCDNUserUserBundle')
+                    ->end()
+                    ->addLink('register')
+                        ->setLessThanAuthRole('ROLE_USER')
+                        ->setRoute('ccdn_user_user_registration_terms')
+                        ->setIcon('/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_account.png')
+                        ->setLabel('ccdn_user_user.title.register', array(), 'CCDNUserUserBundle')
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 }

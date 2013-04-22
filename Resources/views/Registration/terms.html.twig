@@ -20,25 +20,25 @@
 			{%- include ccdn_user_user.legal.terms_conditions.document -%}
 		</pre>
 	</article>
-	
+
 	<form action="{{- path('ccdn_user_user_registration_terms') -}}" method="POST">
 		<div class="form-actions center">
-			
+
 			<h4>
 				<input type="checkbox" id="accept_terms" name="accept_terms" value="1" />
 				&nbsp;&nbsp;I accept the terms and conditions.
 			</h4>
-				
+
 			<br>
-			
+
 			<input type="submit" class="btn" value="I Accept" />
-			
+
 			<a class="btn" href="{{- path('fos_user_security_login') -}}">
 				I do NOT Accept
 			</a>
 		</div>
 	</form>
-	
+
 	{%- endspaceless -%}
 
 {% endblock body_content %}

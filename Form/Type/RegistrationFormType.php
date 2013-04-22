@@ -18,15 +18,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
 
-
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNUser
+ * @package  UserBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class RegistrationFormType extends AbstractType
 {
-
     /**
      *
      * @access private
@@ -34,7 +38,7 @@ class RegistrationFormType extends AbstractType
     private $class;
 
     /**
-	 *
+     *
      * @param string $class The User class name
      */
     public function __construct($class)
@@ -51,42 +55,42 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', null,
-				array(
-					'label' => 'form.username',
-					'translation_domain' => 'FOSUserBundle'
-				)
-			)
+                array(
+                    'label' => 'form.username',
+                    'translation_domain' => 'FOSUserBundle'
+                )
+            )
             ->add('email', 'email',
-				array(
-					'label' => 'form.email',
-					'translation_domain' => 'FOSUserBundle'
-				)
-			)
+                array(
+                    'label' => 'form.email',
+                    'translation_domain' => 'FOSUserBundle'
+                )
+            )
             ->add('plainPassword', 'repeated',
-				array(
-	                'type' => 'password',
-	                'options' => array('translation_domain' => 'FOSUserBundle'),
-	                'first_options' => array('label' => 'form.password'),
-	                'second_options' => array('label' => 'form.password_confirmation'),
-	                'invalid_message' => 'fos_user.password.mismatch',
-				)
-			)
+                array(
+                    'type' => 'password',
+                    'options' => array('translation_domain' => 'FOSUserBundle'),
+                    'first_options' => array('label' => 'form.password'),
+                    'second_options' => array('label' => 'form.password_confirmation'),
+                    'invalid_message' => 'fos_user.password.mismatch',
+                )
+            )
             ->add('recaptcha', 'ewz_recaptcha',
-				array(
-					'label'              => ' ',
-					'translation_domain' => 'CCDNUserUserBundle',
-	                'property_path'      => false,
-			        'constraints'        => array(
-			            new True()
-			        ),
-	                'attr'               => array(
-	                    'options' => array(
-	                        'theme' => 'clean'
-						)
-	                ),
-				)
-			)
-		;
+                array(
+                    'label'              => ' ',
+                    'translation_domain' => 'CCDNUserUserBundle',
+                    'property_path'      => false,
+                    'constraints'        => array(
+                        new True()
+                    ),
+                    'attr'               => array(
+                        'options' => array(
+                            'theme' => 'clean'
+                        )
+                    ),
+                )
+            )
+        ;
     }
 
     /**
@@ -108,5 +112,4 @@ class RegistrationFormType extends AbstractType
     {
         return 'ccdn_user_registration';
     }
-
 }

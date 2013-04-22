@@ -23,76 +23,80 @@ use CCDNUser\UserBundle\Entity\User;
 
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNUser
+ * @package  UserBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-
-	/**
-	 *
-	 * @access private
-	 */
+    /**
+     *
+     * @access private
+     */
     private $container;
 
-	/**
-	 *
-	 * @access public
-	 * @param ContainerInterface $container
-	 */
+    /**
+     *
+     * @access public
+     * @param ContainerInterface $container
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
-	/**
-	 *
-	 * @access public
-	 * @param ObjectManager $manager
-	 */
+    /**
+     *
+     * @access public
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
-		$userAdmin = new User();
-		
-		$userAdmin->setUsername('admin');
-		$userAdmin->setUsernameCanonical('admin');
-		$userAdmin->setPlainPassword('root');
-		$userAdmin->setEmail('admin@codeconsortium.com');
-		$userAdmin->setEmailCanonical('admin@codeconsortium.com');
-		$userAdmin->setEnabled(true);
-		$userAdmin->setRoles(array('ROLE_USER', 'ROLE_MODERATOR', 'ROLE_ADMIN'));
-		$userAdmin->setSuperAdmin(true);
-  		$userAdmin->setRegisteredDate(new \DateTime('now'));
-		
-		$userTest = new User();
-		
-		$userTest->setUsername('test');
-		$userTest->setUsernameCanonical('test');
-		$userTest->setPlainPassword('root');
-		$userTest->setEmail('test@codeconsortium.com');
-		$userTest->setEmailCanonical('test@codeconsortium.com');
-		$userTest->setEnabled(true);
-		$userTest->setRoles(array('ROLE_USER'));
-		$userTest->setRegisteredDate(new \DateTime('now'));
-		
-		$userManager = $this->container->get('fos_user.user_manager');
-		$userManager->updateUser($userAdmin);
-		$userManager->updateUser($userTest);
-		
-		$manager->refresh($userAdmin, $userTest);
-		
-		$this->addReference('user-admin', $userAdmin);
-		$this->addReference('user-test', $userTest);
+        $userAdmin = new User();
+
+        $userAdmin->setUsername('admin');
+        $userAdmin->setUsernameCanonical('admin');
+        $userAdmin->setPlainPassword('root');
+        $userAdmin->setEmail('admin@codeconsortium.com');
+        $userAdmin->setEmailCanonical('admin@codeconsortium.com');
+        $userAdmin->setEnabled(true);
+        $userAdmin->setRoles(array('ROLE_USER', 'ROLE_MODERATOR', 'ROLE_ADMIN'));
+        $userAdmin->setSuperAdmin(true);
+          $userAdmin->setRegisteredDate(new \DateTime('now'));
+
+        $userTest = new User();
+
+        $userTest->setUsername('test');
+        $userTest->setUsernameCanonical('test');
+        $userTest->setPlainPassword('root');
+        $userTest->setEmail('test@codeconsortium.com');
+        $userTest->setEmailCanonical('test@codeconsortium.com');
+        $userTest->setEnabled(true);
+        $userTest->setRoles(array('ROLE_USER'));
+        $userTest->setRegisteredDate(new \DateTime('now'));
+
+        $userManager = $this->container->get('fos_user.user_manager');
+        $userManager->updateUser($userAdmin);
+        $userManager->updateUser($userTest);
+
+        $manager->refresh($userAdmin, $userTest);
+
+        $this->addReference('user-admin', $userAdmin);
+        $this->addReference('user-test', $userTest);
     }
 
-	/**
-	 *
-	 * @access public
-	 * @return int
-	 */
-	public function getOrder()
-	{
-		return 1;
-	}
-	
+    /**
+     *
+     * @access public
+     * @return int
+     */
+    public function getOrder()
+    {
+        return 1;
+    }
 }

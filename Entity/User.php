@@ -17,35 +17,54 @@ use Doctrine\ORM\Mapping as ORM;
 
 use CCDNUser\UserBundle\Model\User as AbstractUser;
 
+/**
+ *
+ * @category CCDNUser
+ * @package  UserBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
+ */
 class User extends AbstractUser
 {
-    /** @var integer $id */
+    /**
+     *
+     * @access protected
+     * @var integer $id
+     */
     protected $id;
 
-    /** @var \DateTime $registeredDate */
+    /**
+     *
+     * @access protected
+     * @var \DateTime $registeredDate
+     */
     protected $registeredDate;
-	
-	/**
-	 *
-	 * @access public
-	 */
+
+    /**
+     *
+     * @access public
+     */
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
 
-	/**
-	 * Add registration date before being persisted.
-	 *
-	 */
-	public function prePersistSetRegistrationDate()
-	{
-		if (null == $this->registeredDate) {
-			$this->registeredDate = new \DateTime('now');			
-		}
-	}
-	
+    /**
+     * Add registration date before being persisted.
+     *
+     */
+    public function prePersistSetRegistrationDate()
+    {
+        if (null == $this->registeredDate) {
+            $this->registeredDate = new \DateTime('now');
+        }
+    }
+
     /**
      * Get id
      *
@@ -65,23 +84,19 @@ class User extends AbstractUser
     {
         return $this->registeredDate;
     }
-	
+
     /**
      * Set registeredDate
      *
-     * @param \Datetime $registeredDate
-	 * @return User
+     * @param  \Datetime $registeredDate
+     * @return User
      */
     public function setRegisteredDate($registeredDate)
     {
         $this->registeredDate = $registeredDate;
-		
-		return $this;
-    }
 
-	
-	
-	
+        return $this;
+    }
 
     /*
      *
@@ -125,6 +140,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * @return string
      */
     public function getFirstname()
@@ -133,6 +149,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * @param string $firstname
      */
     public function setFirstname($firstname)
@@ -141,6 +158,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * @return string
      */
     public function getLastname()
@@ -149,6 +167,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * @param string $lastname
      */
     public function setLastname($lastname)
@@ -157,6 +176,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * Get the full name of the user (first + last name)
      * @return string
      */
@@ -176,6 +196,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * @return string
      */
     public function getFacebookId()
@@ -184,6 +205,7 @@ class User extends AbstractUser
     }
 
     /**
+     *
      * @param array
      */
     public function setFBData($fbdata)

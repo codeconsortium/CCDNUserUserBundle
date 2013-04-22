@@ -30,7 +30,7 @@ fos_user_profile_show:
 ccdn_user_user_registration_terms:
     pattern: /{_locale}/register/terms
     defaults: { _controller:FOSUserBundle:Registration:registerTerms, _locale: en }
-    
+
 fos_user_registration_register:
     pattern: /{_locale}/register
     defaults: { _controller:FOSUserBundle:Registration:register, _locale: en }
@@ -69,7 +69,7 @@ fos_user_change_password:
 ccdn_user_user_legal_copyright_notice:
     pattern: /{_locale}/user/legal/copyright_notice
     defaults: { _controller: CCDNUserUserBundle:Legal:showCopyrightNotice, _locale: en }
-    
+
 ccdn_user_user_legal_disclaimer:
     pattern: /{_locale}/user/legal/disclaimer
     defaults: { _controller: CCDNUserUserBundle:Legal:showDisclaimer, _locale: en }
@@ -81,7 +81,3 @@ ccdn_user_user_legal_privacy_policy:
 ccdn_user_user_legal_terms_conditions:
     pattern: /{_locale}/user/legal/terms_and_conditions
     defaults: { _controller: CCDNUserUserBundle:Legal:showTermsConditions, _locale: en }
-    
-    
-    
-    

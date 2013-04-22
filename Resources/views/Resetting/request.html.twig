@@ -14,20 +14,20 @@
 	<section>
 		<form action="{{- path('fos_user_resetting_send_email') -}}" method="POST" class="form-horizontal">
 			<fieldset>
-			
+
 				<div class="control-group">
 					<div class="controls">
 						<h3>{{- 'ccdn_user_user.title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h3>
 					</div>
 				</div>
-					
+
 				{%- if invalid_username is defined -%}
 					<p>{{- 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') -}}</p>
 		        {%- endif -%}
 
 				<div class="control-group">
 					<label for="username" class="control-label">
-						{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}		
+						{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}
 					</label>
 					<div class="controls">
 						<input type="text" id="username" name="username" class="input-xxlarge span10">
@@ -41,7 +41,7 @@
 			</fieldset>
 		</form>
 	</section>
-	
+
 	{%- endspaceless -%}
 
 {% endblock body_content %}

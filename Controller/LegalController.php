@@ -15,10 +15,16 @@ namespace CCDNUser\UserBundle\Controller;
 
 use CCDNUser\UserBundle\Controller\BaseController;
 
-/*
+/**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNUser
+ * @package  UserBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class LegalController extends BaseController
 {

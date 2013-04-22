@@ -15,14 +15,16 @@ namespace CCDNUser\UserBundle\Controller;
 
 use CCDNUser\UserBundle\Controller\BaseController;
 
-/*
- * Deals with routes:
- * /account
- * /account/edit
+/**
  *
+ * @category CCDNUser
+ * @package  UserBundle
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class AccountController extends BaseController
 {
@@ -38,10 +40,10 @@ class AccountController extends BaseController
         $user = $this->getUser();
 
         return $this->renderResponse('CCDNUserUserBundle:Account:show.html.',
-			array(
-	            'user' => $user,
-	        )
-		);
+            array(
+                'user' => $user,
+            )
+        );
     }
 
     /**
@@ -67,9 +69,9 @@ class AccountController extends BaseController
         }
 
         return $this->renderResponse('FOSUserBundle:Account:edit.html.',
-			array(
-	            'form' => $form->createView(),
-			)
-		);
+            array(
+                'form' => $form->createView(),
+            )
+        );
     }
 }

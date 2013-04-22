@@ -19,7 +19,7 @@ services:
     #
     ccdn_user_user.form.type.registration:
         class: %ccdn_user_user.form.type.registration.class%
-        arguments: 
+        arguments:
             - %fos_user.model.user.class%
         tags:
             - { name: form.type, alias: ccdn_user_registration }
@@ -31,7 +31,7 @@ services:
         class: %ccdn_user_user.component.dashboard.integrator.class%
         tags:
             - { name: ccdn_component_dashboard.integrator }
-    
+
     #
     # Route Referer.
     #

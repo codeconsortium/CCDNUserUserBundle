@@ -22,17 +22,23 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNUser
+ * @package  UserBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class Configuration implements ConfigurationInterface
 {
     /**
      *
-	 * @access public
-	 * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
+     * @access public
+     * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
      */
-	public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('ccdn_user_user');
@@ -50,24 +56,24 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
 
-		// Class file namespaces.
-		$this
-			->addEntitySection($rootNode)
-			->addRepositorySection($rootNode)
-			->addFormSection($rootNode)
-			->addComponentSection($rootNode)
-		;
-		
-		// Configuration stuff.
+        // Class file namespaces.
         $this
-			->addSEOSection($rootNode)
-	        ->addAccountSection($rootNode)
-	        ->addChangePasswordSection($rootNode)
-	        ->addRegistrationSection($rootNode)
-	        ->addResettingSection($rootNode)
-	        ->addSecuritySection($rootNode)
-	        ->addLegalSection($rootNode)
-		;
+            ->addEntitySection($rootNode)
+            ->addRepositorySection($rootNode)
+            ->addFormSection($rootNode)
+            ->addComponentSection($rootNode)
+        ;
+
+        // Configuration stuff.
+        $this
+            ->addSEOSection($rootNode)
+            ->addAccountSection($rootNode)
+            ->addChangePasswordSection($rootNode)
+            ->addRegistrationSection($rootNode)
+            ->addResettingSection($rootNode)
+            ->addSecuritySection($rootNode)
+            ->addLegalSection($rootNode)
+        ;
 
         return $treeBuilder;
     }
@@ -75,11 +81,11 @@ class Configuration implements ConfigurationInterface
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addEntitySection(ArrayNodeDefinition $node)
-	{
+    {
         $node
             ->addDefaultsIfNotSet()
             ->children()
@@ -87,26 +93,26 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
                     ->children()
-				        ->arrayNode('user')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-				            ->children()
-								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Entity\User')->end()
-							->end()
-						->end()
-					->end()
-				->end()
-			->end()
-		;
-		
-		return $this;
-	}
-	
+                        ->arrayNode('user')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Entity\User')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $this;
+    }
+
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addRepositorySection(ArrayNodeDefinition $node)
     {
@@ -118,25 +124,25 @@ class Configuration implements ConfigurationInterface
                     ->canBeUnset()
                     ->children()
                         ->arrayNode('user')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
-								->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Repository\UserRepository')->end()							
-							->end()
-						->end()
-					->end()
-				->end()
-			->end()
-		;
-		
-		return $this;
-	}
-	
+                                ->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Repository\UserRepository')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $this;
+    }
+
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addFormSection(ArrayNodeDefinition $node)
     {
@@ -148,31 +154,31 @@ class Configuration implements ConfigurationInterface
                     ->canBeUnset()
                     ->children()
                         ->arrayNode('type')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
                             ->children()
-		                        ->arrayNode('registration')
-				                    ->addDefaultsIfNotSet()
-				                    ->canBeUnset()
-		                            ->children()
-										->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Form\Type\RegistrationFormType')->end()							
-									->end()
-								->end()
-							->end()
-						->end()
-					->end()
-				->end()
-			->end()
-		;
-		
-		return $this;
-	}
-	
+                                ->arrayNode('registration')
+                                    ->addDefaultsIfNotSet()
+                                    ->canBeUnset()
+                                    ->children()
+                                        ->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Form\Type\RegistrationFormType')->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $this;
+    }
+
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addComponentSection(ArrayNodeDefinition $node)
     {
@@ -183,45 +189,45 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
                     ->children()
-		                ->arrayNode('dashboard')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-		                    ->children()
-				                ->arrayNode('integrator')
-				                    ->addDefaultsIfNotSet()
-				                    ->canBeUnset()
-				                    ->children()
-										->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator')->end()							
-									->end()		
-								->end()
-							->end()
-						->end()
-		                ->arrayNode('route_referer_ignore')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-		                    ->children()
-				                ->arrayNode('list')
-				                    ->addDefaultsIfNotSet()
-				                    ->canBeUnset()
-				                    ->children()
-										->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Component\RouteRefererIgnore\RouteRefererIgnoreList')->end()							
-									->end()		
-								->end()
-							->end()
-						->end()
-					->end()
-				->end()
-			->end()
-		;
-		
-		return $this;
-	}
-	
+                        ->arrayNode('dashboard')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->arrayNode('integrator')
+                                    ->addDefaultsIfNotSet()
+                                    ->canBeUnset()
+                                    ->children()
+                                        ->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Component\Dashboard\DashboardIntegrator')->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('route_referer_ignore')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->arrayNode('list')
+                                    ->addDefaultsIfNotSet()
+                                    ->canBeUnset()
+                                    ->children()
+                                        ->scalarNode('class')->defaultValue('CCDNUser\UserBundle\Component\RouteRefererIgnore\RouteRefererIgnoreList')->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $this;
+    }
+
     /**
      *
      * @access protected
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     protected function addSEOSection(ArrayNodeDefinition $node)
     {
@@ -237,16 +243,16 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addAccountSection(ArrayNodeDefinition $node)
     {
@@ -276,16 +282,16 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addChangePasswordSection(ArrayNodeDefinition $node)
     {
@@ -308,16 +314,16 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addRegistrationSection(ArrayNodeDefinition $node)
     {
@@ -354,16 +360,16 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addResettingSection(ArrayNodeDefinition $node)
     {
@@ -407,16 +413,16 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addSecuritySection(ArrayNodeDefinition $node)
     {
@@ -439,16 +445,16 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 
     /**
      *
      * @access private
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-	 * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
+     * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+     * @return \CCDNUser\UserBundle\DependencyInjection\Configuration
      */
     private function addLegalSection(ArrayNodeDefinition $node)
     {
@@ -460,63 +466,63 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
                     ->children()
-		                ->arrayNode('terms_conditions')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-		                    ->children()
-		                        ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
-		                        ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:terms_conditions.txt.twig')->end()
-							->end()
-						->end()
-		                ->arrayNode('copyright_notice')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-		                    ->children()
-		                        ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
-		                        ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:copyright_notice.txt.twig')->end()
-							->end()
-						->end()
-		                ->arrayNode('privacy_policy')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-		                    ->children()
-		                        ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
-		                        ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:privacy_policy.txt.twig')->end()
-							->end()
-						->end()
-		                ->arrayNode('disclaimer')
-		                    ->addDefaultsIfNotSet()
-		                    ->canBeUnset()
-		                    ->children()
-		                        ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
-		                        ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:disclaimer.txt.twig')->end()
-							->end()
-						->end()
-					->end()
-				->end()
-				->arrayNode('legal_identification')
+                        ->arrayNode('terms_conditions')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
+                                ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:terms_conditions.txt.twig')->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('copyright_notice')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
+                                ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:copyright_notice.txt.twig')->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('privacy_policy')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
+                                ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:privacy_policy.txt.twig')->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('disclaimer')
+                            ->addDefaultsIfNotSet()
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
+                                ->scalarNode('document')->defaultValue('CCDNUserUserBundle:Legal:disclaimer.txt.twig')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+                ->arrayNode('legal_identification')
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
-					->children()
-						->scalarNode('company_name')->defaultValue('')->end()
-						->scalarNode('show_company_name')->defaultValue(false)->end()
+                    ->children()
+                        ->scalarNode('company_name')->defaultValue('')->end()
+                        ->scalarNode('show_company_name')->defaultValue(false)->end()
 
-						->scalarNode('company_address')->defaultValue('')->end()
-						->scalarNode('show_company_address')->defaultValue(false)->end()
+                        ->scalarNode('company_address')->defaultValue('')->end()
+                        ->scalarNode('show_company_address')->defaultValue(false)->end()
 
-						->scalarNode('company_registered_number')->defaultValue('')->end()
-						->scalarNode('show_company_registered_number')->defaultValue(false)->end()
+                        ->scalarNode('company_registered_number')->defaultValue('')->end()
+                        ->scalarNode('show_company_registered_number')->defaultValue(false)->end()
 
-						->scalarNode('company_registered_house')->defaultValue('')->end()
-						->scalarNode('show_company_registered_house')->defaultValue(false)->end()
+                        ->scalarNode('company_registered_house')->defaultValue('')->end()
+                        ->scalarNode('show_company_registered_house')->defaultValue(false)->end()
 
-						->scalarNode('copyright_year')->defaultValue('')->end()
-						->scalarNode('show_copyright_year')->defaultValue(false)->end()
+                        ->scalarNode('copyright_year')->defaultValue('')->end()
+                        ->scalarNode('show_copyright_year')->defaultValue(false)->end()
                     ->end()
                 ->end()
             ->end()
-		;
-		
-		return $this;
+        ;
+
+        return $this;
     }
 }

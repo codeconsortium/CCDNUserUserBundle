@@ -11,7 +11,7 @@ use \FacebookApiException;
 
 class FacebookProvider implements UserProviderInterface
 {
-	
+
     /**
      * @var \Facebook
      */
@@ -19,11 +19,11 @@ class FacebookProvider implements UserProviderInterface
     protected $userManager;
     protected $validator;
 
-	/**
-	 *
-	 * @access public
-	 * @param BaseFacebook $facebook, $userManager, $validator
-	 */
+    /**
+     *
+     * @access public
+     * @param BaseFacebook $facebook, $userManager, $validator
+     */
     public function __construct(BaseFacebook $facebook, $userManager, $validator)
     {
         $this->facebook = $facebook;
@@ -31,42 +31,42 @@ class FacebookProvider implements UserProviderInterface
         $this->validator = $validator;
     }
 
-	/**
-	 *
-	 * @access public
-	 * @param $class
-	 * @return bool
-	 */
+    /**
+     *
+     * @access public
+     * @param $class
+     * @return bool
+     */
     public function supportsClass($class)
     {
         return $this->userManager->supportsClass($class);
     }
 
-	/**
-	 *
-	 * @access public
-	 * @param $fbId
-	 */
+    /**
+     *
+     * @access public
+     * @param $fbId
+     */
     public function findUserByFbId($fbId)
     {
         return $this->userManager->findUserBy(array('facebookId' => $fbId));
     }
 
-	/**
-	 *
-	 * @access public
-	 * @param string $email
-	 */
+    /**
+     *
+     * @access public
+     * @param string $email
+     */
     public function findUserByEmail($email)
     {
         return $this->userManager->findUserBy(array('email' => $email));
     }
 
-	/**
-	 *
-	 * @access public
-	 * @param string $username
-	 */
+    /**
+     *
+     * @access public
+     * @param string $username
+     */
     public function loadUserByUsername($username)
     {
         $user = $this->findUserByFbId($username);
@@ -104,11 +104,11 @@ class FacebookProvider implements UserProviderInterface
         return $user;
     }
 
-	/**
-	 *
-	 * @access public
-	 * @param UserInterface $user
-	 */
+    /**
+     *
+     * @access public
+     * @param UserInterface $user
+     */
     public function refreshUser(UserInterface $user)
     {
         if (!$this->supportsClass(get_class($user)) || !$user->getFacebookId()) {

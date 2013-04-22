@@ -12,12 +12,12 @@
 	{%- spaceless -%}
 
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
-	
+
 	<div class="span8">
 		<h2>{{- 'ccdn_user_user.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-		
+
 		<hr>
-		
+
 		<h3>Register today and join a growing community of developers!</h3>
 
 		<br>
@@ -38,27 +38,27 @@
 			<i class="icon-hand-right icon-white"></i>
 			{{- 'ccdn_user_user.link.register'|trans({}, 'CCDNUserUserBundle') -}}
 		</a>
-		
+
 	</div>
-	
-	
+
+
 	<div class="span3">
 		<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2>
-		
+
 		<hr>
-	
+
 		<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-horizontal">
-			<fieldset>				
+			<fieldset>
 				{%- if error -%}
 					<div class="alert alert-error alert-block">
 					    <ul>
 							<li>{{- error -}}</li>
 						</ul>
 					</div>
-				{%- endif -%}		
-				
+				{%- endif -%}
+
 			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-				
+
 				<div class="control-group row-fluid">
 					<div class="input-prepend">
 						<span class="add-on"><i class="icon-user"></i></span>
@@ -75,20 +75,20 @@
 
 				<div class="control-group row-fluid">
 					<label class="checkbox" for="remember_me">
-						<input type="checkbox" id="remember_me" name="_remember_me" value="on" /> 
+						<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
 						{{- 'security.login.remember_me'|trans({}, 'FOSUserBundle') -}}
 					</label>
 				</div>
 
 				<div class="control-group row-fluid">
 					<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}">
-					
+
 					&nbsp;&#124;&nbsp;
-					
+
 					<a href="{{- path('fos_user_resetting_request') -}}">
 						{{- 'ccdn_user_user.link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}
 					</a>
-					
+
 					{%- if ccdn_user_user.security.login.support_facebook -%}
 	                    <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
 					{%- endif -%}
@@ -97,7 +97,7 @@
 			</fieldset>
 		</form>
 	</div>
-	
+
 	{%- endspaceless -%}
 
 {% endblock body_content %}

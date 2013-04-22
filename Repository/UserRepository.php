@@ -14,15 +14,18 @@
 namespace CCDNUser\UserBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
-use Pagerfanta\Pagerfanta;
 
 /**
  * UserRepository
  *
+ * @category CCDNUser
+ * @package  UserBundle
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/codeconsortium/CCDNUserUserBundle
+ *
  */
 class UserRepository extends EntityRepository
 {
