@@ -28,7 +28,7 @@ use CCDNUser\UserBundle\Entity\User;
  *
  * @author   Reece Fowell <reece@codeconsortium.com>
  * @license  http://opensource.org/licenses/MIT MIT
- * @version  Release: 1.0
+ * @version  Release: 2.0
  * @link     https://github.com/codeconsortium/CCDNUserUserBundle
  *
  */
@@ -67,7 +67,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $userAdmin->setEnabled(true);
         $userAdmin->setRoles(array('ROLE_USER', 'ROLE_MODERATOR', 'ROLE_ADMIN'));
         $userAdmin->setSuperAdmin(true);
-          $userAdmin->setRegisteredDate(new \DateTime('now'));
+        $userAdmin->setRegisteredDate(new \DateTime('now'));
 
         $userTest = new User();
 
