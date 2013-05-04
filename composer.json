@@ -1,14 +1,15 @@
 {
     "name": "codeconsortium/ccdn-user-bundle",
-    "type": "symfony-bundle",
     "description": "CCDN User Bundle",
     "keywords": ["ccdn", "codeconsortium", "user", "child of FOSUserBundle"],
     "homepage": "http://github.com/codeconsortium/CCDNUserUserBundle",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "reecefowell",
-            "email": "reece@codeconsortium.com"
+            "name": "Reece Fowell",
+            "email": "reece@codeconsortium.com",
+			"homepage": "http://www.reecefowell.com"
         }
     ],
     "minimum-stability": "dev",
