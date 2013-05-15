@@ -195,6 +195,7 @@ class CCDNUserUserExtension extends Extension
     {
         $container->setParameter('ccdn_user_user.registration.register.layout_template', $config['registration']['register']['layout_template']);
         $container->setParameter('ccdn_user_user.registration.register.form_theme', $config['registration']['register']['form_theme']);
+        $container->setParameter('ccdn_user_user.registration.terms.layout_template', $config['registration']['terms']['layout_template']);
 
         $container->setParameter('ccdn_user_user.registration.check_email.layout_template', $config['registration']['check_email']['layout_template']);
 

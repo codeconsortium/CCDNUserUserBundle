@@ -2,102 +2,107 @@
 
 {% set LayoutTemplate = ccdn_user_user.security.login.layout_template  %}
 
-{% block title %}{{- 'ccdn_user_user.title.login'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+{% block title %}{{- 'title.login'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
 {% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
+
+{% block sidebar %}{% endblock sidebar %}
+
+{%- block navbar_site_primary -%}
+	{%- include 'CCDNUserUserBundle::header_alt_sign_in.html.twig' -%}
+{%- endblock navbar_site_primary -%}
 
 
 {% block body_content %}
 
 	{%- spaceless -%}
+	
+	<br><br>
+	<div class="container">
+		<div class="span4">
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+			<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-vertical">
+				<fieldset>
+					<h4>{{- 'title.login'|trans({}, 'CCDNUserUserBundle') -}}</h4>
 
-	<div class="span8">
-		<h2>{{- 'ccdn_user_user.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h2>
-
-		<hr>
-
-		<h3>Register today and join a growing community of developers!</h3>
-
-		<br>
-		<span class="lead">
-			Why not join now and enjoy the benefits of:
-		</span>
-
-		<p>
-			<ul>
-				<li>Free Membership!</li>
-				<li>Asking the community questions on the Forums.</li>
-				<li>Message other members of the community and make new friends.</li>
-			</ul>
-		</p>
-
-		<hr>
-		<a class="btn btn-primary" href="{{- path('ccdn_user_user_registration_terms') -}}">
-			<i class="icon-hand-right icon-white"></i>
-			{{- 'ccdn_user_user.link.register'|trans({}, 'CCDNUserUserBundle') -}}
-		</a>
-
-	</div>
-
-
-	<div class="span3">
-		<h2>{{- 'layout.login'|trans({}, 'FOSUserBundle') -}}</h2>
-
-		<hr>
-
-		<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-horizontal">
-			<fieldset>
-				{%- if error -%}
-					<div class="alert alert-error alert-block">
-					    <ul>
-							<li>{{- error -}}</li>
-						</ul>
-					</div>
-				{%- endif -%}
-
-			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-				<div class="control-group row-fluid">
-					<div class="input-prepend">
-						<span class="add-on"><i class="icon-user"></i></span>
-						<input class="input-xlarge" type="text" id="username" name="_username" value="{{- last_username -}}" required="required" placeholder="{{- 'ccdn_user_user.form.username'|trans({}, 'CCDNUserUserBundle') -}}" />
-					</div>
-				</div>
-
-				<div class="control-group row-fluid">
-					<div class="input-prepend">
-						<span class="add-on"><i class="icon-lock"></i></span>
-						<input class="input-xlarge" type="password" id="password" name="_password" required="required" placeholder="{{- 'ccdn_user_user.form.password'|trans({}, 'CCDNUserUserBundle') -}}" />
-					</div>
-				</div>
-
-				<div class="control-group row-fluid">
-					<label class="checkbox" for="remember_me">
-						<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-						{{- 'security.login.remember_me'|trans({}, 'FOSUserBundle') -}}
-					</label>
-				</div>
-
-				<div class="control-group row-fluid">
-					<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}">
-
-					&nbsp;&#124;&nbsp;
-
-					<a href="{{- path('fos_user_resetting_request') -}}">
-						{{- 'ccdn_user_user.link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}
-					</a>
-
-					{%- if ccdn_user_user.security.login.support_facebook -%}
-	                    <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
+					{%- if error -%}
+						<div class="alert alert-error alert-block">
+						    <ul>
+								<li>{{- error -}}</li>
+							</ul>
+						</div>
 					{%- endif -%}
-				</div>
 
-			</fieldset>
-		</form>
+				    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+					<div class="control-group row-fluid">
+						<label class="control-label" for="email">
+							{{- 'form.label.email'|trans({}, 'CCDNUserUserBundle') -}}
+						</label>
+						<div class="controls">
+							<input class="input-large" type="text" id="username" name="_username" value="{{- last_username -}}" required="required" placeholder="{{- 'ccdn_user_user.form.username'|trans({}, 'CCDNUserUserBundle') -}}" />
+						</div>
+					</div>
+
+					<div class="control-group row-fluid">
+						<label class="control-label" for="password">
+							{{- 'form.label.password'|trans({}, 'CCDNUserUserBundle') -}}
+						</label>
+						<div class="controls">
+							<input class="input-large" type="password" id="password" name="_password" required="required" placeholder="{{- 'ccdn_user_user.form.password'|trans({}, 'CCDNUserUserBundle') -}}" />
+						</div>
+					</div>
+
+					<div class="control-group">						
+							<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}" style="margin-right:20px;">
+							
+							<label class="checkbox" for="remember_me">
+								<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+								{{- 'security.login.remember_me'|trans({}, 'FOSUserBundle') -}}
+							</label>
+					</div>
+
+					<div class="control-group">
+						<hr>
+						
+						<a href="{{- path('fos_user_resetting_request') -}}">
+							{{- 'link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}
+						</a>
+
+						{%- if ccdn_user_user.security.login.support_facebook -%}
+		                    <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
+						{%- endif -%}
+					</div>
+
+				</fieldset>
+			</form>
+		
+		</div>
+
+		<div class="span8">
+			<h3>{{- 'generic.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+
+			<hr>
+
+			<h4>Register today and join a growing community of developers!</h4>
+
+			<br>
+			<span class="lead">
+				Why not join now and enjoy the benefits of:
+			</span>
+
+			<p>
+				<ul>
+					<li>Free Membership!</li>
+					<li>Asking the community questions on the Forums.</li>
+					<li>Message other members of the community and make new friends.</li>
+				</ul>
+			</p>
+
+		</div>
+	
 	</div>
-
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

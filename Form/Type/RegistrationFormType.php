@@ -56,28 +56,28 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('username', null,
                 array(
-                    'label' => 'form.username',
-                    'translation_domain' => 'FOSUserBundle'
+                    'label' => 'form.label.username',
+                    'translation_domain' => 'CCDNUserUserBundle'
                 )
             )
             ->add('email', 'email',
                 array(
-                    'label' => 'form.email',
-                    'translation_domain' => 'FOSUserBundle'
+                    'label' => 'form.label.email',
+                    'translation_domain' => 'CCDNUserUserBundle'
                 )
             )
             ->add('plainPassword', 'repeated',
                 array(
                     'type' => 'password',
-                    'options' => array('translation_domain' => 'FOSUserBundle'),
-                    'first_options' => array('label' => 'form.password'),
-                    'second_options' => array('label' => 'form.password_confirmation'),
+                    'options' => array('translation_domain' => 'CCDNUserUserBundle'),
+                    'first_options' => array('label' => 'form.label.password'),
+                    'second_options' => array('label' => 'form.label.password_verify'),
                     'invalid_message' => 'fos_user.password.mismatch',
                 )
             )
             ->add('recaptcha', 'ewz_recaptcha',
                 array(
-                    'label'              => ' ',
+                    'label'              => 'form.label.recaptcha',
                     'translation_domain' => 'CCDNUserUserBundle',
                     'property_path'      => false,
                     'constraints'        => array(
@@ -85,7 +85,7 @@ class RegistrationFormType extends AbstractType
                     ),
                     'attr'               => array(
                         'options' => array(
-                            'theme' => 'clean'
+                            'theme' => 'white'
                         )
                     ),
                 )

@@ -1,85 +1,82 @@
-ccdn_user_user:
-    dashboard:
-        pages:
-            account: Account
-        categories:
-            account: Account
-        links:
-            show_account: My Account
+dashboard:
+    pages:
+        account:                  "Account"
+    categories:
+        account:                  "Account"
+    links:
+        show_account:             "My Account"
 
-ccdn_user_user.layout.header.account: 'Account'
-ccdn_user_user.layout.header.login: 'Login'
-ccdn_user_user.layout.header.logout: 'Logout'
+layout:
+    header:
+        account:                  "Account"
+        login:                    "Sign In"
+        logout:                   "Sign Out"
 
-#
-# Page Titles.
-#
-ccdn_user_user.title.login: 'Login'
-ccdn_user_user.title.account.edit: "Edit Account."
-ccdn_user_user.title.account.show: "%user_name%'s Account."
-ccdn_user_user.title.password.change: 'Change Password'
-ccdn_user_user.title.register.terms: 'Terms & Conditions'
-ccdn_user_user.title.register: 'Register'
-ccdn_user_user.title.register.activation.pending: 'Activate Your Account'
-ccdn_user_user.title.register.activation.confirmed: 'Activation Complete'
-ccdn_user_user.title.reset.request: 'Request Password Reset'
-ccdn_user_user.title.reset.check_mail: 'Password Reset Mail Sent'
-ccdn_user_user.title.reset.new_password: 'Reset Password'
-ccdn_user_user.title.legal.copyright_notice: 'Copyright Notice'
-ccdn_user_user.title.legal.disclaimer: 'Disclaimer'
-ccdn_user_user.title.legal.privacy_policy: 'Privacy Policy'
-ccdn_user_user.title.legal.terms_conditions: 'Terms and Conditions'
+title:
+    login:                        "Sign In"
+    account:
+        edit:                     "Edit Account"
+        show:                     "%user_name%'s Account"
+        change_password:          "Change Password"
+    register:
+        terms:                    "Terms & Conditions"
+        register:                 "Register"
+        activation:
+            pending:              "Activate Your Account"
+            confirmed:            "Activation Complete"
+    reset:
+        request:                  "Request Password Reset"
+        check_mail:               "Password Reset Mail Sent"
+        new_password:             "Reset Password"
+    legal:
+        copyright_notice:         "Copyright Notice"
+        disclaimer:               "Disclaimer"
+        privacy_policy:           "Privacy Policy"
+        terms_conditions:         "Terms and Conditions"
 
-#
-# Crumbs.
-#
+sidebar:
+    header:
+        navigation:               "Navigation"
 
-#
-# Flash Messages.
-#
-ccdn_user_user.flash.account.updated: 'Your account was updated.'
-ccdn_user_user.flash.registration.terms.must_accept: 'You must accept the terms and conditions before you can register.'
-ccdn_user_user.flash.registration.cannot_be_logged_in: 'You cannot register an account while still logged in. Please log out first before continuing.'
+link:
+    login:                        "Sign In"
+    logout:                       "Sign Out"
+    register:                     "Register"
+    account:
+        view:                     "Account"
+        edit:                     "Edit Account"
+    password:
+        change:                   "Change Password"
+        reset:                    "Unable to Login?"
+    members:                      "Members"
+    legal:
+        copyright_notice:         "Copyright Notice"
+        disclaimer:               "Disclaimer"
+        privacy_policy:           "Privacy Policy"
+        terms_conditions:         "Terms and Conditions"
+    agreement:                    "Agreement"
+    check_email:                  "Check Email"
+    activate:                     "Activate"
 
-#
-# Sidebar.
-#
-ccdn_user_user.sidebar.header.navigation: 'Navigation'
-ccdn_user_user.sidebar.link.account.view: 'Account'
-ccdn_user_user.sidebar.link.profile.view: 'Profile'
-ccdn_user_user.sidebar.link.login: 'Login'
-ccdn_user_user.sidebar.link.register: 'Register'
-ccdn_user_user.sidebar.link.reset: 'Forgot Password'
-ccdn_user_user.sidebar.link.members: 'Members'
+form:
+    required:                     "This field is required"
+    label:
+        email:                    "Email"
+        username:                 "Username"
+        password:                 "Password"
+        password_verify:          "Retype Password"
+        recaptcha:                "Prove your Human"
+    button:
+        cancel:                   "Cancel"
 
-#
-# Link Labels.
-#
-ccdn_user_user.link.account.overview: 'Account'
-ccdn_user_user.link.account.edit: 'Edit Account'
-ccdn_user_user.link.password.change: 'Change Password'
-ccdn_user_user.link.password.reset: 'Forgot Password?'
-ccdn_user_user.link.register: 'Register'
-ccdn_user_user.link.legal.copyright_notice: 'Copyright Notice'
-ccdn_user_user.link.legal.disclaimer: 'Disclaimer'
-ccdn_user_user.link.legal.privacy_policy: 'Privacy Policy'
-ccdn_user_user.link.legal.terms_conditions: 'Terms and Conditions'
+generic:
+    login:
+        new:                      "New? Why not Register?"
 
-#
-# Forms.
-#
-ccdn_user_user.form.field.required: 'This field is required'
-ccdn_user_user.form.label.verify_password: 'Retype Password: '
-ccdn_user_user.form.label.recaptcha: 'Type the picture text: '
-ccdn_user_user.form.button.cancel: 'Cancel'
-
-ccdn_user_user.form.username: 'Username'
-ccdn_user_user.form.password: 'Password'
-#
-# Table Labels.
-#
-
-#
-# Generic.
-#
-ccdn_user_user.login.new: 'New? Why not Register?'
+flash:
+    success:
+        account:
+            updated:              "Your account was updated."
+        registration:
+            must_accept_terms:    "You must accept the terms and conditions before you can register."
+            cannot_be_logged_in:  "You cannot register an account while still logged in. Please log out first before continuing."

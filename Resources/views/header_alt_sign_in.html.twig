@@ -1,0 +1,55 @@
+{%- spaceless -%}
+	<div class="navbar navbar-googlebar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<div class="row-fluid nav">
+					<div class="span2">
+						<a class="brand" href="{{- ccdn_component_common.header.brand.route -}}">{{- ccdn_component_common.header.brand.label -}}</a>
+					</div>
+	
+					<div class="span8">
+					</div>
+	
+					<div class="span2">
+						<div class="content-right">
+							{%- if is_granted('ROLE_USER') -%}
+								<div class="btn-group">
+									<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+										<i class="icon-user"></i>
+										<bdi>{{- app.user.username |capitalize -}}</bdi>
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}">
+												<i class="icon-cog"></i>
+												{{- 'link.account' | trans({}, 'CCDNUserUserBundle') -}}
+											</a>
+										</li>
+										<li>
+											<a rel="nofollow" href="{{- path('ccdn_user_profile_show') -}}">
+												<i class="icon-user"></i>
+												{{- 'link.profile' | trans({}, 'CCDNUserUserBundle') -}}
+											</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a rel="nofollow" href="{{- path('fos_user_security_logout') -}}">
+												<i class="icon-lock"></i>
+												{{- 'link.logout' |trans({}, 'CCDNUserUserBundle') -}}
+											</a>
+										</li>
+									</ul>
+								</div>
+							{%- else -%}
+								<a rel="nofollow" href="{{- path('fos_user_registration_register') -}}"  class="btn btn-danger" data-tip="bottom" title="Register">
+									{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
+								</a>
+							{%- endif -%}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{%- endspaceless -%}

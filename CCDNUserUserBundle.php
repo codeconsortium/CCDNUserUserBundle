@@ -86,6 +86,9 @@ class CCDNUserUserBundle extends Bundle
                         'layout_template' => $this->container->getParameter('ccdn_user_user.registration.register.layout_template'),
                         'form_theme' => $this->container->getParameter('ccdn_user_user.registration.register.form_theme'),
                     ),
+                    'terms' => array(
+                        'layout_template' => $this->container->getParameter('ccdn_user_user.registration.terms.layout_template'),
+                    ),
                     'check_email' => array(
                         'layout_template' => $this->container->getParameter('ccdn_user_user.registration.check_email.layout_template'),
                     ),
