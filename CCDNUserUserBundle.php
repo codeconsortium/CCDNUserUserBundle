@@ -45,7 +45,9 @@ class CCDNUserUserBundle extends Bundle
     public function boot()
     {
         $twig = $this->container->get('twig');
-        $twig->addGlobal('ccdn_user_user',
+		
+        $twig->addGlobal(
+			'ccdn_user_user',
             array(
                 'seo' => array(
                     'title_length' => $this->container->getParameter('ccdn_user_user.seo.title_length'),
@@ -133,6 +135,6 @@ class CCDNUserUserBundle extends Bundle
                     ),
                 ),
             )
-        );
+        ); // End Twig Globals.
     }
 }
