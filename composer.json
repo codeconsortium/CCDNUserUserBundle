@@ -20,7 +20,7 @@
         "excelwebzone/recaptcha-bundle": "dev-master"
     },
 	"suggest": {
-		"reecefowell/jquery-timestamper": "dev-master",
+		"reecefowell/jquery-timestamper": "dev-master"
 	},
     "autoload": {
         "psr-0": { "CCDNUser\\UserBundle": "" }
