@@ -14,6 +14,7 @@
 namespace CCDNUser\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  *
@@ -37,6 +38,26 @@ class CCDNUserUserBundle extends Bundle
     {
         return 'FOSUserBundle';
     }
+
+//	public function build(ContainerBuilder $container)
+//    {
+//	    parent::build($container);
+//		
+//        if (false === $container->hasDefinition('doctrine.orm.listeners.resolve_target_entity')) {
+//            return;
+//        }
+//
+//        $definition = $container->getDefinition('doctrine.orm.listeners.resolve_target_entity');
+//
+//		//$taggedServices = $container->findTaggedServiceIds('doctrine.event_listener');
+//		$targetEntites = array(
+//            '\Symfony\Component\Security\Core\User\UserInterface' => 'CCDNUser\UserBundle\Entity\User'
+//		);
+//		
+//        foreach ($argetEntities as $name => $implementation) {
+//            $definition->addMethodCall('addResolveTargetEntity', array($name, $implementation, array()));
+//        }
+//	}
 
     /**
      *

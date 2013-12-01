@@ -40,7 +40,8 @@
 							{{- 'form.label.email'|trans({}, 'CCDNUserUserBundle') -}}
 						</label>
 						<div class="controls">
-							<input class="input-large" type="text" id="username" name="_username" value="{{- last_username -}}" required="required" placeholder="{{- 'ccdn_user_user.form.username'|trans({}, 'CCDNUserUserBundle') -}}" />
+							<input class="input-large" type="text" id="username" name="_username" value="{{- last_username -}}" required="required"
+							 placeholder="{{- 'security.login.username'|trans({}, 'FOSUserBundle') -}}" />
 						</div>
 					</div>
 
@@ -49,11 +50,12 @@
 							{{- 'form.label.password'|trans({}, 'CCDNUserUserBundle') -}}
 						</label>
 						<div class="controls">
-							<input class="input-large" type="password" id="password" name="_password" required="required" placeholder="{{- 'ccdn_user_user.form.password'|trans({}, 'CCDNUserUserBundle') -}}" />
+							<input class="input-large" type="password" id="password" name="_password" required="required"
+							 placeholder="{{- 'security.login.password'|trans({}, 'FOSUserBundle') -}}" />
 						</div>
 					</div>
 
-					<div class="control-group">						
+					<div class="control-group">
 							<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}" style="margin-right:20px;">
 							
 							<label class="checkbox" for="remember_me">

@@ -79,7 +79,36 @@ class CCDNUserUserExtension extends Extension
         // Load Service definitions.
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+		
+		//$this->setupORM($container);
     }
+
+    /**
+     *
+     * @access private
+     * @param  \Symfony\Component\DependencyInjection\ContainerBuilder            $container
+     * @return \CCDNForum\ForumBundle\DependencyInjection\CCDNForumForumExtension
+     */
+	public function setupORM(ContainerBuilder $container)
+	{
+
+		
+		
+		
+	   //$def = $container->findDefinition('doctrine.orm.listeners.resolve_target_entity');
+	   //
+	   //$targetEntites = array(
+       //    'Symfony\Component\Security\Core\User\UserInterface' => 'CCDNUser\UserBundle\Entity\User'
+	   //);
+       //
+       //foreach ($targetEntities as $name => $implementation) {
+       //    $def->addMethodCall('addResolveTargetEntity', array($name, $implementation, array() ));
+       //}
+       //
+       //$def->addTag('doctrine.event_listener', array('event' => 'loadClassMetadata'));
+		
+		return $this;
+	}
 
     /**
      *

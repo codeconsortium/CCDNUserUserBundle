@@ -3,13 +3,15 @@
 
 	<li class="nav-header">{{- 'sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
 
+	{#
 	<li>
 		<a href="{{- path('ccdn_user_member_index') -}}">
 			<i class="icon-th-list"></i>
 			{{- 'link.members' |trans({}, 'CCDNUserMemberBundle') -}}
 		</a>
 	</li>
-
+	#}
+	
 	{%- if is_granted("ROLE_USER") -%}
 		{%- if route == 'ccdn_user_user_account_show' or route == 'ccdn_user_user_account_edit' or route == 'fos_user_change_password' -%}
 			<li class="active">
