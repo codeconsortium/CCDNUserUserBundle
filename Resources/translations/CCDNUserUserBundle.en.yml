@@ -47,7 +47,7 @@ link:
         edit:                     "Edit Account"
     password:
         change:                   "Change Password"
-        reset:                    "Unable to Login?"
+        reset:                    "Recover Account"
     members:                      "Members"
     legal:
         copyright_notice:         "Copyright Notice"

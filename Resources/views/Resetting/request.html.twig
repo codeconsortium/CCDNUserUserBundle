@@ -1,10 +1,25 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.resetting.request.layout_template  %}
 
 {% block title %}{{- 'title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('fos_user_security_login') -}}">
+					Login
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('fos_user_resetting_request') -}}">
+					Request
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 
 {% block body_content %}
@@ -15,9 +30,9 @@
 		<form action="{{- path('fos_user_resetting_send_email') -}}" method="POST" class="form-horizontal">
 			<fieldset>
 
-				<div class="control-group">
-					<div class="controls">
-						<h3>{{- 'title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<h4>{{- 'title.reset.request'|trans({}, 'CCDNUserUserBundle') -}}</h4>
 					</div>
 				</div>
 
@@ -25,17 +40,23 @@
 					<p>{{- 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') -}}</p>
 		        {%- endif -%}
 
-				<div class="control-group">
-					<label for="username" class="control-label">
+				<div class="form-group">
+					<label for="username" class="col-lg-2 control-label control-label-required">
 						{{- 'resetting.request.username'|trans({}, 'FOSUserBundle') -}}
 					</label>
-					<div class="controls">
-						<input type="text" id="username" name="username" class="input-xxlarge span10">
+					<div class="col-lg-10">
+						<input type="text" id="username" name="username" class="form-control">
 					</div>
 				</div>
 
-				<div class="form-actions">
-			        <input type="submit" class="btn btn-primary" value="{{- 'resetting.request.submit'|trans({}, 'FOSUserBundle') -}}">
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+				        <input type="submit" class="btn btn-primary" value="{{- 'resetting.request.submit'|trans({}, 'FOSUserBundle') -}}">
+						
+						<a href="{{- path('fos_user_security_login') -}}" class="btn btn-default">
+							Cancel
+						</a>
+					</div>
 				</div>
 
 			</fieldset>

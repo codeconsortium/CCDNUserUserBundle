@@ -1,4 +1,4 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.legal.terms_conditions.layout_template  %}
 
@@ -17,17 +17,16 @@
 
 	{%- spaceless -%}
 
-	<header>
-		<h3>{{- 'title.legal.terms_conditions'|trans({}, 'CCDNUserUserBundle') -}}</h3>
-	</header>
-
-	<article>
-		<pre>
-			{%- include ccdn_user_user.legal.terms_conditions.document -%}
-		</pre>
-	</article>
-
-	{%- include 'CCDNUserUserBundle:Footer:footer.html.twig' -%}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>
+					{{- 'title.legal.terms_conditions'|trans({}, 'CCDNUserUserBundle') -}}
+				</h4>
+			</div>
+			<div class="panel-body">
+				{%- include ccdn_user_user.legal.terms_conditions.document -%}
+			</div>
+		</div>
 
 	{%- endspaceless -%}
 

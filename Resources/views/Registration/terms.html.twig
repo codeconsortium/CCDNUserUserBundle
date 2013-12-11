@@ -1,51 +1,53 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.registration.terms.layout_template  %}
 
 {% block title %}{{- 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
-
-{% block sidebar %}
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar_register.html.twig' -%}
-{% endblock sidebar %}
-
-{%- block navbar_site_primary -%}
-	{%- include 'CCDNUserUserBundle::header_alt_register.html.twig' -%}
-{%- endblock navbar_site_primary -%}
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('ccdn_user_user_registration_terms') -}}">
+					Agreement
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 {% block body_content %}
 
 	{%- spaceless -%}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>
+					{{- 'title.register.terms'|trans({}, 'CCDNUserUserBundle') -}}
+				</h4>
+			</div>
+			<div class="panel-body">
+				{%- include ccdn_user_user.legal.terms_conditions.document -%}
+			</div>
+			<div class="panel-footer">
+				<form action="{{- path('ccdn_user_user_registration_terms') -}}" method="POST">
+					<div class="form-actions center">
 
-	<header>
-		<h3>{{- 'title.register.terms'|trans({}, 'CCDNUserUserBundle') -}}</h3>
-	</header>
+						<h4>
+							<input type="checkbox" id="accept_terms" name="accept_terms" value="1" />
+							&nbsp;&nbsp;I accept the terms and conditions.
+						</h4>
 
-	<article>
-		<pre>
-			{%- include ccdn_user_user.legal.terms_conditions.document -%}
-		</pre>
-	</article>
+						<br>
 
-	<form action="{{- path('ccdn_user_user_registration_terms') -}}" method="POST">
-		<div class="form-actions center">
+						<input type="submit" class="btn btn-primary" value="I Accept" />
 
-			<h4>
-				<input type="checkbox" id="accept_terms" name="accept_terms" value="1" />
-				&nbsp;&nbsp;I accept the terms and conditions.
-			</h4>
-
-			<br>
-
-			<input type="submit" class="btn" value="I Accept" />
-
-			<a class="btn" href="{{- path('fos_user_security_login') -}}">
-				I do NOT Accept
-			</a>
+						<a class="btn btn-default" href="{{- path('fos_user_security_login') -}}">
+							I do NOT Accept
+						</a>
+					</div>
+				</form>
+			</div>
 		</div>
-	</form>
-
 	{%- endspaceless -%}
 
 {% endblock body_content %}

@@ -1,100 +1,81 @@
-<li class="nav-header">{{- 'sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
+{%- spaceless -%}
+	{%- set route = app.request.attributes.get('_route') -%}
 
-{%- set route = app.request.attributes.get('_route') -%}
+	<ul class="nav nav-pills nav-stacked">
 
-
-
-{%- if route == 'ccdn_user_user_registration_terms' or route == 'fos_user_registration_register' -%}
-	{%- if route == 'ccdn_user_user_registration_terms' -%}
-		<li class="active">
-			<a href="{{- path('ccdn_user_user_registration_terms') -}}">
-				<i class="icon-play"></i>
-				{{- 'link.agreement' |trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- else -%}
-		<li>
-			<a href="{{- path('ccdn_user_user_registration_terms') -}}">
-				<i class="icon-ok"></i>
-				{{- 'link.agreement' |trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- endif -%}
-{%- else -%}
-	<li>
-		<a href="#">
-			<i class="icon-ok"></i>
-			{{- 'link.agreement' |trans({}, 'CCDNUserUserBundle') -}}
-		</a>
-	</li>
-{%- endif -%}
-
-
-
-{%- if route == 'fos_user_registration_register' -%}
-	<li class="active">
-		<a href="{{- path('fos_user_registration_register') -}}">
-			<i class="icon-play"></i>
-			{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
-		</a>
-	</li>
-{%- else -%}
-	<li>
-		{%- if route == 'ccdn_user_user_registration_terms' -%}
-			<a href="{{- path('fos_user_registration_register') -}}">
-				<i class="icon-minus"></i>	
-				{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
-			</a>
+		{%- if route == 'ccdn_user_user_registration_terms' or route == 'fos_user_registration_register' -%}
+			{%- if route == 'ccdn_user_user_registration_terms' -%}
+				<li class="active">
+					<a href="{{- path('ccdn_user_user_registration_terms') -}}">
+						<i class="icon-play"></i>
+			{%- else -%}
+				<li>
+					<a href="{{- path('ccdn_user_user_registration_terms') -}}">
+						<i class="icon-ok"></i>
+			{%- endif -%}
 		{%- else -%}
-			<a href="#">
-				<i class="icon-ok"></i>
-				{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
-			</a>
+			<li>
+				<a href="#">
+					<i class="icon-ok"></i>
 		{%- endif -%}
-	</li>
-{%- endif -%}
+					{{- 'link.agreement' |trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
 
 
 
-{%- if route == 'fos_user_registration_check_email' or route == 'fos_user_registration_confirmed' -%}
-	{%- if route == 'fos_user_registration_check_email' -%}
-		<li class="active">
-			<a href="{{- path('fos_user_registration_check_email') -}}">
-				<i class="icon-play"></i>
-				{{- 'link.check_email' |trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- else -%}
-		<li>
-			<a href="#">
-				<i class="icon-ok"></i>
-				{{- 'link.check_email' |trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- endif -%}
-{%- else -%}
-	<li>
-		<a href="#">
-			<i class="icon-minus"></i>
-			{{- 'link.check_email' |trans({}, 'CCDNUserUserBundle') -}}
-		</a>
-	</li>
-{%- endif -%}
+		{%- if route == 'fos_user_registration_register' -%}
+			<li class="active">
+				<a href="{{- path('fos_user_registration_register') -}}">
+					<i class="icon-play"></i>
+		{%- else -%}
+			<li>
+				{%- if route == 'ccdn_user_user_registration_terms' -%}
+					<a href="{{- path('fos_user_registration_register') -}}">
+						<i class="icon-minus"></i>	
+				{%- else -%}
+					<a href="#">
+						<i class="icon-ok"></i>
+				{%- endif -%}
+		{%- endif -%}
+					{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
 
 
 
-{%- if route == 'fos_user_registration_confirmed' -%}
-	<li class="active">
-		<a href="{{- path('fos_user_registration_confirmed') -}}">
-			<i class="icon-play"></i>
-			{{- 'link.activate' |trans({}, 'CCDNUserUserBundle') -}}
-		</a>
-	</li>
-{%- else -%}
-	<li>
-		<a href="#">
-			<i class="icon-minus"></i>
-			{{- 'link.activate' |trans({}, 'CCDNUserUserBundle') -}}
-		</a>
-	</li>
-{%- endif -%}
+		{%- if route == 'fos_user_registration_check_email' or route == 'fos_user_registration_confirmed' -%}
+			{%- if route == 'fos_user_registration_check_email' -%}
+				<li class="active">
+					<a href="{{- path('fos_user_registration_check_email') -}}">
+						<i class="icon-play"></i>
+			{%- else -%}
+				<li>
+					<a href="#">
+						<i class="icon-ok"></i>
+			{%- endif -%}
+		{%- else -%}
+			<li>
+				<a href="#">
+					<i class="icon-minus"></i>
+		{%- endif -%}
+					{{- 'link.check_email' |trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
+
+
+
+		{%- if route == 'fos_user_registration_confirmed' -%}
+			<li class="active">
+				<a href="{{- path('fos_user_registration_confirmed') -}}">
+					<i class="icon-play"></i>
+		{%- else -%}
+			<li>
+				<a href="#">
+					<i class="icon-minus"></i>
+		{%- endif -%}
+					{{- 'link.activate' |trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
+	</ul>
+{%- endspaceless -%}

@@ -1,9 +1,25 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.account.edit.layout_template  %}
 
 {% block title %}{{- 'title.account.edit' |trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('ccdn_user_user_account_show') -}}">
+					Account Overview
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('ccdn_user_user_account_edit') -}}">
+					Edit Account
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 {% block body_content %}
 
@@ -14,9 +30,9 @@
 		<form action="{{- path('ccdn_user_user_account_edit') -}}" method="POST" {{ form_enctype(form) }} class="form-horizontal">
 			<fieldset>
 
-				<div class="control-group">
-					<div class="controls">
-						<h3>{{- 'heading.edit.account' |trans({}, 'CCDNUserUserBundle') -}}</h3>
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<h4>{{- 'heading.edit.account' |trans({}, 'CCDNUserUserBundle') -}}</h4>
 					</div>
 				</div>
 
@@ -24,19 +40,19 @@
 
 				{{- form_widget(form) -}}
 
-				<div class="form-actions">
-			        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+				        <input type="submit" class="btn btn-danger" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">
 
-					<a class="btn" href="{{- path('ccdn_user_user_account_show') -}}">
-						{{- 'form.button.cancel' |trans({}, 'CCDNUserUserBundle') -}}
-					</a>
+						<a class="btn btn-default" href="{{- path('ccdn_user_user_account_show') -}}">
+							{{- 'form.button.cancel' |trans({}, 'CCDNUserUserBundle') -}}
+						</a>
+					</div>
 				</div>
 
 			</fieldset>
 		</form>
 	</section>
-
-	{%- include 'CCDNUserUserBundle:Footer:footer.html.twig' -%}
 
 	{%- endspaceless -%}
 

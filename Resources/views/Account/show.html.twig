@@ -1,9 +1,20 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.account.show.layout_template  %}
 
 {% block title %}{{- 'title.account.show' |trans({'%name%': user.getUsername }, 'CCDNUserUserBundle') -}}{% endblock %}
 
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('ccdn_user_user_account_show') -}}">
+					Account Overview
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 {% block body_content %}
 
@@ -11,41 +22,42 @@
 
 	<section>
 		<nav class="btn-toolbar">
-			<a class="btn" href="{{- path('ccdn_user_user_account_edit') -}}">
-				<i class="icon-cog"></i>
+			<a class="btn btn-danger" href="{{- path('ccdn_user_user_account_edit') -}}">
+				<i class="glyphicon glyphicon-cog"></i>
 				{{- 'link.account.edit' |trans({}, 'CCDNUserUserBundle') -}}
 			</a>
-			<a class="btn" href="{{- path('fos_user_change_password') -}}">
-				<i class="icon-cog"></i>
+			<a class="btn btn-danger" href="{{- path('fos_user_change_password') -}}">
+				<i class="glyphicon glyphicon-cog"></i>
 				{{- 'link.change_password' | trans({}, 'CCDNUserUserBundle') -}}
 			</a>
 		</nav>
 
-		<table class="table table-striped table-hover">
-			<tbody>
-				<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
-					<td class="right">{{- 'profile.show.username'|trans({}, 'FOSUserBundle') -}}:</td>
-					<td class="left">{{- user.username -}}</td>
-				</tr>
-				<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
-					<td class="right">{{- 'profile.show.email'|trans({}, 'FOSUserBundle') -}}:</td>
-					<td class="left">{{- user.email -}}</td>
-				</tr>
-				{%- if user.facebookId is not defined -%}
-					<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
-						<td class="right">{{- 'security.login.password'|trans({}, 'FOSUserBundle') -}}</td>
-						<td class="left">
-							<a href="{{- path('fos_user_change_password') -}}">
-								{{- 'change_password.submit'|trans({}, 'FOSUserBundle') -}}
-							</a>
-						</td>
+		<div class="panel panel-default">
+			<div class="panel-heading">&nbsp;</div>
+			<table class="table table-striped table-hover">
+				<tbody>
+					<tr>
+						<td class="text-right">{{- 'profile.show.username'|trans({}, 'FOSUserBundle') -}}:</td>
+						<td class="text-left">{{- user.username -}}</td>
 					</tr>
-				{%- endif -%}
-			</tbody>
-		</table>
+					<tr>
+						<td class="text-right">{{- 'profile.show.email'|trans({}, 'FOSUserBundle') -}}:</td>
+						<td class="text-left">{{- user.email -}}</td>
+					</tr>
+					{%- if user.facebookId is not defined -%}
+						<tr>
+							<td class="text-right">{{- 'security.login.password'|trans({}, 'FOSUserBundle') -}}</td>
+							<td class="text-left">
+								<a href="{{- path('fos_user_change_password') -}}">
+									{{- 'change_password.submit'|trans({}, 'FOSUserBundle') -}}
+								</a>
+							</td>
+						</tr>
+					{%- endif -%}
+				</tbody>
+			</table>
+		</div>
 	</section>
-
-	{%- include 'CCDNUserUserBundle:Footer:footer.html.twig' -%}
 
 	{%- endspaceless -%}
 

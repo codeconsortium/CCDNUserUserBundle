@@ -86,6 +86,10 @@
 	{%- endspaceless -%}
 {% endblock form_row %}
 
+{% block form_label %}
+	{{- block('field_label') -}}
+{% endblock form_label %}
+
 {% block field_label %}
 	{%- spaceless -%}
 		{%- set attr = attr|merge({'id': 'label[' ~ id ~ ']', 'class': attr.class|default('') ~ ' col-lg-2 control-label' ~ (required ? ' control-label-required':'')}) -%}
@@ -192,3 +196,23 @@
 	    {%- endfor -%}
 	{%- endspaceless -%}
 {% endblock choice_widget_options %}
+
+{% block ewz_recaptcha_widget %}
+  {% spaceless %}
+      {% if form.vars.ewz_recaptcha_enabled %}
+	      <div class="clearfix" style="display:block;clear:both;">
+	        {% if attr.options is defined %}
+	                <script type="text/javascript">
+	                    var RecaptchaOptions = {{ attr.options|json_encode|raw }}
+	                </script>
+	            {% endif %}
+	            <script src="{{ form.vars.url_challenge }}" type="text/javascript"></script>
+	            <noscript>
+	                <iframe src="{{ form.vars.url_noscript }}" height="300" width="500"></iframe><br/>
+	                <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+	                <input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+	            </noscript>
+	      </div>
+      {% endif %}
+  {% endspaceless %}
+{% endblock ewz_recaptcha_widget %}

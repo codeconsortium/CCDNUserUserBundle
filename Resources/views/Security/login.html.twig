@@ -1,110 +1,86 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.security.login.layout_template  %}
 
 {% block title %}{{- 'title.login'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
-
-{% block sidebar %}{% endblock sidebar %}
-
-{%- block navbar_site_primary -%}
-	{%- include 'CCDNUserUserBundle::header_alt_sign_in.html.twig' -%}
-{%- endblock navbar_site_primary -%}
+{%- block tool_bar -%}{%- endblock tool_bar -%}
 
 
 {% block body_content %}
 
 	{%- spaceless -%}
-	
-	<br><br>
-	<div class="container">
-		<div class="span4">
 
-			<form action="{{- path('fos_user_security_check') -}}" method="post" class="form-vertical">
-				<fieldset>
-					<h4>{{- 'title.login'|trans({}, 'CCDNUserUserBundle') -}}</h4>
+		<br>
+		<div class="col-md-12 clearfix">
+	        <div class="col-md-6 well">
+				<form action="{{- path('fos_user_security_check') -}}" method="post" role="form">
+					<fieldset>
+						<h4 class="lead">{{- 'title.login'|trans({}, 'CCDNUserUserBundle') -}}</h4>
+						<br>
+						{%- if error -%}
+							<div class="alert alert-error alert-block">
+							    <ul>
+									<li>{{- error -}}</li>
+								</ul>
+							</div>
+						{%- endif -%}
 
-					{%- if error -%}
-						<div class="alert alert-error alert-block">
-						    <ul>
-								<li>{{- error -}}</li>
-							</ul>
-						</div>
-					{%- endif -%}
+					    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-				    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+						<div class="form-group">
+							<label class="control-label" for="email">
+								{{- 'form.label.email'|trans({}, 'CCDNUserUserBundle') -}}
+							</label>
 
-					<div class="control-group row-fluid">
-						<label class="control-label" for="email">
-							{{- 'form.label.email'|trans({}, 'CCDNUserUserBundle') -}}
-						</label>
-						<div class="controls">
-							<input class="input-large" type="text" id="username" name="_username" value="{{- last_username -}}" required="required"
+							<input class="form-control" type="text" id="username" name="_username" value="{{- last_username -}}" required="required"
 							 placeholder="{{- 'security.login.username'|trans({}, 'FOSUserBundle') -}}" />
 						</div>
-					</div>
 
-					<div class="control-group row-fluid">
-						<label class="control-label" for="password">
-							{{- 'form.label.password'|trans({}, 'CCDNUserUserBundle') -}}
-						</label>
-						<div class="controls">
-							<input class="input-large" type="password" id="password" name="_password" required="required"
+						<div class="form-group">
+							<label class="control-label" for="password">
+								{{- 'form.label.password'|trans({}, 'CCDNUserUserBundle') -}}
+							</label>
+
+							<input class="form-control" type="password" id="password" name="_password" required="required"
 							 placeholder="{{- 'security.login.password'|trans({}, 'FOSUserBundle') -}}" />
 						</div>
-					</div>
 
-					<div class="control-group">
-							<input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}" style="margin-right:20px;">
-							
+						<div class="form-group">
+
 							<label class="checkbox" for="remember_me">
 								<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
 								{{- 'security.login.remember_me'|trans({}, 'FOSUserBundle') -}}
 							</label>
-					</div>
+					
+							<input type="submit" class="btn btn-primary" id="_submit" name="_submit"
+							 value="{{- 'security.login.submit'|trans({}, 'FOSUserBundle') -}}" style="margin-right:20px;">
 
-					<div class="control-group">
-						<hr>
-						
-						<a href="{{- path('fos_user_resetting_request') -}}">
-							{{- 'link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}
-						</a>
-
-						{%- if ccdn_user_user.security.login.support_facebook -%}
-		                    <br><br>{%- include 'CCDNUserUserBundle:Security:facebookButton.html.twig' -%}
-						{%- endif -%}
-					</div>
-
-				</fieldset>
-			</form>
+						</div>
+					</fieldset>
+				</form>
+			</div>
 		
+			<div class="col-md-6">
+				<div class="well lead">
+					<h4 class="lead">Need an Account?</h4>
+					<p class="">
+						<a href="{{- path('fos_user_registration_register') -}}" class="btn btn-default btn-lg">
+							Register&nbsp;
+							<i class="glyphicon glyphicon-chevron-right"></i>
+						</a>
+					</p>
+					<br>
+					<h4 class="lead">Unable to Login?</h4>
+					<p class="">
+						<a href="{{- path('fos_user_resetting_request') -}}" class="btn btn-default btn-lg">
+							{{- 'link.password.reset' |trans({}, 'CCDNUserUserBundle') -}}&nbsp;
+							<i class="glyphicon glyphicon-chevron-right"></i>
+						</a>
+					</p>
+				</div>
+			</div>
 		</div>
-
-		<div class="span8">
-			<h3>{{- 'generic.login.new'|trans({}, 'CCDNUserUserBundle') -}}</h3>
-
-			<hr>
-
-			<h4>Register today and join a growing community of developers!</h4>
-
-			<br>
-			<span class="lead">
-				Why not join now and enjoy the benefits of:
-			</span>
-
-			<p>
-				<ul>
-					<li>Free Membership!</li>
-					<li>Asking the community questions on the Forums.</li>
-					<li>Message other members of the community and make new friends.</li>
-				</ul>
-			</p>
-
-		</div>
-	
-	</div>
-	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

@@ -1,77 +1,140 @@
-{% extends LayoutTemplate %}
+<!DOCTYPE html>
+<html lang="{{- app.request.locale -}}">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <title>{%- block title -%}{%- endblock -%}</title>
 
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		{%- block stylesheets -%}
+		{%- endblock -%}
+    </head>
+    <body>
 
-{% block stylesheets %}
-    {{ parent() }}
-	{% block stylesheets_extra %}
-	{% endblock stylesheets_extra %}
-{% endblock stylesheets %}
+		{%- spaceless -%}
 
+		<div id="page-wrap">
+			<div id="page-main">
 
+				{%- block navbar -%}
+					{%- set route = app.request.attributes.get('_route') -%}
+					<header class="navbar navbar-default navbar-fixed-top clearfix" role="navigation">
+						<a target="_blank" class="navbar-brand" href="http://www.codeconsortium.com/">Code Consortium</a>
 
-{% block javascripts %}
-	{{ parent() }}
-	{% block javascripts_extra %}
-	{% endblock javascripts_extra %}
-{% endblock javascripts %}
-
-
-
-{% block tool_bar %}
-	{%- spaceless -%}
-		<header>
-			<div class="container-fluid clear-top crumb-bar-container">
-				<div class="row-fluid">
-				    <div class="span2">
-						<h3>
-							{% block sub_title %}
-								{%- if is_granted('ROLE_USER') -%}
-									<a href="{{ path('ccdn_user_user_account_show') }}">
-										{{- app.user.getUsername |capitalize -}}
+						<ul class="nav navbar-nav navbar-right">
+							{%- if is_granted('ROLE_USER') -%}
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<i class="glyphicon glyphicon-user"></i>
+										{%- if app.user -%}
+											{{- app.user.email -}}
+										{%- endif -%}
+										<b class="caret"></b>
 									</a>
-								{%- endif -%}
-							{% endblock sub_title %}
-						</h3>
-					</div>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="{{- path('ccdn_user_user_account_show') -}}">
+												Account
+											</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="{{- path('fos_user_security_logout') -}}">
+												Logout
+											</a>
+										</li>
+									</ul>
+								</li>
+							{%- else -%}
+								<li>
+									<a href="{{- path('fos_user_security_login') -}}">
+										Login
+									</a>
+								</li>
+							{%- endif -%}
+						</ul>
+					</header>
 
-					{%- if crumbs is defined -%}
-						<nav class="span10">
-							{%- block crumb_trail -%}
-								{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
-							{%- endblock crumb_trail -%}
-						</nav>
-					{%- endif -%}
+					{%- block tool_bar -%}
+					{%- endblock tool_bar -%}
+				{%- endblock navbar -%}
+
+				<div class="container clearfix">
+					<br>
+					<div class="row">
+				        <aside class="col-md-2 page-sidebar-left">
+							{%- block sidebar -%}
+				            {%- endblock sidebar -%}
+						</aside>
+
+				        <div class="col-md-10 page-body-right">
+							<div id="top clearfix"></div>
+				            {%- block body -%}
+							{%- endblock body -%}
+				        </div>
+			        </div>
 				</div>
 			</div>
-		</header>
-	{%- endspaceless -%}
-{% endblock tool_bar %}
+		</div>
 
+		<br>
 
+		<footer class="footer site-footer">
 
-{% block sidebar %}
-    {{ parent() }}
+			<div class="navbar navbar-default clearfix">
+				<p class="navbar-text pull-right content-right">
+					Copyright <a target="_blank" class="navbar-link" href="http://www.codeconsortium.com/">Code Consortium</a> 2011 - {{ 'now'|date("Y") }}.
+				</p>
+			</div>
 
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar.html.twig' -%}
+			<nav class="navbar navbar-inverse clearfix" style="bottom:0px;margin-bottom:0px;">
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+				    <ul class="nav navbar-nav">
+						<li>
+							<a href="http://www.codeconsortium.com">
+								Code Consortium
+							</a>
+						</li>
 
-{% endblock %}
+						<li>
+							<a rel="friend" target="_blank" href="http://github.com/codeconsortium">Contribute</a>
+						</li>
+				    </ul>
+				</div>
+			</nav>
 
+		</footer>
 
+		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		{%- block javascripts -%}
+		{%- endblock -%}
 
-{% block body %}
-	{%- spaceless -%}
+		<script type='text/javascript'>
+		<!--
+			$(document).ready(function() {
+				// make visible js compat toolbars site wide
+				$("[data-js-non-compat]").each(function(i, el) {
+					$(el).addClass('collapse').addClass('hidden');
+				});
 
-	<style type="text/css">
-		article pre {
-			padding:15px;
-		}
-	</style>
+				$("[data-js-compat]").each(function(i, el) {
+					$(el).removeClass('collapse').removeClass('hidden');
+				});
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+				$('[data-tip]').each(function() {
+					$(this).tooltip({
+						html: true,
+						placement: $(this).data('tip')
+					});
+				});
 
-	{%- block body_content -%}
-	{%- endblock body_content -%}
+				$('[data-toggle="dropdown"]').dropdown();
+			});
+		//-->
+		</script>
 
-	{%- endspaceless -%}
-{% endblock body %}
+		{%- endspaceless -%}
+    </body>
+</html>

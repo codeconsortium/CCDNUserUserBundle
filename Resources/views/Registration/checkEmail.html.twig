@@ -1,18 +1,25 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.registration.check_email.layout_template %}
 
 {% block title %}{{- 'title.register.activation.pending'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
-
-{% block sidebar %}
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar_register.html.twig' -%}
-{% endblock sidebar %}
-
-{%- block navbar_site_primary -%}
-	{%- include 'CCDNUserUserBundle::header_alt_register.html.twig' -%}
-{%- endblock navbar_site_primary -%}
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('ccdn_user_user_registration_terms') -}}">
+					Agreement
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('fos_user_registration_register') -}}">
+					Register
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 {% block body_content %}
 

@@ -1,8 +1,35 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.resetting.reset.layout_template  %}
 
 {% block title %}{{- 'title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
+
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('fos_user_security_login') -}}">
+					Login
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('fos_user_resetting_request') -}}">
+					Request
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('fos_user_resetting_check_email') -}}">
+					Email Sent
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('fos_user_resetting_reset') -}}">
+					Reset
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 
 {% block body_content %}
@@ -14,9 +41,9 @@
 		<form action="{{- path('fos_user_resetting_reset', {'token': token}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 			<fieldset>
 
-				<div class="control-group">
-					<div class="controls">
-						<h3>{{- 'title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h3>
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<h4>{{- 'title.reset.new_password'|trans({}, 'CCDNUserUserBundle') -}}</h4>
 					</div>
 				</div>
 
@@ -24,8 +51,10 @@
 
 				{{- form_widget(form) -}}
 
-				<div class="form-actions">
-			        <input type="submit" class="btn btn-primary" value="{{- 'resetting.reset.submit'|trans({}, 'FOSUserBundle') -}}">
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+				        <input type="submit" class="btn btn-primary" value="{{- 'resetting.reset.submit'|trans({}, 'FOSUserBundle') -}}">
+					</div>
 				</div>
 
 			</fieldset>

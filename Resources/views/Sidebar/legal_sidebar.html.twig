@@ -1,70 +1,52 @@
 {%- spaceless -%}
 	{%- set route = app.request.attributes.get('_route') -%}
 
-	<li class="nav-header">{{- 'sidebar.header.navigation' | trans({}, 'CCDNUserUserBundle') -}}</li>
+	<ul class="nav nav-pills nav-stacked">
 
-	{%- if route == 'ccdn_user_user_legal_copyright_notice' -%}
-		<li class="active">
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_copyright_notice') -}}">
-				<i class="icon-white icon-file"></i>
-				{{- 'title.legal.copyright_notice' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- else -%}
-		<li>
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_copyright_notice') -}}">
-				<i class="icon-file"></i>
-				{{- 'title.legal.copyright_notice' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- endif -%}
+		{%- if route == 'ccdn_user_user_legal_copyright_notice' -%}
+			<li class="active">
+		{%- else -%}
+			<li>
+		{%- endif -%}
+				<a rel="nofollow" href="{{- path('ccdn_user_user_legal_copyright_notice') -}}">
+					<i class="glyphicon glyphicon-file"></i>
+					{{- 'title.legal.copyright_notice' | trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
 
-	{%- if route == 'ccdn_user_user_legal_disclaimer' -%}
-		<li class="active">
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_disclaimer') -}}">
-				<i class="icon-white icon-file"></i>
-				{{- 'title.legal.disclaimer' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- else -%}
-		<li>
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_disclaimer') -}}">
-				<i class="icon-file"></i>
-				{{- 'title.legal.disclaimer' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- endif -%}
+		{%- if route == 'ccdn_user_user_legal_disclaimer' -%}
+			<li class="active">
+		{%- else -%}
+			<li>
+		{%- endif -%}
+				<a rel="nofollow" href="{{- path('ccdn_user_user_legal_disclaimer') -}}">
+					<i class="glyphicon glyphicon-file"></i>
+					{{- 'title.legal.disclaimer' | trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
 
-	{%- if route == 'ccdn_user_user_legal_privacy_policy' -%}
-		<li class="active">
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_privacy_policy') -}}">
-				<i class="icon-white icon-file"></i>
-				{{- 'title.legal.privacy_policy' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- else -%}
-		<li>
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_privacy_policy') -}}">
-				<i class="icon-file"></i>
-				{{- 'title.legal.privacy_policy' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- endif -%}
+		{%- if route == 'ccdn_user_user_legal_privacy_policy' -%}
+			<li class="active">
+		{%- else -%}
+			<li>
+		{%- endif -%}
+				<a rel="nofollow" href="{{- path('ccdn_user_user_legal_privacy_policy') -}}">
+					<i class="glyphicon glyphicon-file"></i>
+					{{- 'title.legal.privacy_policy' | trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
 
-	{%- if route == 'ccdn_user_user_legal_terms_conditions' -%}
-		<li class="active">
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_terms_conditions') -}}">
-				<i class="icon-white icon-file"></i>
-				{{- 'title.legal.terms_conditions' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- else -%}
-		<li>
-			<a rel="nofollow" href="{{- path('ccdn_user_user_legal_terms_conditions') -}}">
-				<i class="icon-file"></i>
-				{{- 'title.legal.terms_conditions' | trans({}, 'CCDNUserUserBundle') -}}
-			</a>
-		</li>
-	{%- endif -%}
+		{%- if route == 'ccdn_user_user_legal_terms_conditions' -%}
+			<li class="active">
+		{%- else -%}
+			<li>
+		{%- endif -%}
+				<a rel="nofollow" href="{{- path('ccdn_user_user_legal_terms_conditions') -}}">
+					<i class="glyphicon glyphicon-file"></i>
+					{{- 'title.legal.terms_conditions' | trans({}, 'CCDNUserUserBundle') -}}
+				</a>
+			</li>
+
+	</ul>
 
 {%- endspaceless -%}

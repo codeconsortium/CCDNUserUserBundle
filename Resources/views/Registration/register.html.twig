@@ -1,51 +1,54 @@
-{% extends 'CCDNUserUserBundle::base.html.twig' %}
+{% extends 'CCDNUserUserBundle:Common:Layout/base.html.twig' %}
 
 {% set LayoutTemplate = ccdn_user_user.registration.register.layout_template %}
 
 {% block title %}{{- 'title.register.register'|trans({}, 'CCDNUserUserBundle') -}}{% endblock %}
 
-{% block tool_bar %}{# clear out the tool bar for this page #}{% endblock tool_bar %}
-
-{% block sidebar %}
-	{%- include 'CCDNUserUserBundle:Sidebar:sidebar_register.html.twig' -%}
-{% endblock sidebar %}
-
-{%- block navbar_site_primary -%}
-	{%- include 'CCDNUserUserBundle::header_alt_register.html.twig' -%}
-{%- endblock navbar_site_primary -%}
-
+{%- block crumb_trail -%}
+	{%- spaceless -%}
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{- path('ccdn_user_user_registration_terms') -}}">
+					Agreement
+				</a>
+			</li>
+			<li>
+				<a href="{{- path('fos_user_registration_register') -}}">
+					Register
+				</a>
+			</li>
+		</ol>
+	{%- endspaceless -%}
+{%- endblock crumb_trail -%}
 
 {% block body_content %}
 
 	{%- spaceless -%}
 	
-	<div class="container-fluid">
-		<div class="span5">
-			{%- form_theme form ccdn_user_user.registration.register.form_theme -%}
-			<form action="{{- path('fos_user_registration_register') -}}" {{ form_enctype(form) }} method="POST" class="form-vertical">
-				<fieldset>
+	<section>
+		{%- form_theme form ccdn_user_user.registration.register.form_theme -%}
+		<form action="{{- path('fos_user_registration_register') -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+			<fieldset>
 
-					<div class="control-group">
-						<div class="controls">
-							<h4>{{- 'title.register.register'|trans({}, 'CCDNUserUserBundle') -}}</h4>
-						</div>
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<h4>{{- 'title.register.register'|trans({}, 'CCDNUserUserBundle') -}}</h4>
 					</div>
-					{{- form_errors(form) -}}
+				</div>
+				
+				{{- form_errors(form) -}}
 
-					{{- form_widget(form) -}}
+				{{- form_widget(form) -}}
 
-					<div class="form-actions">
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
 						<input type="submit" class="btn btn-primary" value="{{- 'registration.submit'|trans({}, 'FOSUserBundle') -}}">
 					</div>
+				</div>
 
-				</fieldset>
-			</form>
-		</div>
-	
-		<div class="span7">
-			woop woop
-		</div>
-	</div>
+			</fieldset>
+		</form>
+	</section>
 	
 	{%- endspaceless -%}
 

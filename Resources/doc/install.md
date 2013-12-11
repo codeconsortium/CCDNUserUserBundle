@@ -1,13 +1,5 @@
-Installing CCDNUser UserBundle 1.x
+Installing CCDNUser UserBundle 2.x
 ==================================
-
-## Dependencies:
-
-1. [FOSUserBundle](http://github.com/FriendsOfSymfony/FOSUserBundle).
-2. [EWZRecaptchaBundle](http://github.com/excelwebzone/EWZRecaptchaBundle).
-3. [PagerFantaBundle](http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle).
-4. [CCDNComponent CommonBundle](https://github.com/codeconsortium/CCDNComponentCommonBundle).
-5. [CCDNComponent CrumbTrailBundle](https://github.com/codeconsortium/CCDNComponentCrumbTrailBundle).
 
 ## Installation:
 
