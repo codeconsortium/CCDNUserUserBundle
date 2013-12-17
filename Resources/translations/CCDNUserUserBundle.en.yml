@@ -5,6 +5,8 @@ dashboard:
         account:                  "Account"
     links:
         show_account:             "My Account"
+        register:                 "Register"
+        login:                    "Login"
 
 layout:
     header:

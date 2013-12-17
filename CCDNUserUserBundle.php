@@ -42,7 +42,7 @@ class CCDNUserUserBundle extends Bundle
 //	public function build(ContainerBuilder $container)
 //    {
 //	    parent::build($container);
-//		
+//
 //        if (false === $container->hasDefinition('doctrine.orm.listeners.resolve_target_entity')) {
 //            return;
 //        }
@@ -53,7 +53,7 @@ class CCDNUserUserBundle extends Bundle
 //		$targetEntites = array(
 //            '\Symfony\Component\Security\Core\User\UserInterface' => 'CCDNUser\UserBundle\Entity\User'
 //		);
-//		
+//
 //        foreach ($argetEntities as $name => $implementation) {
 //            $definition->addMethodCall('addResolveTargetEntity', array($name, $implementation, array()));
 //        }
@@ -66,9 +66,9 @@ class CCDNUserUserBundle extends Bundle
     public function boot()
     {
         $twig = $this->container->get('twig');
-		
+
         $twig->addGlobal(
-			'ccdn_user_user',
+            'ccdn_user_user',
             array(
                 'seo' => array(
                     'title_length' => $this->container->getParameter('ccdn_user_user.seo.title_length'),

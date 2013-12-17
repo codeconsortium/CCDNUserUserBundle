@@ -24,7 +24,7 @@
 {% block body_content %}
 
 	{%- spaceless -%}
-	
+
 	<section>
 		{%- form_theme form ccdn_user_user.registration.register.form_theme -%}
 		<form action="{{- path('fos_user_registration_register') -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
@@ -35,7 +35,7 @@
 						<h4>{{- 'title.register.register'|trans({}, 'CCDNUserUserBundle') -}}</h4>
 					</div>
 				</div>
-				
+
 				{{- form_errors(form) -}}
 
 				{{- form_widget(form) -}}
@@ -49,7 +49,7 @@
 			</fieldset>
 		</form>
 	</section>
-	
+
 	{%- endspaceless -%}
 
 {% endblock body_content %}

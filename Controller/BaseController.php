@@ -314,11 +314,11 @@ class BaseController extends RegistrationController
         return $action;
     }
 
-	public function getQuery($query, $default)
-	{
-		return $this->getRequest()->query->get($query, $default);
-	}
-	
+    public function getQuery($query, $default)
+    {
+        return $this->getRequest()->query->get($query, $default);
+    }
+
     /**
      *
      * @access protected
