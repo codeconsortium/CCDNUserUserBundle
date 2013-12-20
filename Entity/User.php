@@ -14,8 +14,7 @@
 namespace CCDNUser\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
-use CCDNUser\UserBundle\Model\User as AbstractUser;
+use CCDNUser\UserBundle\Entity\Model\UserModel as AbstractUserModel;
 
 /**
  *
@@ -28,7 +27,7 @@ use CCDNUser\UserBundle\Model\User as AbstractUser;
  * @link     https://github.com/codeconsortium/CCDNUserUserBundle
  *
  */
-class User extends AbstractUser
+class User extends AbstractUserModel
 {
     /**
      *

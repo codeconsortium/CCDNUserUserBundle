@@ -7,16 +7,16 @@
 			{%- if route == 'ccdn_user_user_registration_terms' -%}
 				<li class="active">
 					<a href="{{- path('ccdn_user_user_registration_terms') -}}">
-						<i class="icon-play"></i>
+						<i class="glyphicon glyphicon-play"></i>
 			{%- else -%}
 				<li>
 					<a href="{{- path('ccdn_user_user_registration_terms') -}}">
-						<i class="icon-ok"></i>
+						<i class="glyphicon glyphicon-ok"></i>
 			{%- endif -%}
 		{%- else -%}
 			<li>
 				<a href="#">
-					<i class="icon-ok"></i>
+					<i class="glyphicon glyphicon-ok"></i>
 		{%- endif -%}
 					{{- 'link.agreement' |trans({}, 'CCDNUserUserBundle') -}}
 				</a>
@@ -27,15 +27,15 @@
 		{%- if route == 'fos_user_registration_register' -%}
 			<li class="active">
 				<a href="{{- path('fos_user_registration_register') -}}">
-					<i class="icon-play"></i>
+					<i class="glyphicon glyphicon-play"></i>
 		{%- else -%}
 			<li>
 				{%- if route == 'ccdn_user_user_registration_terms' -%}
 					<a href="{{- path('fos_user_registration_register') -}}">
-						<i class="icon-minus"></i>
+						<i class="glyphicon glyphicon-minus"></i>
 				{%- else -%}
 					<a href="#">
-						<i class="icon-ok"></i>
+						<i class="glyphicon glyphicon-ok"></i>
 				{%- endif -%}
 		{%- endif -%}
 					{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
@@ -48,16 +48,16 @@
 			{%- if route == 'fos_user_registration_check_email' -%}
 				<li class="active">
 					<a href="{{- path('fos_user_registration_check_email') -}}">
-						<i class="icon-play"></i>
+						<i class="glyphicon glyphicon-play"></i>
 			{%- else -%}
 				<li>
 					<a href="#">
-						<i class="icon-ok"></i>
+						<i class="glyphicon glyphicon-ok"></i>
 			{%- endif -%}
 		{%- else -%}
 			<li>
 				<a href="#">
-					<i class="icon-minus"></i>
+					<i class="glyphicon glyphicon-minus"></i>
 		{%- endif -%}
 					{{- 'link.check_email' |trans({}, 'CCDNUserUserBundle') -}}
 				</a>
@@ -68,11 +68,11 @@
 		{%- if route == 'fos_user_registration_confirmed' -%}
 			<li class="active">
 				<a href="{{- path('fos_user_registration_confirmed') -}}">
-					<i class="icon-play"></i>
+					<i class="glyphicon glyphicon-play"></i>
 		{%- else -%}
 			<li>
 				<a href="#">
-					<i class="icon-minus"></i>
+					<i class="glyphicon glyphicon-minus"></i>
 		{%- endif -%}
 					{{- 'link.activate' |trans({}, 'CCDNUserUserBundle') -}}
 				</a>

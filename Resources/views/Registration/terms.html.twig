@@ -20,7 +20,7 @@
 
 	{%- spaceless -%}
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading text-center">
 				<h4>
 					{{- 'title.register.terms'|trans({}, 'CCDNUserUserBundle') -}}
 				</h4>
@@ -28,7 +28,7 @@
 			<div class="panel-body">
 				{%- include ccdn_user_user.legal.terms_conditions.document -%}
 			</div>
-			<div class="panel-footer">
+			<div class="panel-footer text-center">
 				<form action="{{- path('ccdn_user_user_registration_terms') -}}" method="POST">
 					<div class="form-actions center">
 

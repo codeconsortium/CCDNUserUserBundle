@@ -26,19 +26,12 @@
 			<nav class="navbar navbar-default" style="background-color:#fff;">
 				<div class="container clearfix">
 					<div class="row" style="padding:10px 0;">
-						<div class="col-md-2">
-							{% block sub_title %}
-							{% endblock sub_title %}
-						</div>
-
-						<div class="col-md-10">
-							<div class="row">
-								{%- block crumb_trail -%}
-									{%- if crumbs is defined -%}
-										{%- include 'CCDNUserAdminBundle:Common:Layout/crumbs.html.twig' with {'crumbs': crumbs } -%}
-									{%- endif -%}
-								{%- endblock crumb_trail -%}
-							</div>
+						<div class="row">
+							{%- block crumb_trail -%}
+								{%- if crumbs is defined -%}
+									{%- include 'CCDNUserAdminBundle:Common:Layout/crumbs.html.twig' with {'crumbs': crumbs } -%}
+								{%- endif -%}
+							{%- endblock crumb_trail -%}
 						</div>
 					</div>
 				</div>

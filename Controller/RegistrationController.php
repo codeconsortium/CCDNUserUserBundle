@@ -14,6 +14,7 @@
 namespace CCDNUser\UserBundle\Controller;
 
 use CCDNUser\UserBundle\Controller\BaseController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  *
@@ -48,21 +49,16 @@ class RegistrationController extends BaseController
             $this->setFlash('warning', $this->trans('ccdn_user_user.flash.registration.terms.must_accept'));
         }
 
-        $crumbs = $this->getCrumbs();
-
-        return $this->renderResponse('CCDNUserUserBundle:Registration:terms.html.',
-            array(
-                'crumbs' => $crumbs,
-            )
-        );
+        return $this->renderResponse('CCDNUserUserBundle:Registration:terms.html.');
     }
 
     /**
      *
      * @access public
+     * @param  \Symfony\Component\HttpFoundation\Request $request
      * @return RedirectResponse|RenderResponse
      */
-    public function registerAction()
+    public function registerAction(Request $request)
     {
         $session = $this->container->get('session');
 
@@ -74,7 +70,7 @@ class RegistrationController extends BaseController
 
         if ($session->has('accepted_terms')) {
             if ($session->get('accepted_terms')) {
-                return parent::registerAction();
+                return parent::registerAction($request);
             } else {
                 return $this->redirectResponse($this->path('ccdn_user_user_registration_terms'));
             }
