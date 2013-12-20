@@ -9,6 +9,7 @@ CCDNUser\UserBundle\Entity\User:
         registeredDate:
             type: datetime
             column: registered_date
+            nullable: false
     oneToOne:
         profile:
             targetEntity: CCDNUser\ProfileBundle\Entity\Profile

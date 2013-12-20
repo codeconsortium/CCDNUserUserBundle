@@ -90,7 +90,7 @@ class User extends AbstractUserModel
      * @param  \Datetime $registeredDate
      * @return User
      */
-    public function setRegisteredDate($registeredDate)
+    public function setRegisteredDate(\Datetime $registeredDate)
     {
         $this->registeredDate = $registeredDate;
 

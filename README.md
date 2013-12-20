@@ -18,7 +18,6 @@ Available on:
 * [Packagist](https://packagist.org/packages/codeconsortium/ccdn-user-bundle)
 * [KnpBundles](http://knpbundles.com/codeconsortium/CCDNUserUserBundle)
 
-Icons courtesy of [PC.de Icons](http://pc.de/icons/) licensed under [Creative Commons](http://creativecommons.org/licenses/by/3.0/).
 Theme and Sprite graphics courtesy of [twitter bootstrap](http://twitter.github.com/bootstrap/index.html) and [GLYPHICONS](http://glyphicons.com/).
 
 Other graphics are works of CodeConsortium.
