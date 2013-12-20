@@ -1,7 +1,6 @@
 CCDNUser\UserBundle\Entity\User:
     type: entity
     table: cc_user
-    repositoryClass: CCDNUser\UserBundle\Repository\UserRepository
     id:
         id:
             type: integer
