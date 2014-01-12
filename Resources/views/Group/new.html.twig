@@ -15,13 +15,16 @@
 
 {% block body_content %}
 
-{% for key, message in app.session.getFlashes() %}
-<div class="bg_flash_message">
-	<div class="flash_{{ key }}">
-	    {{ message | trans({}, 'FOSUserBundle') }}
-	</div>
-</div>
-{% endfor %}
+{%- spaceless -%}
+	{%- for type, messages in app.session.flashbag.all() -%}
+	    {%- for message in messages -%}
+			<div class="alert alert-{{ type -}}">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			    {{- message -}}
+			</div>
+	    {%- endfor -%}
+	{%- endfor -%}
+{%- endspaceless -%}
 
 <div class="section_wrap_standalone">
 	<div class="section_header">

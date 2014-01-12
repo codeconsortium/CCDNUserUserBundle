@@ -15,7 +15,7 @@ namespace CCDNUser\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
 
 /**
@@ -79,7 +79,7 @@ class RegistrationFormType extends AbstractType
                 array(
                     'label'              => 'form.label.recaptcha',
                     'translation_domain' => 'CCDNUserUserBundle',
-                    'property_path'      => false,
+                    'mapped'             => false,
                     'constraints'        => array(
                         new True()
                     ),
@@ -93,14 +93,16 @@ class RegistrationFormType extends AbstractType
         ;
     }
 
-    /**
-     *
-     * @access public
-     * @param array $options
-     */
-    public function getDefaultOptions(array $options)
+	/**
+	 * 
+	 * @access public
+	 * @param  \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+	 */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array('data_class' => $this->class);
+	    $resolver->setDefaults(array(
+			'data_class' => $this->class
+		));
     }
 
     /**
