@@ -15,9 +15,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.3.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.2.*",
+        "symfony/symfony": "2.4.*",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
         "excelwebzone/recaptcha-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master"
     },
