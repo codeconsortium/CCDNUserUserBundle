@@ -45,7 +45,7 @@ class Configuration implements ConfigurationInterface
      * @access protected
      * @var string $defaultValueFormTheme
      */
-	protected $defaultValueFormTheme = 'form_div_layout.html.twig';
+    protected $defaultValueFormTheme = 'form_div_layout.html.twig';
 
     /**
      *
