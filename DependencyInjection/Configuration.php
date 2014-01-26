@@ -45,7 +45,7 @@ class Configuration implements ConfigurationInterface
      * @access protected
      * @var string $defaultValueFormTheme
      */
-    protected $defaultValueFormTheme = 'CCDNUserUserBundle:Common:Form/fields.html.twig';
+	protected $defaultValueFormTheme = 'form_div_layout.html.twig';
 
     /**
      *
