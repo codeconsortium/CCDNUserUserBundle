@@ -22,6 +22,7 @@
         "friendsofsymfony/user-bundle": "dev-master"
     },
     "suggest": {
+        "codeconsortium/ccdn-component-common-bundle": "2.0.*@dev",
         "reecefowell/jquery-timestamper": "dev-master"
     },
     "autoload": {
