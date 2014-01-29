@@ -35,7 +35,7 @@ class LegalController extends BaseController
      */
     public function showCopyrightNoticeAction()
     {
-        return $this->renderResponse('CCDNUserUserBundle:legal:show_copyright_notice.html.', array());
+        return $this->renderResponse('CCDNUserUserBundle:Legal:show_copyright_notice.html.', array());
     }
 
     /**
@@ -45,7 +45,7 @@ class LegalController extends BaseController
      */
     public function showDisclaimerAction()
     {
-        return $this->renderResponse('CCDNUserUserBundle:legal:show_disclaimer.html.', array());
+        return $this->renderResponse('CCDNUserUserBundle:Legal:show_disclaimer.html.', array());
     }
 
     /**
@@ -55,7 +55,7 @@ class LegalController extends BaseController
      */
     public function showPrivacyPolicyAction()
     {
-        return $this->renderResponse('CCDNUserUserBundle:legal:show_privacy_policy.html.', array());
+        return $this->renderResponse('CCDNUserUserBundle:Legal:show_privacy_policy.html.', array());
     }
 
     /**
@@ -65,6 +65,6 @@ class LegalController extends BaseController
      */
     public function showTermsConditionsAction()
     {
-        return $this->renderResponse('CCDNUserUserBundle:legal:show_terms_conditions.html.', array());
+        return $this->renderResponse('CCDNUserUserBundle:Legal:show_terms_conditions.html.', array());
     }
 }
