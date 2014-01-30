@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/codeconsortium/ccdnuseruserbundle.png?label=ready)](https://waffle.io/codeconsortium/ccdnuseruserbundle)
+[![Stories in Ready](https://badge.waffle.io/codeconsortium/ccdnuseruserbundle.png?label=ready)](https://waffle.io/codeconsortium/ccdnuseruserbundle)
 CCDNUser UserBundle README.
 ===========================
 
