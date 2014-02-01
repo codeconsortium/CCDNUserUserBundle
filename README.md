@@ -3,12 +3,11 @@ CCDNUser UserBundle README.
 
 [![Stories in Ready](https://badge.waffle.io/codeconsortium/ccdnuseruserbundle.png?label=ready)](https://waffle.io/codeconsortium/ccdnuseruserbundle)
 
-## Notes:  
-  
-This bundle is for the symfony framework and requires Symfony 2.1.x and PHP 5.4
-  
+## Notes:
+
+This bundle is for the symfony framework and requires Symfony ~2.4 and PHP 5.4
+
 This project uses Doctrine 2.1.x and so does not require any specific database.
-  
 
 This file is part of the CCDNUser bundles(s)
 
@@ -27,7 +26,7 @@ For the full copyright and license information, please view the [LICENSE](http:/
 
 ## Description:
 
-This is a child bundle of [FOSUserBundle](http://github.com/FriendsOfSymfony/FOSUserBundle) for Symfony (2.1.x).
+This is a child bundle of [FOSUserBundle](http://github.com/FriendsOfSymfony/FOSUserBundle) for Symfony.
 
 ## Features.
 

@@ -1,5 +1,5 @@
-Installing CCDNUser UserBundle 2.x
-==================================
+Installing CCDNUser UserBundle.
+===============================
 
 ## Installation:
 
@@ -45,9 +45,10 @@ register the new bundle:
 public function registerBundles()
 {
     $bundles = array(
-		new CCDNUser\UserBundle\CCDNUserUserBundle(),
-		...
-	);
+        new FOS\UserBundle\FOSUserBundle(),
+        new CCDNUser\UserBundle\CCDNUserUserBundle(),
+        // ...
+    );
 }
 ```
 
